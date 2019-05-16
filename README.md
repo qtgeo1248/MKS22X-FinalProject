@@ -8,7 +8,7 @@ Processing
 ## Instructions:
 ## DevLogs:
 <p>:shoe: - George's doing<br/>
-:space_invader: - Victoria's doing<br/>
+:goat: - Victoria's doing<br/>
 :trollface: - George's and Victoria's doing<br/>
   
 ### 1/3/19
