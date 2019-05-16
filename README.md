@@ -12,4 +12,5 @@ Processing
 :trollface: - George's and Victoria's doing<br/>
   
 ### 1/3/19
-:trollface: Had our proposals approved by Mr. K today, so the only thing we really did was set up this really awesome readme!
+:trollface: Had our proposals approved by Mr. K today, so the only thing we really did was set up this really awesome README!
+     We also filled out the Google Form (Final Project Group/Repo Form Spring 2019).
