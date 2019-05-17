@@ -4,6 +4,7 @@
 In order to experience the magic of our program, you will need:
 ```
 Processing
+A Mouse
 ```
 ## Instructions:
 ## DevLogs:
