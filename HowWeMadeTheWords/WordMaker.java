@@ -7,12 +7,12 @@ public class WordMaker {
     try {
       File f = new File(fileName) ;
       Scanner in = new Scanner(f) ;
-      int i = 0 ;
-      while(in.hasNext() && i < 10) {
+      ArrayList<String> w = new ArrayList<String>() ;
+      while (in.hasNext()) {
           String line = in.nextLine() ;
-          System.out.println(line) ;
-          i++ ;
+          if (line.length() <= 6) w.add(line) ;
       }
+      System.out.println(w) ;
     } catch(FileNotFoundException e){
       System.out.println("File not found: " + fileName);
       System.exit(1);
