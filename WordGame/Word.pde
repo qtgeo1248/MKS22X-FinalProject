@@ -9,10 +9,14 @@ class Word {
   
   void allCombos() {
     boolean[] whichLetters = new boolean[word.length()];
-    for (int i = 1; i <= (int)Math.pow(2, word.length()); i++) {
+    for (int i = 1; i < (int)Math.pow(2, word.length()); i++) {
+      int counter = i;
       String toAdd = "";
-      for (int j = 0; j < whichLetters.length; j++) {
-        whichLetters[j] = i % (int)Math.pow(2, j) == 0;
+      for (int j = whichLetters.length - 1; j >= 0; j--) {
+        whichLetters[j] = counter >= Math.pow(2,j);
+        if (counter >= Math.pow(2, j)) {
+          counter -= Math.pow(2, j);
+        }
       }
       for (int k = 0; k < whichLetters.length; k++) {
         if (whichLetters[k]) {
