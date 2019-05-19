@@ -11,13 +11,15 @@ public class Test {
 
     public void allCombos() {
         boolean[] whichLetters = new boolean[word.length()];
-        for (int i = 1; i <= (int)Math.pow(2, word.length()); i++) {
+        for (int i = 1; i < (int)Math.pow(2, word.length()); i++) {
+            int counter = i;
             String toAdd = "";
-            for (int j = whichLetters.length - 1; j >= 0; j++) {
-                whichLetters[j] = i >= Math.pow(2, j);
-                i -= Math.pow(2, j);
+            for (int j = whichLetters.length - 1; j >= 0; j--) {
+                whichLetters[j] = counter >= Math.pow(2, j);
+                if (counter >= Math.pow(2, j)) {
+                    counter -= Math.pow(2, j);
+                }
             }
-            System.out.println(Arrays.toString(whichLetters));
             for (int k = 0; k < whichLetters.length; k++) {
                 if (whichLetters[k]) {
                     toAdd += word.charAt(k);
@@ -29,6 +31,9 @@ public class Test {
     }
     public static void main(String[] args) {
         Test test = new Test("happy");
+        test.allCombos();
+        System.out.println();
+        test = new Test("abc");
         test.allCombos();
     }
 }
