@@ -18,5 +18,5 @@ A Mouse
 :shoe: Started the word class by making the constructor, but nothing much really<br/>
 :trollface: Started researching where we could find good word lists that only had words that were actually words, not words that were found using computer science<br/>
 ### 5/18/19
-:shoe: Finished the algorithm needed to find all possible subsets of a word. However, more work is needed to find all the rearrangements of those subsets
+:shoe: Finished the algorithm needed to find all possible subsets of a word. However, more work is needed to find all the rearrangements of those subsets <br/>
 :goat: Made separate java file to find words that are a certain length from the huge list that we have (over 50,000 words). I then passed the method into processing but we may just use it once to get the words for now.
