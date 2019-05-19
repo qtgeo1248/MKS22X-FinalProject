@@ -6,16 +6,17 @@ class Word {
     // constructor
     word = newWord;
     allPossWords = new ArrayList<String>();
+    allCombos();
     allPossWords = findAllWords(6) ;
   }
 
   ArrayList<String> findAllWords(int len) {
     String[] lines = loadStrings("words.txt");
-    ArrayList<String> w = new ArrayList<String>() ;
+    ArrayList<String> w = new ArrayList<String>();
     for (int i = 0 ; i< lines.length ; i++) {
-      if (lines[i].length() <= len) w.add(lines[i]) ;
+      if (lines[i].length() <= len) w.add(lines[i]);
     }
-    return w ;
+    return w;
   }
   
   void allCombos() {
