@@ -17,3 +17,5 @@ A Mouse
 ### 5/17/19
 :shoe:Started the word class by making the constructor, but nothing much really<br/>
 :trollface: Started researching where we could find good word lists that only had words that were actually words, not words that were found using computer science<br/>
+### 5/18/19
+:shoe:Finished the algorithm needed to find all possible subsets of a word. However, more work is needed to find all the rearrangements of those subsets
