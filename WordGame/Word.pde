@@ -34,6 +34,10 @@ class Word {
     if (lo > hi) {
       return false;
     }
+    int index = lo / 2 + hi / 2;
+    if (dict[index].equals(word)) {
+      return true;
+    }
   }
   
   void allCombos() {
