@@ -8,13 +8,11 @@ class Soup {
   // top row will represent x-coordinates of letters
   // bottom row will represent y-coordinates of letters
   
-  Soup(String w) {
+  Soup(String w, boolean specOrNot) {
     // constructor
+    isSpecial = specOrNot ;
     Word b = new Word(w) ;
-    for (int i = 0 ; i < b.getWord().length(); i++) {
-      String ww = b.getWord() ;
-      letters.add(ww.substring(i,i+1)) ;
-      // adding individual letters to ArrayList
+    for (int i = 0 ; i < w.length() - 1 ; i++) {
     }
     // this 2D array will keep track of the coordinates of each letter --> the coordinates will be helpful for shuffle method
     positions = new float[2][10] ;
