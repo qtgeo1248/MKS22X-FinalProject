@@ -59,8 +59,12 @@ class Word {
           toAdd += word.charAt(k);
         }
       }
-      allPossWords.add(toAdd);
+      //permutate(toAdd, );
     }
+  }
+  
+  void permutate(String word, int l, int r, ArrayList<String> list) {
+    
   }
   
   void draw() {
