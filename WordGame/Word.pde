@@ -70,6 +70,10 @@ class Word {
     }
   }
   
+  String swap(String og, int i, int j) {
+    
+  }
+  
   void draw() {
     
   }
