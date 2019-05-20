@@ -18,19 +18,19 @@ class Soup {
     }
     // this 2D array will keep track of the coordinates of each letter --> the coordinates will be helpful for shuffle method
     positions = new float[2][10] ;
-    int i = 0 ;
+    int i = 0 ; // this will be keeping track of the letter? NOT SURE ABOUT IT YET
     for (int r = 0 ; r < 2 ; r++) {
       for (int c = 0 ; c < 10 ; c++) {
         float pos ;
         if (r == 0) {
           // we are adding x-coordinates to positions
-          pos = cos(radians(36 * i)) ;
-          i++ ;
-          //positions[r][c] = 200 + pos ;
+          pos = cos(radians(36 * c)) ;
+          positions[r][c] = 200 + pos ;
         }
         else {
           // we are adding y-coordinates to positions
-          pos = sin(radians(36 * i)) ;
+          pos = sin(radians(36 * c)) ;
+          positions[r][c] = 600 + pos ;
         }
       }
     }
