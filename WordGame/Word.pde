@@ -64,7 +64,10 @@ class Word {
   }
   
   void permutate(String word, int l, int r, ArrayList<String> list) {
-    
+    if (l == r) {
+      String copy = new String(word);
+      list.add(copy);
+    }
   }
   
   void draw() {
