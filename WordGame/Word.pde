@@ -31,7 +31,9 @@ class Word {
   }
   
   boolean checkValHelp(String word, int lo, int hi, String[] dict) {
-    
+    if (lo > hi) {
+      return false;
+    }
   }
   
   void allCombos() {
