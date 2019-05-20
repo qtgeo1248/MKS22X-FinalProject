@@ -5,8 +5,8 @@ class Soup {
   
   Soup(String w) {
     // constructor
-    word = new Word(w) ;
-    for (int i = 0 ; i < word.length() ; i++) {
+    Word b = new Word(w) ;
+    for (int i = 0 ; i < b.getWord().length(); i++) {
       
     }
   }
