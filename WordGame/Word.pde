@@ -70,8 +70,12 @@ class Word {
     }
   }
   
-  String swap(String og, int i, int j) {
-    
+  String swap(String og, int a, int b) {
+    String swapped = "";
+    for (int i = 0; i < og.length(); i++) {
+      
+    }
+    return swapped;
   }
   
   void draw() {
