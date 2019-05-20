@@ -10,9 +10,14 @@ class Word {
     checkValid();
     allPossWords = findAllWords(10);
   }
-
+  
+  String getWord() {
+    // accessor
+    return word ;
+  }
+  
   ArrayList<String> findAllWords(int len) {
-    String[] lines = loadStrings("words.txt");
+    String[] lines = loadStrings("HowWeMadeTheWords/words.txt");
     ArrayList<String> w = new ArrayList<String>();
     for (int i = 0 ; i< lines.length ; i++) {
       if (lines[i].length() <= len) w.add(lines[i]);
@@ -21,9 +26,9 @@ class Word {
   }
   
   void checkValid() {
-    String[] lines = loadStrings("words.txt");
+    String[] lines = loadStrings("HowWeMadeTheWords/words.txt");
     for (int i = 0; i < allPossWords.size(); i++) {
-      if (!checkValHelp(allPossWords.get(i), 0, lines.length - 1, lines) {
+      if (!checkValHelp(allPossWords.get(i), 0, lines.length - 1, lines)) {
         allPossWords.remove(i);
         i--;
       }
