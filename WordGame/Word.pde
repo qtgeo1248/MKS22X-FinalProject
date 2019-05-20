@@ -7,7 +7,8 @@ class Word {
     word = newWord;
     allPossWords = new ArrayList<String>();
     allCombos();
-    allPossWords = findAllWords(10) ;
+    checkValid();
+    allPossWords = findAllWords(10);
   }
 
   ArrayList<String> findAllWords(int len) {
@@ -17,6 +18,14 @@ class Word {
       if (lines[i].length() <= len) w.add(lines[i]);
     }
     return w;
+  }
+  
+  void checkValid() {
+    
+  }
+  
+  boolean checkValHelp(String word, int lo, int hi) {
+    
   }
   
   void allCombos() {
