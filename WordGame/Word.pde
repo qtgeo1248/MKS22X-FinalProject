@@ -73,7 +73,13 @@ class Word {
   String swap(String og, int a, int b) {
     String swapped = "";
     for (int i = 0; i < og.length(); i++) {
-      
+      if (i == a) {
+        swapped += og.charAt(b);
+      } else if (i == b) {
+        swapped += og.charAt(a);
+      } else {
+        swapped += og.charAt(i);
+      }
     }
     return swapped;
   }
@@ -81,6 +87,8 @@ class Word {
   void draw() {
     
   }
+  
   void drawCircular() {
+    
   }
 }
