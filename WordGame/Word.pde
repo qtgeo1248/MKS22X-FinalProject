@@ -37,6 +37,10 @@ class Word {
     int index = lo / 2 + hi / 2;
     if (dict[index].equals(word)) {
       return true;
+    } else if (dict[index].compareTo(word) < 0) {
+      return checkValHelp(word, index + 1, hi, dict);
+    } else {
+      return checkValHelp(word, lo, index - 1, dict);
     }
   }
   
