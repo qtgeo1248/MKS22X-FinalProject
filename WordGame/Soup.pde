@@ -7,7 +7,7 @@ class Soup {
   float[][] positions ;
   // top row will represent x-coordinates of letters
   // bottom row will represent y-coordinates of letters
-  
+   
   Soup(String w, boolean specOrNot) {
     // constructor
     isSpecial = specOrNot ;

@@ -7,17 +7,12 @@ class Word {
     word = newWord;
     allPossWords = new ArrayList<String>();
     allCombos();
-    checkValid();
-    allPossWords = findAllWords(10);
+    ArrayList<String> dict = findAllWords(10);
+    checkValid(dict);
   }
-  
-  String getWord() {
-    // accessor
-    return word ;
-  }
-  
+
   ArrayList<String> findAllWords(int len) {
-    String[] lines = loadStrings("HowWeMadeTheWords/words.txt");
+    String[] lines = loadStrings("words.txt");
     ArrayList<String> w = new ArrayList<String>();
     for (int i = 0 ; i< lines.length ; i++) {
       if (lines[i].length() <= len) w.add(lines[i]);
@@ -25,24 +20,23 @@ class Word {
     return w;
   }
   
-  void checkValid() {
-    String[] lines = loadStrings("HowWeMadeTheWords/words.txt");
+  void checkValid(ArrayList<String> dict) {
     for (int i = 0; i < allPossWords.size(); i++) {
-      if (!checkValHelp(allPossWords.get(i), 0, lines.length - 1, lines)) {
+      if (!checkValHelp(allPossWords.get(i), 0, dict.size() - 1, dict) {
         allPossWords.remove(i);
         i--;
       }
     }
   }
   
-  boolean checkValHelp(String word, int lo, int hi, String[] dict) {
+  boolean checkValHelp(String word, int lo, int hi, ArrayList<String> dict) {
     if (lo > hi) {
       return false;
     }
     int index = lo / 2 + hi / 2;
-    if (dict[index].equals(word)) {
+    if (dict.get(index).equals(word)) {
       return true;
-    } else if (dict[index].compareTo(word) < 0) {
+    } else if (dict.get(index).compareTo(word) < 0) {
       return checkValHelp(word, index + 1, hi, dict);
     } else {
       return checkValHelp(word, lo, index - 1, dict);
@@ -65,8 +59,19 @@ class Word {
           toAdd += word.charAt(k);
         }
       }
-      allPossWords.add(toAdd);
+      //permutate(toAdd, );
     }
+  }
+  
+  void permutate(String word, int l, int r, ArrayList<String> list) {
+    if (l == r) {
+      String copy = new String(word);
+      list.add(copy);
+    }
+  }
+  
+  String swap(String og, int i, int j) {
+    
   }
   
   void draw() {
