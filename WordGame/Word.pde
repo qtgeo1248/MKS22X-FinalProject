@@ -21,10 +21,16 @@ class Word {
   }
   
   void checkValid() {
-    
+    String[] lines = loadStrings("words.txt");
+    for (int i = 0; i < allPossWords.size(); i++) {
+      if (!checkValHelp(allPossWords.get(i), 0, lines.length - 1, lines) {
+        allPossWords.remove(i);
+        i--;
+      }
+    }
   }
   
-  boolean checkValHelp(String word, int lo, int hi) {
+  boolean checkValHelp(String word, int lo, int hi, String[] dict) {
     
   }
   
