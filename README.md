@@ -20,3 +20,6 @@ A Mouse
 ### 5/18/19
 :shoe: Finished the algorithm needed to find all possible subsets of a word. However, more work is needed to find all the rearrangements of those subsets <br/>
 :goat: Made separate java file to find words that are a certain length from the huge list that we have (over 50,000 words). I then passed the method into processing but we may just use it once to get the words for now.
+### 5/19/19
+:shoe:  <br/>
+:goat: Changed word length in findAllWords method to 10 but have not included that in the searching based on the letters yet.
