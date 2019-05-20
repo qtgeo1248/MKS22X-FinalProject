@@ -7,7 +7,7 @@ class Word {
     word = newWord;
     allPossWords = new ArrayList<String>();
     allCombos();
-    allPossWords = findAllWords(6) ;
+    allPossWords = findAllWords(10) ;
   }
 
   ArrayList<String> findAllWords(int len) {
@@ -37,5 +37,11 @@ class Word {
       }
       allPossWords.add(toAdd);
     }
+  }
+  
+  void draw() {
+    
+  }
+  void drawCircular() {
   }
 }
