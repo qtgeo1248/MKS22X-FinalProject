@@ -7,11 +7,9 @@ void setup() {
 }
  
 void draw() {
-  text("happy", 0, 20);
-  text("sad", 0, 30);
   Word test = new Word("speak");
   ArrayList<String> tester = test.getAllPossWords();
-  for (String testing : tester) {
-    
+  for (int i = 0; i < tester.size(); i++) {
+    text(tester.get(i), 0, 15 * i + 20);
   }
 }
