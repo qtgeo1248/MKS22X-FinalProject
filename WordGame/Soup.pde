@@ -1,4 +1,8 @@
-class Soup {
+interface displayable {
+  void display() ;
+}
+
+class Soup implements displayable {
   // the bowl is centered at 200, 300 so the letters will have to be within that area
   int level ;
   boolean isSpecial ;
@@ -40,5 +44,16 @@ class Soup {
   }
   void shuffle() {
     // mix around the letters
+  }
+  void display() {
+    // drawing the soup bowl
+    fill(255, 125, 0) ;
+    ellipse(200, 600, 300, 300) ;
+    // adding the letters
+    textSize(32) ;
+    for (int i = 0 ; i < letters.size() ; i++) {
+      String l = letters.get(i) ;
+      text(l,positions[0][i], positions[1][i]) ;
+    }
   }
 }
