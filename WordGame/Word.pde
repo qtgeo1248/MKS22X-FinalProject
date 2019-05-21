@@ -90,6 +90,10 @@ class Word {
     return swapped;
   }
   
+  String getWord() {
+    return word;
+  }
+  
   void draw() {
     
   }
