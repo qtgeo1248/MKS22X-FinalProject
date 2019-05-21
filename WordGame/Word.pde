@@ -59,7 +59,7 @@ class Word {
           toAdd += word.charAt(k);
         }
       }
-      //permutate(toAdd, );
+      permutate(toAdd, 0, toAdd.length() - 1, allPossWords);
     }
   }
   
