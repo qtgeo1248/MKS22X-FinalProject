@@ -27,13 +27,14 @@ class Soup implements displayable {
     for (int r = 0; r < 2; r++) {
       for (int c = 0; c < 10; c++) {
         float pos ;
+        int unit = 360 / w.length() ;
         if (r == 0) {
           // we are adding x-coordinates to positions
-          pos = cos(radians(36 * c)) ;
+          pos = cos(radians(unit * c)) ;
           positions[r][c] = 200 + (pos * 150) ;
         } else {
           // we are adding y-coordinates to positions
-          pos = sin(radians(36 * c)) ;
+          pos = sin(radians(unit * c)) ;
           positions[r][c] = 600 + (pos * 150) ;
         }
       }
@@ -55,21 +56,22 @@ class Soup implements displayable {
         else {
           switchItUp = false ;
         }
+        int unit = 360 / word.length() ;
         if (r == 0 && !switchItUp) {
           // we are adding x-coordinates to positions
-          pos = cos(radians(36 * c)) ;
+          pos = cos(radians(unit * c)) ;
           positions[r][c] = 200 + (pos * 150) ;
         } else if (r == 0) {
-          pos = cos(radians(36 * 2 * c)) ;
+          pos = cos(radians(unit * 2 * c)) ;
           positions[r][c] = 200 + (pos * 150) ;
         }
         else if (r == 1 && !switchItUp) {
           // we are adding y-coordinates to positions
-          pos = sin(radians(36 * c)) ;
+          pos = sin(radians(unit * c)) ;
           positions[r][c] = 600 + (pos * 150) ;
         }
         else {
-          pos = sin(radians(36 * 3 * c)) ;
+          pos = sin(radians(unit * 3 * c)) ;
           positions[r][c] = 600 + (pos * 150) ;
         }
       }
