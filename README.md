@@ -11,7 +11,7 @@ A Mouse
 <p>:shoe: - George's doing<br/>
 :goat: - Victoria's doing<br/>
 :trollface: - George's and Victoria's doing<br/>
-  
+
 ### 5/16/19
 :trollface: Had our proposals approved by Mr. K today, so the only thing we really did was set up this really awesome README! We also filled out the Google Form (Final Project Group/Repo Form Spring 2019).
 ### 5/17/19
@@ -23,3 +23,5 @@ A Mouse
 ### 5/19/19
 :shoe: Created the recursive binary search method needed to find whether a "word" was in a dictionary<br/>
 :goat: Changed word length in findAllWords method to 10 but have not included that in the searching based on the letters yet<br/>
+### 5/20/19
+:goat: I worked on writing some of the methods for the Soup Class. In class, I focused on the constructor and continued to work on it at home. I still have a NullPointerException but am currently resolving it on another branch. I also added the missing parantheses to one of the methods in Word in order to make sure that testing can be done. Lastly, I put the folder HowWeMadeTheWords into the folder WordGame to make it easier to access words.txt so I updated the name in the Word class too. <br/>

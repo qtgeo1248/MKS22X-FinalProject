@@ -75,7 +75,7 @@ class Word {
       }
     }
   }
-  
+
   String swap(String og, int a, int b) {
     String swapped = "";
     for (int i = 0; i < og.length(); i++) {
