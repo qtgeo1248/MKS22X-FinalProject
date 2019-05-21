@@ -90,6 +90,14 @@ class Word {
     return swapped;
   }
   
+  String getWord() {
+    return word;
+  }
+  
+  ArrayList<String> getAllPossWords() {
+    return allPossWords;
+  }
+  
   void draw() {
     
   }
