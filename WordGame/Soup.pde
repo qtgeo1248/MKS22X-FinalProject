@@ -44,7 +44,7 @@ class Soup implements displayable {
   }
   void shuffle() {
     // mix around the letters
-    // this 2D array will keep track of the coordinates of each letter --> the coordinates will be helpful for shuffle method
+    // this 2D array will keep track of the coordinates of each letter --> the coordinates will be helpful for shuffle method 
     positions = new float[2][10] ;
     int i = 0 ;
     for (int r = 0; r < 2; r++) {
@@ -80,6 +80,7 @@ class Soup implements displayable {
     fill(255, 125, 0) ;
     ellipse(200, 600, 300, 300) ;
     // adding the letters
+    fill(0,0,0) ;
     textSize(32) ;
     for (int i = 0 ; i < letters.size() ; i++) {
       String l = letters.get(i) ;
