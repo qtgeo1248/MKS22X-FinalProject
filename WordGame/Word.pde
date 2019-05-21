@@ -14,8 +14,8 @@ class Word {
   ArrayList<String> findAllWords(int len) {
     String[] lines = loadStrings("HowWeMadeTheWords/words.txt");
     ArrayList<String> w = new ArrayList<String>();
-    for (int i = 0 ; i< lines.length ; i++) {
-      if (lines[i].length() <= len) w.add(lines[i]);
+    for (int i = 0 ; i < lines.length ; i++) {
+      if (lines[i].length() <= len && lines[i].length() >= 3) w.add(lines[i]);
     }
     return w;
   }
