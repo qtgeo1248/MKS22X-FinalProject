@@ -11,12 +11,12 @@ public class Word {
         word = newWord;
         allPossWords = new ArrayList<String>();
         allCombos();
-        /*try {
+        try {
             ArrayList<String> dict = findAllWords(10);
             checkValid(dict);
         } catch (FileNotFoundException e) {
             System.out.println("FILE WRONG");
-        }*/
+        }
     }
 
     public ArrayList<String> findAllWords(int len) throws FileNotFoundException {
@@ -46,7 +46,7 @@ public class Word {
         if (lo > hi) {
             return false;
         }
-        int index = lo / 2 + hi / 2;
+        int index = (lo + hi) / 2;
         if (dict.get(index).equals(word)) {
             return true;
         } else if (dict.get(index).compareTo(word) < 0) {
