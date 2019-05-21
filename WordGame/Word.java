@@ -11,22 +11,26 @@ public class Word {
         word = newWord;
         allPossWords = new ArrayList<String>();
         allCombos();
-        ArrayList<String> dict = findAllWords(10);
-        checkValid(dict);
-    }
-
-    public ArrayList<String> findAllWords(int len) {
-        try {
-            File f = new File("HowWeMadeTheWords/words.txt");
-            Scanner in = new Scanner(f);
-            ArrayList<String> w = new ArrayList<String>();
-            for (int i = 0 ; i< lines.length ; i++) {
-                if (lines[i].length() <= len) w.add(lines[i]);
-            }
-            return w;
+        /*try {
+            ArrayList<String> dict = findAllWords(10);
+            checkValid(dict);
         } catch (FileNotFoundException e) {
             System.out.println("FILE WRONG");
+        }*/
+    }
+
+    public ArrayList<String> findAllWords(int len) throws FileNotFoundException {
+        File f = new File("HowWeMadeTheWords/words.txt");
+        Scanner in = new Scanner(f);
+        ArrayList<String> lines = new ArrayList<String>();
+        while (in.hasNextLine()) {
+            lines.add(in.nextLine());
         }
+        ArrayList<String> w = new ArrayList<String>();
+        for (int i = 0 ; i< lines.size() ; i++) {
+            if (lines.get(i).length() <= len) w.add(lines.get(i));
+        }
+        return w;
     }
 
     public void checkValid(ArrayList<String> dict) {
@@ -108,6 +112,7 @@ public class Word {
     }
 
     public static void main(String[] args) {
-
+        Word test = new Word("speak");
+        System.out.println(test.getAllPossWords());
     }
 }
