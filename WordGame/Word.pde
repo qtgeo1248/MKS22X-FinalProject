@@ -22,7 +22,7 @@ class Word {
   
   void checkValid(ArrayList<String> dict) {
     for (int i = 0; i < allPossWords.size(); i++) {
-      if (!checkValHelp(allPossWords.get(i), 0, dict.size() - 1, dict) {
+      if (!checkValHelp(allPossWords.get(i), 0, dict.size() - 1, dict)) {
         allPossWords.remove(i);
         i--;
       }
@@ -71,7 +71,7 @@ class Word {
   }
   
   String swap(String og, int i, int j) {
-    
+    return "" ;
   }
   
   void draw() {
