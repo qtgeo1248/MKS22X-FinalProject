@@ -100,4 +100,8 @@ public class Word {
     public void drawCircular() {
 
     }
+    public static void main(String[] args) {
+        Word test = new Word("abc");
+        Word test1 = new Word("sand");
+    }
 }
