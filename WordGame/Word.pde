@@ -22,7 +22,7 @@ class Word {
   
   void checkValid(ArrayList<String> dict) {
     for (int i = 0; i < allPossWords.size(); i++) {
-      if (!checkValHelp(allPossWords.get(i), 0, dict.size() - 1, dict) {
+      if (!checkValHelp(allPossWords.get(i), 0, dict.size() - 1, dict)) {
         allPossWords.remove(i);
         i--;
       }
@@ -67,6 +67,12 @@ class Word {
     if (l == r) {
       String copy = new String(word);
       list.add(copy);
+    } else {
+      for (int i = l; i <= r; i++) {
+        word = swap(word, l, i);
+        permutate(word, l + 1, r, list);
+        word = swap(word, l, i);
+      }
     }
   }
   
