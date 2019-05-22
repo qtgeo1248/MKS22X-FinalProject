@@ -8,7 +8,7 @@ class Word {
     allPossWords = new NoDupAR<String>();
     allCombos();
     ArrayList<String> dict = findAllWords(10);
-    //checkValid(dict);
+    checkValid(dict);
   }
 
   ArrayList<String> findAllWords(int len) {
