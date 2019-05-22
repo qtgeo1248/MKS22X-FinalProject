@@ -36,11 +36,11 @@ class Soup implements displayable {
         if (r == 0) {
           // we are adding x-coordinates to positions
           pos = cos(radians(unit * c)) ;
-          positions[r][c] = 200 + (pos * 100) ;
+          positions[r][c] = 190 + (pos * 120) ;
         } else {
           // we are adding y-coordinates to positions
           pos = sin(radians(unit * c)) ;
-          positions[r][c] = 600 + (pos * 100) ;
+          positions[r][c] = 610 + (pos * 120) ;
         }
       }
     }
@@ -59,11 +59,11 @@ class Soup implements displayable {
         if (r == 0) {
           // we are adding x-coordinates to positions
           pos = cos(radians(unit * c)) ;
-          positions[r][c] = 200 + (pos * 100) ;
+          positions[r][c] = 190 + (pos * 120) ;
         } else {
           // we are adding y-coordinates to positions
           pos = sin(radians(unit * c)) ;
-          positions[r][c] = 600 + (pos * 100) ;
+          positions[r][c] = 610 + (pos * 120) ;
         }
       }
     }
@@ -74,7 +74,7 @@ class Soup implements displayable {
     ellipse(200, 600, 300, 300) ;
     // adding the letters
     fill(0,0,0) ;
-    textSize(32) ;
+    textSize(40) ;
     for (int i = 0 ; i < letters.size() ; i++) {
       String l = letters.get(i) ;
       text(l,positions[0][i], positions[1][i]) ;
