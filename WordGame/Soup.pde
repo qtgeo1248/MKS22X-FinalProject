@@ -30,21 +30,27 @@ class Soup implements displayable {
     }
     // this 2D array will keep track of the coordinates of each letter --> the coordinates will be helpful for shuffle method
     positions = new float[2][10] ;
-    int i = 0 ; // this will be keeping track of the letter? NOT SURE ABOUT IT YET
-    for (int r = 0; r < 2; r++) {
-      for (int c = 0; c < 10; c++) {
-        float pos ;
-        int unit = 360 / w.length() ;
-        if (r == 0) {
-          // we are adding x-coordinates to positions
-          pos = cos(radians(unit * c)) ;
-          positions[r][c] = 190 + (pos * 120) ;
-        } else {
-          // we are adding y-coordinates to positions
-          pos = sin(radians(unit * c)) ;
-          positions[r][c] = 610 + (pos * 120) ;
+    ////// if we are not shuffling!!
+    if (!shuffOrNot) {
+      int i = 0 ; // this will be keeping track of the letter? NOT SURE ABOUT IT YET
+      for (int r = 0; r < 2; r++) {
+        for (int c = 0; c < 10; c++) {
+          float pos ;
+          int unit = 360 / w.length() ;
+          if (r == 0) {
+            // we are adding x-coordinates to positions
+            pos = cos(radians(unit * c)) ;
+            positions[r][c] = 190 + (pos * 120) ;
+          } else {
+            // we are adding y-coordinates to positions
+            pos = sin(radians(unit * c)) ;
+            positions[r][c] = 610 + (pos * 120) ;
+          }
         }
       }
+    }
+    else {
+      shuffle() ;
     }
   }
   boolean isSpecial() {
