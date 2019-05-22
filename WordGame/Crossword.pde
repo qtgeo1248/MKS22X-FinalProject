@@ -18,4 +18,11 @@ class Crossword {
   boolean isDone() {
     return unfoundedWords.size() == 0;
   }
+  
+  boolean checkUnfoundedWord(String word) {
+    return unfoundedWords.contains(word);
+  }
+  boolean checkFoundedWord(String word) {
+    return foundedWords.contains(word);
+  }
 }
