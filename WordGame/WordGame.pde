@@ -3,7 +3,7 @@ void setup() {
   background(255) ;
   int lee = 1 ;
   // soup bowl design added here
-  Soup a = new Soup("hey",false,lee) ;
+  Soup a = new Soup("storm",false,lee, false) ;
   a.display() ;
   lee++ ;
 }
