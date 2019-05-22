@@ -13,12 +13,14 @@ class Soup implements displayable {
   String word ;
   ArrayList<String> letters ;
   float[][] positions ;
+  boolean shuffOrNot ;
   // top row will represent x-coordinates of letters
   // bottom row will represent y-coordinates of letters
 
-  Soup(String w, boolean specOrNot, int le) {
+  Soup(String w, boolean specOrNot, int le, boolean toShuffleOrNotToShuffle) {
     // constructor
     lev = le ;
+    shuffOrNot = toShuffleOrNotToShuffle ;
     isSpecial = specOrNot ;
     Word b = new Word(w) ;
     letters = new ArrayList<String>() ;
