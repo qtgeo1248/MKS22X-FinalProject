@@ -59,7 +59,7 @@ class Word {
           toAdd += word.charAt(k);
         }
       }
-      permutate(toAdd, 0, toAdd.length() - 1, allPossWords);
+      //permutate(toAdd, );
     }
   }
   
@@ -67,34 +67,16 @@ class Word {
     if (l == r) {
       String copy = new String(word);
       list.add(copy);
-    } else {
-      for (int i = l; i <= r; i++) {
-        word = swap(word, l, i);
-        permutate(word, l + 1, r, list);
-        word = swap(word, l, i);
-      }
     }
   }
-
-  String swap(String og, int a, int b) {
-    String swapped = "";
-    for (int i = 0; i < og.length(); i++) {
-      if (i == a) {
-        swapped += og.charAt(b);
-      } else if (i == b) {
-        swapped += og.charAt(a);
-      } else {
-        swapped += og.charAt(i);
-      }
-    }
-    return swapped;
+  
+  String swap(String og, int i, int j) {
+    return "" ;
   }
   
   void draw() {
     
   }
-  
   void drawCircular() {
-    
   }
 }
