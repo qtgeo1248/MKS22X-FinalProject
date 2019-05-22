@@ -1,6 +1,3 @@
-import java.util.* ;
-import java.io.* ;
-
 interface displayable {
   void display() ;
 }
@@ -47,14 +44,9 @@ class Soup implements displayable {
     return isSpecial ;
   }
   void shuffle() {
-    Collections.shuffle(letters) ;
-    
     // mix around the letters
-    int l = word.length() ;
-    int change = random(l - 2) ;
-    for (int i = 0 ; i < l ; i+= change) {
-      
-    }
+    // this 2D array will keep track of the coordinates of each letter --> the coordinates will be helpful for shuffle method 
+    positions = new float[2][10] ;
     int i = 0 ;
     for (int r = 0; r < 2; r++) {
       for (int c = 0; c < 10; c++) {
