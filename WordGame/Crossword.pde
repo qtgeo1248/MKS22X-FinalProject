@@ -14,4 +14,8 @@ class Crossword {
     crossAns = new char[19][19];
     currentCross = new char[19][19];
   }
+  
+  boolean isDone() {
+    return unfoundedWords.size() == 0;
+  }
 }
