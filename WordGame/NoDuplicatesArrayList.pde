@@ -5,6 +5,9 @@ class NoDupAR<T> extends ArrayList<T> {
   public boolean add(T t) {
     if (contains(t)) {
       return false;
+    } else {
+      super.add(t);
+      return true;
     }
   }
 }
