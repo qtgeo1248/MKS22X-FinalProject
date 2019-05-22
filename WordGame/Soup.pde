@@ -21,7 +21,7 @@ class Soup implements displayable {
     isSpecial = specOrNot ;
     Word b = new Word(w) ;
     letters = new ArrayList<String>() ;
-    for (int i = 0; i < w.length() - 1; i++) {
+    for (int i = 0; i < w.length() ; i++) {
       letters.add(w.charAt(i) + "") ;
       // adding individual letters to ArrayList
     }
