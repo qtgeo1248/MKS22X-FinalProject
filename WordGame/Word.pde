@@ -1,27 +1,31 @@
 class Word {
   String word;
   NoDupAR<String> allPossWords;
-
+  
   Word(String newWord) {
     // constructor
     word = newWord;
     allPossWords = new NoDupAR<String>();
-    allCombos();
-    ArrayList<String> dict = findAllWords(10);
+    allCombos() ;
+    ArrayList<String> dict = findAllWords(10); 
+    // contains all words between 3 and 10 letters long (inclusive)
     checkValid(dict);
   }
 
   ArrayList<String> findAllWords(int len) {
-    String[] lines = loadStrings("HowWeMadeTheWords/words.txt");
-    ArrayList<String> w = new ArrayList<String>();
+    String[] lines = loadStrings("HowWeMadeTheWords/words.txt") ;
+    // reads through this file and makes an ArrayList of all the words that meet our very high standards
+    ArrayList<String> w = new ArrayList<String>() ;
     for (int i = 0 ; i < lines.length ; i++) {
-      if (lines[i].length() <= len && lines[i].length() >= 3) w.add(lines[i]);
+      if (lines[i].length() <= len && lines[i].length() >= 3) w.add(lines[i]) ;
     }
     return w;
   }
   
   void checkValid(ArrayList<String> dict) {
+    // recursive method
     for (int i = 0; i < allPossWords.size(); i++) {
+      // goes through each word that we have and decides whether we can use it based on whether it appears in dict
       if (!checkValHelp(allPossWords.get(i), 0, dict.size() - 1, dict)) {
         allPossWords.remove(i);
         i--;
@@ -30,12 +34,14 @@ class Word {
   }
   
   boolean checkValHelp(String word, int lo, int hi, ArrayList<String> dict) {
+    // helper method
     if (lo > hi) {
       return false;
     }
+    // binary search timeeee
     int index = (lo + hi) / 2;
     if (dict.get(index).equals(word)) {
-      return true;
+      return true; // we have found the word!
     } else if (dict.get(index).compareTo(word) < 0) {
       return checkValHelp(word, index + 1, hi, dict);
     } else {
