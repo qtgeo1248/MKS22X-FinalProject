@@ -8,7 +8,7 @@ interface displayable {
 
 class Soup implements displayable {
   // the bowl is centered at 200, 300 so the letters will have to be within that area
-  int level ;
+  int lev ;
   boolean isSpecial ;
   String word ;
   ArrayList<String> letters ;
@@ -16,8 +16,9 @@ class Soup implements displayable {
   // top row will represent x-coordinates of letters
   // bottom row will represent y-coordinates of letters
 
-  Soup(String w, boolean specOrNot) {
+  Soup(String w, boolean specOrNot, int le) {
     // constructor
+    lev = le ;
     isSpecial = specOrNot ;
     Word b = new Word(w) ;
     letters = new ArrayList<String>() ;
