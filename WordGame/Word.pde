@@ -7,4 +7,12 @@ class Word {
     ycor = y;
     word = str;
   }
+  
+  void setX(int x) {
+    xcor = x;
+  }
+  
+  void setY(int y) {
+    ycor = y;
+  }
 }
