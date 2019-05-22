@@ -3,6 +3,8 @@ class NoDupAR<T> extends ArrayList<T> {
     super();
   }
   public boolean add(T t) {
-    
+    if (contains(t)) {
+      return false;
+    }
   }
 }
