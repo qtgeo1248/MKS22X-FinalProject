@@ -5,14 +5,18 @@ class Crossword {
   ArrayList<Word> foundedWords;
   char[][] crossAns;
   char[][] currentCross;
+  String specialWord;
   
-  Crossword(ArrayList<String> wordList) {
+  Crossword(ArrayList<String> wordList, boolean isSpecial) {
     allPossWords = wordList;
     usedWords = new ArrayList<Word>();
     unfoundedWords = new ArrayList<Word>();
     foundedWords = new ArrayList<Word>();
     crossAns = new char[19][19];
     currentCross = new char[19][19];
+    if (!isSpecial) {
+      specialWord = "";
+    }
   }
   
   boolean isDone() {
@@ -24,5 +28,8 @@ class Crossword {
   }
   boolean checkFoundedWord(String word) {
     return foundedWords.contains(word);
+  }
+  boolean checkSpecialWord(String word) {
+    return specialWord.equals(word);
   }
 }
