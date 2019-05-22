@@ -1,3 +1,7 @@
+import java.util.* ;
+import java.io.* ;
+
+
 interface displayable {
   void display() ;
 }
@@ -45,33 +49,19 @@ class Soup implements displayable {
   }
   void shuffle() {
     // mix around the letters
-    // this 2D array will keep track of the coordinates of each letter --> the coordinates will be helpful for shuffle method 
-    positions = new float[2][10] ;
-    int i = 0 ;
+    Collections.shuffle(letters) ;
+    // mix around the letters
     for (int r = 0; r < 2; r++) {
       for (int c = 0; c < 10; c++) {
         float pos ;
-        boolean switchItUp ;
-        if ( (int) (1 + random(1)) == 0) switchItUp = true ;
-        else {
-          switchItUp = false ;
-        }
         int unit = 360 / word.length() ;
-        if (r == 0 && !switchItUp) {
+        if (r == 0) {
           // we are adding x-coordinates to positions
           pos = cos(radians(unit * c)) ;
           positions[r][c] = 200 + (pos * 100) ;
-        } else if (r == 0) {
-          pos = cos(radians(unit * 2 * c)) ;
-          positions[r][c] = 200 + (pos * 100) ;
-        }
-        else if (r == 1 && !switchItUp) {
+        } else {
           // we are adding y-coordinates to positions
           pos = sin(radians(unit * c)) ;
-          positions[r][c] = 600 + (pos * 100) ;
-        }
-        else {
-          pos = sin(radians(unit * 3 * c)) ;
           positions[r][c] = 600 + (pos * 100) ;
         }
       }
