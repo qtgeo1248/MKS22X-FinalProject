@@ -1,6 +1,6 @@
 import java.util.* ;
 import java.io.* ;
-
+// used for shuffle
 
 interface displayable {
   void display() ;
@@ -50,7 +50,7 @@ class Soup implements displayable {
   }
   void shuffle() {
     // mix around the letters
-    Collections.shuffle(letters) ;
+    Collections.shuffle(letters) ; // imports are for this
     // mix around the letters
     for (int r = 0; r < 2; r++) {
       for (int c = 0; c < 10; c++) {
