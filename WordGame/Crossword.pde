@@ -1,16 +1,17 @@
 class Crossword {
   ArrayList<String> allPossWords;
-  ArrayList<String> usedWords;
-  ArrayList<String> unfoundedWords;
-  ArrayList<String> foundedWords;
-  int[][] crossAns;
-  int[][] currentCross;
+  ArrayList<Word> usedWords;
+  ArrayList<Word> unfoundedWords;
+  ArrayList<Word> foundedWords;
+  char[][] crossAns;
+  char[][] currentCross;
   
   Crossword(ArrayList<String> wordList) {
     allPossWords = wordList;
-    usedWords = new ArrayList<String>();
-    unfoundedWords = new ArrayList<String>();
-    foundedWords = new ArrayList<String>();
-    crossAns = new int[19][19];
+    usedWords = new ArrayList<Word>();
+    unfoundedWords = new ArrayList<Word>();
+    foundedWords = new ArrayList<Word>();
+    crossAns = new char[19][19];
+    currentCross = new char[19][19];
   }
 }

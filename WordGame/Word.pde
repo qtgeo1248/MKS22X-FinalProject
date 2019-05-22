@@ -11,8 +11,14 @@ class Word {
   void setX(int x) {
     xcor = x;
   }
-  
   void setY(int y) {
     ycor = y;
+  }
+  
+  int getX() {
+    return xcor;
+  }
+  int getY() {
+    return ycor;
   }
 }
