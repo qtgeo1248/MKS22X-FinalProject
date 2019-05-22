@@ -4,6 +4,9 @@ void setup() {
   // soup bowl design added here
   fill(255, 125, 0) ;
   ellipse(200, 600, 300, 300) ;
+  Soup a = new Soup("hey",false) ;
+  a.display() ;
+
 }
  
 void draw() {
