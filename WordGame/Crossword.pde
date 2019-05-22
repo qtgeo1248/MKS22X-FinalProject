@@ -3,13 +3,14 @@ class Crossword {
   ArrayList<String> usedWords;
   ArrayList<String> unfoundedWords;
   ArrayList<String> foundedWords;
-  int[][] cross;
+  int[][] crossAns;
+  int[][] currentCross;
   
   Crossword(ArrayList<String> wordList) {
     allPossWords = wordList;
     usedWords = new ArrayList<String>();
     unfoundedWords = new ArrayList<String>();
     foundedWords = new ArrayList<String>();
-    cross = new int[20][20];
+    crossAns = new int[19][19];
   }
 }
