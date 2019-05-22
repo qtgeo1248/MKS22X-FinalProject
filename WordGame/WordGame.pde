@@ -1,9 +1,11 @@
 void setup() {
   size(400, 800) ;
   background(255) ;
+  int lee = 1 ;
   // soup bowl design added here
-  Soup a = new Soup("hey",false) ;
+  Soup a = new Soup("hey",false,lee) ;
   a.display() ;
+  lee++ ;
 }
  
 void draw() {
