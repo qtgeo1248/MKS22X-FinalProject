@@ -9,7 +9,7 @@ void setup() {
 }
  
 void draw() {
-  Word test = new Word("speak");
+  Level test = new Level("speak") ;
   ArrayList<String> tester = test.getAllPossWords();
   for (int i = 0; i < tester.size(); i++) {
     text(tester.get(i), 0, 15 * i + 20);
