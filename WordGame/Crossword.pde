@@ -34,6 +34,11 @@ class Crossword implements Displayable {
   }
   
   void display() {
-    
+    if (specialWord != "") { //"" signifies no special word
+      fill(128, 128, 128);
+      for (int i = 0; i < specialWord.length(); i++) {
+        
+      }
+    }
   }
 }
