@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>14</x>
-      <y>28</y>
+      <x>49</x>
+      <y>49</y>
       <w>217</w>
       <h>175</h>
     </coordinates>
@@ -30,8 +30,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>259</x>
-      <y>280</y>
+      <x>294</x>
+      <y>301</y>
       <w>231</w>
       <h>182</h>
     </coordinates>
@@ -58,8 +58,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>7</x>
-      <y>273</y>
+      <x>42</x>
+      <y>294</y>
       <w>245</w>
       <h>196</h>
     </coordinates>
@@ -86,8 +86,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>77</x>
-      <y>196</y>
+      <x>112</x>
+      <y>217</y>
       <w>63</w>
       <h>91</h>
     </coordinates>
@@ -97,19 +97,19 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>77</x>
-      <y>196</y>
-      <w>280</w>
+      <x>175</x>
+      <y>217</y>
+      <w>217</w>
       <h>98</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>380.0;120.0;10.0;10.0</additional_attributes>
+    <additional_attributes>290.0;120.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>126</x>
-      <y>252</y>
+      <x>161</x>
+      <y>273</y>
       <w>21</w>
       <h>21</h>
     </coordinates>
@@ -120,8 +120,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>336</x>
-      <y>259</y>
+      <x>371</x>
+      <y>280</y>
       <w>21</w>
       <h>21</h>
     </coordinates>
@@ -132,14 +132,12 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>14</x>
+      <x>49</x>
       <y>532</y>
       <w>182</w>
-      <h>63</h>
+      <h>49</h>
     </coordinates>
     <panel_attributes>NoDupAR&lt;T&gt; extends ArrayList&lt;T&gt;
---
-
 --
 +NoDupAR()
 +add(T): boolean</panel_attributes>
@@ -148,24 +146,49 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>91</x>
-      <y>455</y>
+      <x>126</x>
+      <y>476</y>
       <w>308</w>
-      <h>91</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;110.0;420.0;10.0</additional_attributes>
+    <additional_attributes>10.0;80.0;420.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>84</x>
-      <y>511</y>
+      <x>119</x>
+      <y>518</y>
       <w>21</w>
       <h>21</h>
     </coordinates>
     <panel_attributes>1
 style=wordwrap</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>399</x>
+      <y>56</y>
+      <w>70</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+Displayable
+--
++display()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>259</x>
+      <y>70</y>
+      <w>154</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>200.0;10.0;10.0;40.0</additional_attributes>
   </element>
 </diagram>
