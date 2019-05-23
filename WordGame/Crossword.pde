@@ -46,5 +46,10 @@ class Crossword implements Displayable {
         fill(128, 128, 128);
       }
     }
+    for (int i = 0; i < currentCross.length; i++) {
+      for (int j = 0; j < currentCross[i].length; j++) {
+        
+      }
+    }
   }
 }
