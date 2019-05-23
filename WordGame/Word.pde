@@ -21,4 +21,8 @@ class Word {
   int getY() {
     return ycor;
   }
+  
+  boolean equals(String otherWord) {
+    return word.equals(otherWord);
+  }
 }

@@ -198,8 +198,8 @@ Displayable
     <coordinates>
       <x>105</x>
       <y>581</y>
-      <w>119</w>
-      <h>119</h>
+      <w>126</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>Word
 --
@@ -211,7 +211,8 @@ Displayable
 +setX(int)
 +setY(int)
 +getX(): int
-+getY(): int</panel_attributes>
++getY(): int
++equals(String): boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
