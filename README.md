@@ -29,3 +29,5 @@ A Mouse
 ### 5/21/19
 :shoe: I first fixed a minor error in our checkIsValid() method. And then I created a new class called NoDupAR that extends the ArrayList class so that the allPossWords variable will never contain duplicates.<br/>
 :goat: I continued working on the Soup class and finished the constructor. I also finished the shuffle() method (but need to test it) and I transferred my commits from the branch workonsoup to the master so now it runs!
+### 5/22/19
+:goat: I worked and committed on my branch workonsoup, corrected the error that wasn't showing the last letter of a word in the soup, made the display evenly spaced from the center and other letters, and implemented shuffling as a field in the Soup class. I didn't test it for true yet (but will in a later stage). Lastly, I added comments to a few methods we wrote.
