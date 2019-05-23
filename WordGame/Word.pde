@@ -2,8 +2,8 @@ class Word {
   int xcor, ycor;
   String word;
   
-  Word(String str, int x, int y) {
-    xcor = x;
+  Word(String str, int x, int y) { //represents where a certain word is in a grid of a crossword
+    xcor = x;                      //which provides easy access to usedWords
     ycor = y;
     word = str;
   }

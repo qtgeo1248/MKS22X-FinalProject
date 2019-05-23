@@ -1,11 +1,11 @@
 class Crossword {
   ArrayList<String> allPossWords;
   ArrayList<Word> usedWords;
-  ArrayList<Word> unfoundedWords; 
+  ArrayList<Word> unfoundedWords;
   ArrayList<Word> foundedWords;
   char[][] crossAns;
   char[][] currentCross;
-  String specialWord;
+  String specialWord; //a special word is a word separate from the crossword, meaning it's harder to find
   
   Crossword(ArrayList<String> wordList, boolean isSpecial) {
     allPossWords = wordList;
@@ -19,7 +19,7 @@ class Crossword {
     }
   }
   
-  boolean isDone() {
+  boolean isDone() { //checks if we're done with the level
     return unfoundedWords.size() == 0;
   }
   
