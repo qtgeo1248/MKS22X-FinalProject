@@ -6,7 +6,7 @@ class Crossword {
   char[][] crossAns;
   char[][] currentCross;
   String specialWord; //a special word is a word separate from the crossword, meaning it's harder to find
-  
+                      //will be empty string if it's not special level
   Crossword(ArrayList<String> wordList, boolean isSpecial) {
     allPossWords = wordList;
     usedWords = new ArrayList<Word>();
