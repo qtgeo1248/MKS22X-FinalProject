@@ -98,12 +98,4 @@ class Level {
   ArrayList<String> getAllPossWords() {
     return allPossWords;
   }
-  
-  void draw() {
-    
-  }
-  
-  void drawCircular() {
-    
-  }
 }

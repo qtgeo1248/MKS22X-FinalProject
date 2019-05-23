@@ -1,4 +1,4 @@
-class Crossword {
+class Crossword{
   ArrayList<String> allPossWords;
   ArrayList<Word> usedWords;
   ArrayList<Word> unfoundedWords;
@@ -32,5 +32,4 @@ class Crossword {
   boolean checkSpecialWord(String word) {
     return specialWord.equals(word);
   }
-  
 }

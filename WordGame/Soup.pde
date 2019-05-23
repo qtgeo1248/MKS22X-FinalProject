@@ -1,11 +1,6 @@
 import java.util.* ;
 import java.io.* ;
 
-
-interface Displayable {
-  void display() ;
-}
-
 class Soup implements Displayable {
   // the bowl is centered at 200, 300 so the letters will have to be within that area
   int level ;
