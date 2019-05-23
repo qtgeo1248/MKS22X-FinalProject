@@ -37,7 +37,9 @@ class Crossword implements Displayable {
     if (specialWord != "") { //"" signifies no special word
       fill(128, 128, 128);
       for (int i = 0; i < specialWord.length(); i++) {
-        
+        square(10 + 20 * i, 10, 20);
+        textSize(20);
+        text(specialWord.charAt(i), 10 + 20 * i, 10);
       }
     }
   }
