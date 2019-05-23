@@ -14,12 +14,15 @@ class Soup implements Displayable {
   ArrayList<String> letters ;
   float[][] positions ;
   boolean shuffOrNot ;
+  boolean lockedOn, mouseOverLetter ;
   // top row will represent x-coordinates of letters
   // bottom row will represent y-coordinates of letters
 
   Soup(String w, boolean specOrNot, int le, boolean toShuffleOrNotToShuffle) {
     // constructor
     lev = le ;
+    lockedOn = false ;
+    mouseOverLetter = false ;
     shuffOrNot = toShuffleOrNotToShuffle ;
     isSpecial = specOrNot ;
     Level b = new Level(w) ;
@@ -86,6 +89,8 @@ class Soup implements Displayable {
   void mouseClicked() {
     if (contains(positions[0], mouseX) && contains(positions[1], mouseY)) {
       // this means that the mouse is on a letter
+      if () {
+      }
     }
   }
   
