@@ -22,7 +22,7 @@ class Soup implements Displayable {
     lev = le ;
     shuffOrNot = toShuffleOrNotToShuffle ;
     isSpecial = specOrNot ;
-    Word b = new Word(w) ;
+    Level b = new Level(w) ;
     letters = new ArrayList<String>() ;
     for (int i = 0; i < w.length() ; i++) {
       letters.add(w.charAt(i) + "") ;
@@ -76,6 +76,19 @@ class Soup implements Displayable {
       }
     }
   }
+  
+  boolean contains(float[] a, float val) {
+    for (float v : a) {
+      if (v == val) return true ;
+    }
+    return false ;
+  }
+  void mouseClicked() {
+    if (contains(positions[0], mouseX) && contains(positions[1], mouseY)) {
+      // this means that the mouse is on a letter
+    }
+  }
+  
   void display() {
     // drawing the soup bowl
     fill(255, 125, 0) ;
