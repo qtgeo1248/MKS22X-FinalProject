@@ -16,6 +16,8 @@ class Crossword implements Displayable {
     currentCross = new char[19][19];
     if (!isSpecial) {
       specialWord = "";
+    } else { //TEMP
+      specialWord = "SADNESS";
     }
   }
   
@@ -34,12 +36,14 @@ class Crossword implements Displayable {
   }
   
   void display() {
+    fill(128, 128, 128);
     if (specialWord != "") { //"" signifies no special word
-      fill(128, 128, 128);
       for (int i = 0; i < specialWord.length(); i++) {
         square(10 + 20 * i, 10, 20);
         textSize(20);
-        text(specialWord.charAt(i), 10 + 20 * i, 10);
+        fill(0, 0, 0);
+        text(specialWord.charAt(i), 14 + 20 * i, 27.5);
+        fill(128, 128, 128);
       }
     }
   }
