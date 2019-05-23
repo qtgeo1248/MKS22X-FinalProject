@@ -7,11 +7,11 @@ class Level {
     word = newWord;
     allPossWords = new NoDupAR<String>();
     allCombos();
-    ArrayList<String> dict = findAllWords(10);
-    checkValid(dict);
+    ArrayList<String> dict = findAllDictWords(10);
+    findValidWords(dict);
   }
 
-  ArrayList<String> findAllWords(int len) {
+  ArrayList<String> findAllDictWords(int len) {
     String[] lines = loadStrings("HowWeMadeTheWords/words.txt");
     ArrayList<String> w = new ArrayList<String>();
     for (int i = 0 ; i < lines.length ; i++) {
@@ -20,7 +20,7 @@ class Level {
     return w;
   }
   
-  void checkValid(ArrayList<String> dict) {
+  void findValidWords(ArrayList<String> dict) {
     for (int i = 0; i < allPossWords.size(); i++) {
       if (!checkValHelp(allPossWords.get(i), 0, dict.size() - 1, dict)) {
         allPossWords.remove(i);

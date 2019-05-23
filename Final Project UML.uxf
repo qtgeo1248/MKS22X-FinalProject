@@ -30,20 +30,28 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>400</x>
-      <y>170</y>
-      <w>350</w>
-      <h>130</h>
+      <x>370</x>
+      <y>370</y>
+      <w>430</w>
+      <h>260</h>
     </coordinates>
-    <panel_attributes>Word
+    <panel_attributes>Level
 --
--allPossWords: ArrayList&lt;String&gt;
+-allPossWords: NoDupAR&lt;String&gt;
 -word: String
 --
-+Word(String newWord)
++Word(String)
++findAllDictWords(int): ArrayList&lt;String&gt;
+-findValidWords(ArrayList&lt;String&gt;)
+-checkValHelp(String word)
+-allCombos()
+-permutate(String, int, int, ArrayList&lt;String&gt;)
+-swap(String, int, int): String
++getWord(): String
++getAllPossWords: ArrayList&lt;String&gt;
 +draw()
 +drawCircular()
-+draw(char letter, float xcor, float ycor, float size)
++draw(char, float, float, float)
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -53,7 +61,7 @@
       <x>10</x>
       <y>360</y>
       <w>350</w>
-      <h>310</h>
+      <h>280</h>
     </coordinates>
     <panel_attributes>Crossword
 --
@@ -64,13 +72,13 @@
 -crossAns: char[][]
 -currentCross: char[][]
 --
-+Crossword(ArrayList&lt;String&gt; words, boolean isSpecial)
++Crossword(ArrayList&lt;String&gt;, boolean)
 +isDone(): boolean
-+checkUnfoundedWord(String word): boolean
-+checkFoundedWord(String word): boolean
-+checkSpecialWord(String word): boolean
++checkUnfoundedWord(String): boolean
++checkFoundedWord(String): boolean
++checkSpecialWord(String): boolean
 +putInWords(): int
--addWord(String word)
+-addWord(String)
 -removeWord(String)
 +draw()</panel_attributes>
     <additional_attributes/>
@@ -90,12 +98,12 @@
     <id>Relation</id>
     <coordinates>
       <x>110</x>
-      <y>160</y>
-      <w>430</w>
-      <h>120</h>
+      <y>250</y>
+      <w>400</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>410.0;10.0;10.0;100.0</additional_attributes>
+    <additional_attributes>380.0;120.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Text</id>
@@ -112,8 +120,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>630</x>
-      <y>370</y>
+      <x>480</x>
+      <y>340</y>
       <w>30</w>
       <h>30</h>
     </coordinates>
