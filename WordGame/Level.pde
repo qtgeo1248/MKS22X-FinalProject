@@ -53,13 +53,14 @@ class Level {
         if (counter >= Math.pow(2, j)) {
           counter -= Math.pow(2, j);
         }
-      }
+      } //what this basically does is based on the binary rep. of a num, it determines which letters
+        //will be in the certain subset of the word.
       for (int k = 0; k < whichLetters.length; k++) {
         if (whichLetters[k]) {
           toAdd += word.charAt(k);
         }
       }
-      permutate(toAdd, 0, toAdd.length() - 1, allPossWords);
+      permutate(toAdd, 0, toAdd.length() - 1, allPossWords); //then this permutates all the subsets of letters
     }
   }
   
@@ -69,14 +70,14 @@ class Level {
       list.add(copy);
     } else {
       for (int i = l; i <= r; i++) {
-        word = swap(word, l, i);
-        permutate(word, l + 1, r, list);
+        word = swap(word, l, i); //it first permutates on the first letter
+        permutate(word, l + 1, r, list); //then it permutates on the remaining letters
         word = swap(word, l, i);
       }
     }
   }
 
-  String swap(String og, int a, int b) {
+  String swap(String og, int a, int b) { //simply swaps two letters in a word
     String swapped = "";
     for (int i = 0; i < og.length(); i++) {
       if (i == a) {

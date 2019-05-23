@@ -1,7 +1,7 @@
 class Crossword {
   ArrayList<String> allPossWords;
   ArrayList<Word> usedWords;
-  ArrayList<Word> unfoundedWords;
+  ArrayList<Word> unfoundedWords; 
   ArrayList<Word> foundedWords;
   char[][] crossAns;
   char[][] currentCross;
@@ -32,4 +32,5 @@ class Crossword {
   boolean checkSpecialWord(String word) {
     return specialWord.equals(word);
   }
+  
 }
