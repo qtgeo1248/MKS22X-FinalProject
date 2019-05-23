@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>49</x>
+      <x>56</x>
       <y>49</y>
       <w>196</w>
       <h>196</h>
@@ -32,7 +32,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>294</x>
+      <x>301</x>
       <y>322</y>
       <w>231</w>
       <h>182</h>
@@ -60,7 +60,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>42</x>
+      <x>49</x>
       <y>315</y>
       <w>245</w>
       <h>196</h>
@@ -88,7 +88,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>112</x>
+      <x>119</x>
       <y>238</y>
       <w>63</w>
       <h>91</h>
@@ -99,7 +99,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>175</x>
+      <x>182</x>
       <y>238</y>
       <w>217</w>
       <h>98</h>
@@ -110,7 +110,7 @@
   <element>
     <id>Text</id>
     <coordinates>
-      <x>161</x>
+      <x>168</x>
       <y>294</y>
       <w>21</w>
       <h>21</h>
@@ -122,7 +122,7 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>371</x>
+      <x>378</x>
       <y>301</y>
       <w>21</w>
       <h>21</h>
@@ -134,8 +134,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>49</x>
-      <y>553</y>
+      <x>343</x>
+      <y>574</y>
       <w>182</w>
       <h>49</h>
     </coordinates>
@@ -148,19 +148,19 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>126</x>
+      <x>420</x>
       <y>497</y>
-      <w>308</w>
-      <h>70</h>
+      <w>21</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;80.0;420.0;10.0</additional_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>119</x>
-      <y>539</y>
+      <x>434</x>
+      <y>553</y>
       <w>21</w>
       <h>21</h>
     </coordinates>
@@ -171,7 +171,7 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>399</x>
+      <x>406</x>
       <y>77</y>
       <w>70</w>
       <h>49</h>
@@ -185,12 +185,56 @@ Displayable
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>238</x>
+      <x>245</x>
       <y>91</y>
       <w>175</w>
       <h>42</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>230.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>105</x>
+      <y>581</y>
+      <w>119</w>
+      <h>119</h>
+    </coordinates>
+    <panel_attributes>Word
+--
+-xcor: int
+-ycor: int
+-word: String
+--
++Word(String, int, int);
++setX(int)
++setY(int)
++getX(): int
++getY(): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>161</x>
+      <y>504</y>
+      <w>21</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>175</x>
+      <y>553</y>
+      <w>112</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>1...sigma(k = 1, n, n! / (n-k)!)
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
