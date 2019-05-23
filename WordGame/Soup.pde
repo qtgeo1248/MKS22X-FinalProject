@@ -2,10 +2,6 @@ import java.util.* ;
 import java.io.* ;
 // used for shuffle
 
-interface Displayable {
-  void display() ;
-}
-
 class Soup implements Displayable {
   // the bowl is centered at 200, 300 so the letters will have to be within that area
   int lev ;
@@ -22,7 +18,7 @@ class Soup implements Displayable {
     lev = le ;
     shuffOrNot = toShuffleOrNotToShuffle ;
     isSpecial = specOrNot ;
-    Word b = new Word(w) ;
+    Level b = new Level(w) ;
     letters = new ArrayList<String>() ;
     for (int i = 0; i < w.length() ; i++) {
       letters.add(w.charAt(i) + "") ;
