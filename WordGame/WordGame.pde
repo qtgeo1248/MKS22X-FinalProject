@@ -9,7 +9,11 @@ void setup() {
 }
  
 void draw() {
+<<<<<<< HEAD
   Level test = new Level("speak") ;
+=======
+  Level test = new Level("speak");
+>>>>>>> 42d46396edc6848b1e3643b81137d0f47cf1eff3
   ArrayList<String> tester = test.getAllPossWords();
   for (int i = 0; i < tester.size(); i++) {
     text(tester.get(i), 0, 15 * i + 20);
