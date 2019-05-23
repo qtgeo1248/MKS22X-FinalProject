@@ -89,9 +89,13 @@ class Soup implements Displayable {
   void mouseClicked() {
     if (contains(positions[0], mouseX) && contains(positions[1], mouseY)) {
       // this means that the mouse is on a letter
-      if () {
-      }
+      lockedOn = true ;
+      stroke(255) ;
     }
+    else {
+      lockedOn = false ;
+    }
+    /// NOT DONE YET!!
   }
   
   void display() {
