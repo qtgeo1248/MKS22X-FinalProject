@@ -1,4 +1,4 @@
-class NoDupAR<T> extends ArrayList<T> {
+class NoDupAR<T> extends ArrayList<T> { //an arraylist with no duplicates
   public NoDupAR() {
     super();
   }

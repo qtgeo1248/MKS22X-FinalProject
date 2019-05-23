@@ -2,11 +2,11 @@ import java.util.* ;
 import java.io.* ;
 // used for shuffle
 
-interface displayable {
+interface Displayable {
   void display() ;
 }
 
-class Soup implements displayable {
+class Soup implements Displayable {
   // the bowl is centered at 200, 300 so the letters will have to be within that area
   int lev ;
   boolean isSpecial ;

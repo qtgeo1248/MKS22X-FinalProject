@@ -1,114 +1,28 @@
 class Word {
+  int xcor, ycor;
   String word;
-  NoDupAR<String> allPossWords;
   
-  Word(String newWord) {
-    // constructor
-    word = newWord;
-    allPossWords = new NoDupAR<String>();
-    allCombos() ;
-    ArrayList<String> dict = findAllWords(10); 
-    // contains all words between 3 and 10 letters long (inclusive)
-    checkValid(dict);
-  }
-
-  ArrayList<String> findAllWords(int len) {
-    String[] lines = loadStrings("HowWeMadeTheWords/words.txt") ;
-    // reads through this file and makes an ArrayList of all the words that meet our very high standards
-    ArrayList<String> w = new ArrayList<String>() ;
-    for (int i = 0 ; i < lines.length ; i++) {
-      if (lines[i].length() <= len && lines[i].length() >= 3) w.add(lines[i]) ;
-    }
-    return w;
+  Word(String str, int x, int y) { //represents where a certain word is in a grid of a crossword
+    xcor = x;                      //which provides easy access to usedWords
+    ycor = y;
+    word = str;
   }
   
-  void checkValid(ArrayList<String> dict) {
-    // recursive method
-    for (int i = 0; i < allPossWords.size(); i++) {
-      // goes through each word that we have and decides whether we can use it based on whether it appears in dict
-      if (!checkValHelp(allPossWords.get(i), 0, dict.size() - 1, dict)) {
-        allPossWords.remove(i);
-        i--;
-      }
-    }
+  void setX(int x) {
+    xcor = x;
+  }
+  void setY(int y) {
+    ycor = y;
   }
   
-  boolean checkValHelp(String word, int lo, int hi, ArrayList<String> dict) {
-    // helper method
-    if (lo > hi) {
-      return false;
-    }
-    // binary search timeeee
-    int index = (lo + hi) / 2;
-    if (dict.get(index).equals(word)) {
-      return true; // we have found the word!
-    } else if (dict.get(index).compareTo(word) < 0) {
-      return checkValHelp(word, index + 1, hi, dict);
-    } else {
-      return checkValHelp(word, lo, index - 1, dict);
-    }
+  int getX() {
+    return xcor;
+  }
+  int getY() {
+    return ycor;
   }
   
-  void allCombos() {
-    boolean[] whichLetters = new boolean[word.length()];
-    for (int i = 1; i < (int)Math.pow(2, word.length()); i++) {
-      int counter = i;
-      String toAdd = "";
-      for (int j = whichLetters.length - 1; j >= 0; j--) {
-        whichLetters[j] = counter >= Math.pow(2,j);
-        if (counter >= Math.pow(2, j)) {
-          counter -= Math.pow(2, j);
-        }
-      }
-      for (int k = 0; k < whichLetters.length; k++) {
-        if (whichLetters[k]) {
-          toAdd += word.charAt(k);
-        }
-      }
-      permutate(toAdd, 0, toAdd.length() - 1, allPossWords);
-    }
-  }
-  
-  void permutate(String word, int l, int r, ArrayList<String> list) {
-    if (l == r) {
-      String copy = new String(word);
-      list.add(copy);
-    } else {
-      for (int i = l; i <= r; i++) {
-        word = swap(word, l, i);
-        permutate(word, l + 1, r, list);
-        word = swap(word, l, i);
-      }
-    }
-  }
-
-  String swap(String og, int a, int b) {
-    String swapped = "";
-    for (int i = 0; i < og.length(); i++) {
-      if (i == a) {
-        swapped += og.charAt(b);
-      } else if (i == b) {
-        swapped += og.charAt(a);
-      } else {
-        swapped += og.charAt(i);
-      }
-    }
-    return swapped;
-  }
-  
-  String getWord() {
-    return word;
-  }
-  
-  ArrayList<String> getAllPossWords() {
-    return allPossWords;
-  }
-  
-  void draw() {
-    
-  }
-  
-  void drawCircular() {
-    
+  boolean equals(String otherWord) {
+    return word.equals(otherWord);
   }
 }
