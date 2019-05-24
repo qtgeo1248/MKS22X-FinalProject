@@ -88,6 +88,14 @@ class Soup implements Displayable {
   
   String makeWordFromChosenLetters() {
     String res = "" ;
+    int i = 0 ;
+    for (boolean b : chosen) {
+      if (b) {
+        // the letter was chosen so we need to add it to the String to make a word
+        res += letters.get(i) ;
+      }
+      i++ ;
+    }
     return res ;
   }
   
