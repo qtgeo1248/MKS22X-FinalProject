@@ -102,6 +102,8 @@ class Soup implements Displayable {
     return res ;
   }
   
+  // checks whether the array has the float val and returns the index that it is in the array.
+  // This will be related to the position in the ArrayList letters
   int contains(float[] a, float val) {
     int i = 0 ;
     for (float v : a) {
@@ -110,6 +112,7 @@ class Soup implements Displayable {
     }
     return -1 ;
   }
+  // INTERACTIVE ASPECT hopefully
   void mouseClicked() {
     int xpos = contains(positions[0], mouseX) ;
     int ypos = contains(positions[1], mouseY) ;
