@@ -123,6 +123,7 @@ class Soup implements Displayable {
         // the user has selected this letter to possibly make a word
         if (chosen[xpos]) {
           // this means that the user is UNSELECTING the letter because it was previously chosen!
+          chosen[xpos] = false ;
         }
         else {
           // this letter was not chosen/selected so we need to change that!
