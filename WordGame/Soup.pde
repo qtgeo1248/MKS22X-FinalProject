@@ -86,6 +86,9 @@ class Soup implements Displayable {
     }
   }
   
+  // This method will be used later but it goes through the array chosen (which has booleans)
+  // and if the boolean is true, it means that the user has chosen that letter and we can add it to the String res
+  // Otherwise if the user had not chosen or clicked on it, that would make the boolean in chosen be false and we wouldn't add it to res
   String makeWordFromChosenLetters() {
     String res = "" ;
     int i = 0 ;
