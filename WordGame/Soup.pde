@@ -11,21 +11,27 @@ class Soup implements Displayable {
   int lev ;
   boolean isSpecial ;
   String word ;
+  Level ll ;
   ArrayList<String> letters ;
+  boolean[] chosen ;
   float[][] positions ;
-  boolean shuffOrNot ;
-  boolean lockedOn, mouseOverLetter ;
   // top row will represent x-coordinates of letters
   // bottom row will represent y-coordinates of letters
+  boolean shuffOrNot ;
+  boolean lockedOn, mouseOverLetter ;
 
   Soup(String w, boolean specOrNot, int le, boolean toShuffleOrNotToShuffle) {
     // constructor
     lev = le ;
     lockedOn = false ;
-    mouseOverLetter = false ;
+    chosen = new boolean[10] ;
+    for (int i = 0 ; i < 10 ; i++) {
+      chosen[i] = false ;
+      // in the beginning, none of the letters are chosen
+    }
     shuffOrNot = toShuffleOrNotToShuffle ;
     isSpecial = specOrNot ;
-    Level b = new Level(w) ;
+    ll = new Level(w) ;
     letters = new ArrayList<String>() ;
     for (int i = 0; i < w.length() ; i++) {
       letters.add(w.charAt(i) + "") ;
@@ -80,19 +86,28 @@ class Soup implements Displayable {
     }
   }
   
-  boolean contains(float[] a, float val) {
+  String makeWordFromChosenLetters() {
+    String res = "" ;
+    return res ;
+  }
+  
+  int contains(float[] a, float val) {
+    int i = 0 ;
     for (float v : a) {
-      if (v == val) return true ;
+      if (v == val) return i ;
+      i++ ;
     }
-    return false ;
+    return -1 ;
   }
   void mouseClicked() {
-    if (contains(positions[0], mouseX) && contains(positions[1], mouseY)) {
+    int xpos = contains(positions[0], mouseX) ;
+    int ypos = contains(positions[1], mouseY) ;
+    if (xpos != -1 && ypos != -1) {
       // this means that the mouse is on a letter
       lockedOn = true ;
       if (mousePressed) {
         // the user has selected this letter to possibly make a word
-        
+        chosen[xpos] = true ;
       }
     }
     else {
