@@ -121,15 +121,21 @@ class Soup implements Displayable {
       lockedOn = true ;
       if (mousePressed) {
         // the user has selected this letter to possibly make a word
-        chosen[xpos] = true ;
+        if (chosen[xpos]) {
+          // this means that the user is UNSELECTING the letter because it was previously chosen!
+        }
+        else {
+          // this letter was not chosen/selected so we need to change that!
+         chosen[xpos] = true ; // this helps us identify and keep track of the chosen letter
+        }
       }
     }
     else {
-      lockedOn = false ;
+      // this means that the mouse is not over a letter
     }
     /// NOT DONE YET!!
   }
-  
+  // visual aspect of soup - draws soup bowl, shows letters, and allows user to click on letters
   void display() {
     // drawing the soup bowl
     fill(255, 125, 0) ;
