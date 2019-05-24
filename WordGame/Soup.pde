@@ -90,7 +90,10 @@ class Soup implements Displayable {
     if (contains(positions[0], mouseX) && contains(positions[1], mouseY)) {
       // this means that the mouse is on a letter
       lockedOn = true ;
-      stroke(255) ;
+      if (mousePressed) {
+        // the user has selected this letter to possibly make a word
+        
+      }
     }
     else {
       lockedOn = false ;
