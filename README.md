@@ -37,3 +37,7 @@ A Mouse
 :goat: I worked and committed on my branch workonsoup, corrected the error that wasn't showing the last letter of a word in the soup, made the display evenly spaced from the center and other letters, and implemented shuffling as a field in the Soup class. I didn't test it for true yet (but will in a later stage). Lastly, I added comments to a few methods we wrote.
 ### 5/23/19
 :shoe: I started on figuring out how to display the crossword class, which requires some for loops. I was only able to finish desplaying the special word in the crossword and only started figuring out how to do the rest. I didn't do anything else because I have an AP tomorrow.<br/>
+### 5/24/19
+:shoe: I got sick taking the AP exam, so my brain couldn't concentrate har enough to do work today. I promise I'll make it up someday.
+### 5/25/19
+:shoe: I finished the display method for crossword that displays the current condition of the crossword, by displaying the special word, squares of the crossword, and the characters in the crossword.<br/>
