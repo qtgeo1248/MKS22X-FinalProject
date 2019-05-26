@@ -50,6 +50,10 @@ class Crossword implements Displayable {
     for (int i = 0; i < currentCross.length; i++) {
       for (int j = 0; j < currentCross[i].length; j++) {
         square(10 + 20 * j, 50 + 20 * i, 20);
+        textSize(20);
+        fill(0, 0, 0);
+        text(crossAns[i][j], 10 + 20 * j, 70 + 20 * i);
+        fill(128, 128, 128);
       }
     }
   }
