@@ -1,5 +1,9 @@
 import java.util.* ;
 import java.io.* ;
+<<<<<<< HEAD
+// used for shuffle
+=======
+>>>>>>> 42d46396edc6848b1e3643b81137d0f47cf1eff3
 
 class Soup implements Displayable {
   // the bowl is centered at 200, 300 so the letters will have to be within that area

@@ -11,4 +11,5 @@ void setup() {
 }
  
 void draw() {
+  Level test = new Level("speak") ;
 }

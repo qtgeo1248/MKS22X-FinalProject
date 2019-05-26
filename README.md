@@ -35,3 +35,5 @@ A Mouse
 ### 5/22/19
 :shoe: I mainly did maintenance work today. I updated the UML Diagram and pushed it onto the github. In addition, I worked on the beginnings of the Crossword class, by making get methods, check methods, and a constructor. In addition, I also did the Word class in which I can input coordinates it is in on the crossword grid.<br/>
 :goat: I worked and committed on my branch workonsoup, corrected the error that wasn't showing the last letter of a word in the soup, made the display evenly spaced from the center and other letters, and implemented shuffling as a field in the Soup class. I didn't test it for true yet (but will in a later stage). Lastly, I added comments to a few methods we wrote.
+### 5/23/19
+:shoe: I started on figuring out how to display the crossword class, which requires some for loops. I was only able to finish desplaying the special word in the crossword and only started figuring out how to do the rest. I didn't do anything else because I have an AP tomorrow.<br/>
