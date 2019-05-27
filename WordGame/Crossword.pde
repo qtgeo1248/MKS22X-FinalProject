@@ -56,6 +56,9 @@ class Crossword implements Displayable {
       c++;
       idx++;
     }
+    if (!doesCross) {
+      return false;
+    }
     return true;
   }
   
@@ -76,6 +79,9 @@ class Crossword implements Displayable {
       }
       r++;
       idx++;
+    }
+    if (!doesCross) {
+      return false;
     }
     return true;
   }
