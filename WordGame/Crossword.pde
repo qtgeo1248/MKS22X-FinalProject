@@ -42,12 +42,24 @@ class Crossword implements Displayable {
     if (col + word.length() > crossAns[0].length) {
       return false;
     }
+    int c = col;
+    int idx = 0;
+    while (idx < word.length()) {
+      c++;
+      idx++;
+    }
     return true;
   }
   
   boolean addWordVer(String word, int row, int col) {
     if (row + word.length() > crossAns.length) {
       return false;
+    }
+    int r = row;
+    int idx = 0;
+    while (idx < word.length()) {
+      r++;
+      idx++;
     }
     return true;
   }
