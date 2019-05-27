@@ -109,7 +109,7 @@ class Soup implements Displayable {
     return -1 ;
   }
   // INTERACTIVE ASPECT hopefully
-  void mouseClicked() {
+  void mouse() {
     int xpos = contains(positions[0], mouseX) ;
     int ypos = contains(positions[1], mouseY) ;
     // these should both result in the same value!
