@@ -144,6 +144,7 @@ class Soup implements Displayable {
         fill(255,255,0) ;
         ellipse(xxx,yyy,40,40) ;
       }
+      fill(0,0,0) ; //makes the text black again
       text(l,xxx, yyy) ;
     }
   }
