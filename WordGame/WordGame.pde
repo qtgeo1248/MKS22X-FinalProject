@@ -31,3 +31,9 @@ void draw() {
   println("Y-coordinate: " + mouseY) ;
   println("Mouse over letter?: " + (a.contains(a.positions[0],mouseX) != -1 && a.contains(a.positions[1], mouseY) != -1)) ;
 }
+
+void mousePressed() {
+  int lee = 1 ;
+  Soup a = new Soup("PHLOEM",false,lee, false) ;
+  a.mouseClicked() ;
+}
