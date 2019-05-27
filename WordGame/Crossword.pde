@@ -49,6 +49,8 @@ class Crossword implements Displayable {
       if (crossAns[row][c] != '_') {
         if (crossAns[row][c] == word.charAt(idx)) {
           doesCross = true;
+        } else {
+          return false;
         }
       }
       c++;
@@ -68,6 +70,8 @@ class Crossword implements Displayable {
       if (crossAns[r][col] != '_') {
         if (crossAns[r][col] == word.charAt(idx)) {
           doesCross = true;
+        } else {
+          return false;
         }
       }
       r++;
