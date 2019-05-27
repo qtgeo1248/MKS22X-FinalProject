@@ -27,6 +27,14 @@ class Crossword implements Displayable {
     }
   }
   
+  boolean addWordHor(String word) {
+    
+  }
+  
+  boolean addWordVer(String word) {
+    
+  }
+  
   boolean isDone() { //checks if we're done with the level
     return unfoundedWords.size() == 0;
   }
