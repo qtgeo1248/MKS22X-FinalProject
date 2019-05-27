@@ -95,6 +95,14 @@ class Level {
     return word;
   }
   
+  ArrayList<String> reverse(ArrayList<String> old) {
+    ArrayList<String> ans = new ArrayList<String>();
+    for (int i = old.size() - 1; i >= 0; i--) {
+      ans.add(old.get(i));
+    }
+    return ans;
+  }
+  
   ArrayList<String> getAllPossWords() {
     return allPossWords;
   }
