@@ -39,10 +39,16 @@ class Crossword implements Displayable {
   }
   
   boolean addWordHor(String word, int row, int col) {
+    if (col + word.length() > crossAns[0].length) {
+      return false;
+    }
     return true;
   }
   
   boolean addWordVer(String word, int row, int col) {
+    if (row + word.length() > crossAns.length) {
+      return false;
+    }
     return true;
   }
   
