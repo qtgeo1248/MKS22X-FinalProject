@@ -38,5 +38,7 @@ A Mouse
 ### 5/24/19
 :goat: I merged my work on the branch workonsoup to master and implemented the use of the new level class in soup. I started working on the mouse choosing letters. I continued working on the interactivity of the mouse and created a new array that will keep track of which letters are chosen. I wrote 2 helper methods that determine whether the mouse is on the letter and another one that will be implemented later to create a String of the word based on whether the letters were chosen. <br>
 :shoe: I got sick taking the AP exam, so my brain couldn't concentrate har enough to do work today. I promise I'll make it up someday.
-### 5/26/19
+### 5/25/19
 :shoe: I finished the display method for crossword that displays the current condition of the crossword, by displaying the special word, squares of the crossword, and the characters in the crossword.<br/>
+### 5/26/19
+:shoe: I finished the addWord method for the crossword such that it will add the word and return true, but return false only when it doesn't fit onto the board, crosses with a word incorrectly, or doesn't cross with the crossword at all. I will attempt the addallwords method tomorrow.
