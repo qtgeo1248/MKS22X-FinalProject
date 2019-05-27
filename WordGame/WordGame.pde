@@ -27,5 +27,7 @@ void draw() {
   a.display() ;
   lee++ ;
   a.mouseClicked() ;
-  
+  println("X-coordinate: " + mouseX) ;
+  println("Y-coordinate: " + mouseY) ;
+  println("Mouse over letter?: " + (a.contains(a.positions[0],mouseX) != -1 && a.contains(a.positions[1], mouseY) != -1)) ;
 }
