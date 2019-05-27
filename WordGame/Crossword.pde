@@ -44,7 +44,13 @@ class Crossword implements Displayable {
     }
     int c = col;
     int idx = 0;
+    boolean doesCross = false;
     while (idx < word.length()) {
+      if (crossAns[row][c] != '_') {
+        if (crossAns[row][c] == word.charAt(idx)) {
+          doesCross = true;
+        }
+      }
       c++;
       idx++;
     }
@@ -57,7 +63,13 @@ class Crossword implements Displayable {
     }
     int r = row;
     int idx = 0;
+    boolean doesCross = false;
     while (idx < word.length()) {
+      if (crossAns[r][col] != '_') {
+        if (crossAns[r][col] == word.charAt(idx)) {
+          doesCross = true;
+        }
+      }
       r++;
       idx++;
     }
