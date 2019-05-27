@@ -103,7 +103,7 @@ class Soup implements Displayable {
   int contains(float[] a, float val) {
     int i = 0 ;
     for (float v : a) {
-      if (val >= v - 10 && val <= v + 10) return i ;
+      if (val >= v - 34 && val <= v + 34) return i ;
       i++ ;
     }
     return -1 ;
