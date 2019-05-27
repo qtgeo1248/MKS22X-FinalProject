@@ -30,6 +30,9 @@ void draw() {
 }
 
 void mousePressed() {
-  fill(255,255,15) ;
-  ellipse(mouseX,mouseY,10,10) ;
+  if (a.contains(a.positions[0], mouseX) != -1 && a.contains(a.positions[1], mouseY) != -1) {
+    // this means that the mouse is on a letter or within a reasonable range of a letter
+    fill(255,255,15) ;
+    ellipse(mouseX,mouseY,50,50) ;
+  }
 }
