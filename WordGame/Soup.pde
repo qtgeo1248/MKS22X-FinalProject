@@ -114,25 +114,18 @@ class Soup implements Displayable {
     int ypos = contains(positions[1], mouseY) ;
     // these should both result in the same value!
     //println("Are the x and y-values equal? " + (xpos == ypos)) ;
-    if (xpos != -1 && ypos != -1) {
+    if (xpos != -1 && ypos != -1 && mousePressed) {
       // this means that the mouse is on a letter
-      lockedOn = true ;
-      if (mousePressed) {
-        // the user has selected this letter to possibly make a word
-        if (chosen[xpos]) {
-          // this means that the user is UNSELECTING the letter because it was previously chosen!
-          chosen[xpos] = false ;
-        }
-        else {
-          // this letter was not chosen/selected so we need to change that!
-         chosen[xpos] = true ; // this helps us identify and keep track of the chosen letter
-        }
+      // the user has selected this letter to possibly make a word
+      if (chosen[xpos]) {
+        // this means that the user is UNSELECTING the letter because it was previously chosen!
+        chosen[xpos] = false ;
+      }
+      else {
+        // this letter was not chosen/selected so we need to change that!
+        chosen[xpos] = true ; // this helps us identify and keep track of the chosen letter
       }
     }
-    else {
-      // this means that the mouse is not over a letter so nothing will happen
-    }
-    /// NOT DONE YET!!
   }
   // visual aspect of soup - draws soup bowl, shows letters, and allows user to click on letters
   void display() {
