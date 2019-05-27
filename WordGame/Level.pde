@@ -1,6 +1,6 @@
 class Level {
   String word;
-  NoDupAR<String> allPossWords;
+  ArrayList<String> allPossWords;
 
   Level(String newWord) {
     // constructor
@@ -9,6 +9,7 @@ class Level {
     allCombos();
     ArrayList<String> dict = findAllDictWords(10);
     findValidWords(dict);
+    allPossWords = reverse(allPossWords);
   }
 
   ArrayList<String> findAllDictWords(int len) {
@@ -95,15 +96,17 @@ class Level {
     return word;
   }
   
+  ArrayList<String> reverse(ArrayList<String> old) {
+    ArrayList<String> ans = new ArrayList<String>();
+    for (int i = old.size() - 1; i >= 0; i--) {
+      ans.add(old.get(i));
+    }
+    ans.remove(word);
+    ans.add(0, word);
+    return ans;
+  }
+  
   ArrayList<String> getAllPossWords() {
     return allPossWords;
-  }
-  
-  void draw() {
-    
-  }
-  
-  void drawCircular() {
-    
   }
 }
