@@ -6,6 +6,7 @@ void setup() {
   Soup a = new Soup("PHLOEM",false,lee, false) ;
   a.display() ;
   lee++ ;
+  a.mouseClicked() ;
   Crossword test = new Crossword(new ArrayList<String>(), true);
   test.display();
 }
@@ -20,4 +21,11 @@ void draw() {
   for (int i = 0; i < test.getAllPossWords().size(); i++) {
     text(test.getAllPossWords().get(i), 10, 50 + 20 * i);
   }
+  int lee = 1 ;
+  // soup bowl design added here
+  Soup a = new Soup("PHLOEM",false,lee, false) ;
+  a.display() ;
+  lee++ ;
+  a.mouseClicked() ;
+  
 }
