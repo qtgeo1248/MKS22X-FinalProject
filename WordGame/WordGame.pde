@@ -42,7 +42,7 @@ void mousePressed() {
         // this letter was not chosen/selected so we need to change that!
         a.chosen[xpos] = true ; // this helps us identify and keep track of the chosen letter
       }
-    fill(255,255,15) ;
-    ellipse(mouseX,mouseY,50,50) ;
+    //fill(255,255,15) ;
+    //ellipse(mouseX,mouseY,50,50) ;
   }
 }
