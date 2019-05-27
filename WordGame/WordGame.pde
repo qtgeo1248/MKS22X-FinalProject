@@ -1,8 +1,10 @@
+Soup a ;
+
 void setup() {
   size(400, 800) ;
   background(255) ;
   // soup bowl design added here
-  Soup a = new Soup("PHLOEM",false, 1, false) ;
+  a = new Soup("PHLOEM",false, 1, false) ;
   a.display() ;
   Crossword test = new Crossword(new ArrayList<String>(), true);
   test.display();
@@ -20,7 +22,7 @@ void draw() {
   }
   int lee = 1 ;
   // soup bowl design added here
-  Soup a = new Soup("PHLOEM",false,lee, false) ;
+  //Soup a = new Soup("PHLOEM",false,lee, false) ;
   a.display() ;
   lee++ ;
   println("X-coordinate: " + mouseX) ;
@@ -30,6 +32,6 @@ void draw() {
 }
 
 void mousePressed() {
-  Soup a = new Soup("PHLOEM",false,1, false) ;
-  a.mouse() ;
+  fill(255,255,15) ;
+  ellipse(mouseX,mouseY,10,10) ;
 }
