@@ -30,8 +30,18 @@ void draw() {
 }
 
 void mousePressed() {
-  if (a.contains(a.positions[0], mouseX) != -1 && a.contains(a.positions[1], mouseY) != -1) {
+  int xpos = a.contains(a.positions[0], mouseX) ;
+  int ypos = a.contains(a.positions[1], mouseY) ;
+  if (xpos != -1 && ypos != -1) {
     // this means that the mouse is on a letter or within a reasonable range of a letter
+    if (a.chosen[xpos]) {
+        // this means that the user is UNSELECTING the letter because it was previously chosen!
+        a.chosen[xpos] = false ;
+      }
+      else {
+        // this letter was not chosen/selected so we need to change that!
+        a.chosen[xpos] = true ; // this helps us identify and keep track of the chosen letter
+      }
     fill(255,255,15) ;
     ellipse(mouseX,mouseY,50,50) ;
   }
