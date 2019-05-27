@@ -128,7 +128,7 @@ class Soup implements Displayable {
       }
     }
     else {
-      // this means that the mouse is not over a letter
+      // this means that the mouse is not over a letter so nothing will happen
     }
     /// NOT DONE YET!!
   }
@@ -142,7 +142,14 @@ class Soup implements Displayable {
     textSize(40) ;
     for (int i = 0 ; i < letters.size() ; i++) {
       String l = letters.get(i) ;
-      text(l,positions[0][i], positions[1][i]) ;
+      float xxx = positions[0][i] ;
+      float yyy = positions[1][i] ;
+      if (chosen[i]) {
+        // the letter is selected so we need to make it look like that by adding a circle to highlight it
+        fill(255,255,0) ;
+        ellipse(xxx,yyy,40,40) ;
+      }
+      text(l,xxx, yyy) ;
     }
   }
 }
