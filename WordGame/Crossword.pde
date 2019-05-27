@@ -38,7 +38,7 @@ class Crossword implements Displayable {
     return ans;
   }
   
-  boolean addWordHor(String word, int row, int col) {
+  boolean addWordHor(String word, int row, int col, boolean isFirst) {
     if (col + word.length() > crossAns[0].length) {
       return false;
     }
@@ -56,7 +56,7 @@ class Crossword implements Displayable {
       c++;
       idx++;
     }
-    if (!doesCross) {
+    if (!doesCross && !isFirst) {
       return false;
     }
     c = col;
@@ -69,7 +69,7 @@ class Crossword implements Displayable {
     return true;
   }
   
-  boolean addWordVer(String word, int row, int col) {
+  boolean addWordVer(String word, int row, int col, boolean isFirst) {
     if (row + word.length() > crossAns.length) {
       return false;
     }
@@ -87,7 +87,7 @@ class Crossword implements Displayable {
       r++;
       idx++;
     }
-    if (!doesCross) {
+    if (!doesCross && !isFirst) {
       return false;
     }
     r = row;
