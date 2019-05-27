@@ -11,6 +11,11 @@ void setup() {
 }
  
 void draw() {
+  /*Level test = new Level("speak");
+  ArrayList<String> tester = test.getAllPossWords();
+  for (int i = 0; i < tester.size(); i++) {
+    text(tester.get(i), 0, 15 * i + 20);
+  } */
   Level test = new Level("speak") ;
   for (int i = 0; i < test.getAllPossWords().size(); i++) {
     text(test.getAllPossWords().get(i), 10, 50 + 20 * i);

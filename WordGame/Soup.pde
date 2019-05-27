@@ -7,18 +7,27 @@ class Soup implements Displayable {
   int lev ;
   boolean isSpecial ;
   String word ;
+  Level ll ;
   ArrayList<String> letters ;
+  boolean[] chosen ;
   float[][] positions ;
-  boolean shuffOrNot ;
   // top row will represent x-coordinates of letters
   // bottom row will represent y-coordinates of letters
+  boolean shuffOrNot ;
+  boolean lockedOn, mouseOverLetter ;
 
   Soup(String w, boolean specOrNot, int le, boolean toShuffleOrNotToShuffle) {
     // constructor
     lev = le ;
+    lockedOn = false ;
+    chosen = new boolean[10] ;
+    for (int i = 0 ; i < 10 ; i++) {
+      chosen[i] = false ;
+      // in the beginning, none of the letters are chosen
+    }
     shuffOrNot = toShuffleOrNotToShuffle ;
     isSpecial = specOrNot ;
-    Level b = new Level(w) ;
+    ll = new Level(w) ;
     letters = new ArrayList<String>() ;
     for (int i = 0; i < w.length() ; i++) {
       letters.add(w.charAt(i) + "") ;
@@ -72,6 +81,58 @@ class Soup implements Displayable {
       }
     }
   }
+  
+  // This method will be used later but it goes through the array chosen (which has booleans)
+  // and if the boolean is true, it means that the user has chosen that letter and we can add it to the String res
+  // Otherwise if the user had not chosen or clicked on it, that would make the boolean in chosen be false and we wouldn't add it to res
+  String makeWordFromChosenLetters() {
+    String res = "" ;
+    int i = 0 ;
+    for (boolean b : chosen) {
+      if (b) {
+        // the letter was chosen so we need to add it to the String to make a word
+        res += letters.get(i) ;
+      }
+      i++ ;
+    }
+    return res ;
+  }
+  
+  // checks whether the array has the float val and returns the index that it is in the array.
+  // This will be related to the position in the ArrayList letters
+  int contains(float[] a, float val) {
+    int i = 0 ;
+    for (float v : a) {
+      if (v == val) return i ;
+      i++ ;
+    }
+    return -1 ;
+  }
+  // INTERACTIVE ASPECT hopefully
+  void mouseClicked() {
+    int xpos = contains(positions[0], mouseX) ;
+    int ypos = contains(positions[1], mouseY) ;
+    if (xpos != -1 && ypos != -1) {
+      // this means that the mouse is on a letter
+      lockedOn = true ;
+      if (mousePressed) {
+        // the user has selected this letter to possibly make a word
+        if (chosen[xpos]) {
+          // this means that the user is UNSELECTING the letter because it was previously chosen!
+          chosen[xpos] = false ;
+        }
+        else {
+          // this letter was not chosen/selected so we need to change that!
+         chosen[xpos] = true ; // this helps us identify and keep track of the chosen letter
+        }
+      }
+    }
+    else {
+      // this means that the mouse is not over a letter
+    }
+    /// NOT DONE YET!!
+  }
+  // visual aspect of soup - draws soup bowl, shows letters, and allows user to click on letters
   void display() {
     // drawing the soup bowl
     fill(255, 125, 0) ;
