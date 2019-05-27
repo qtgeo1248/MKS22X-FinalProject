@@ -41,3 +41,5 @@ A Mouse
 ### 5/26/19
 :shoe: I finished the display method for crossword that displays the current condition of the crossword, by displaying the special word, squares of the crossword, and the characters in the crossword.<br/>
 :goat: I made a new branch to work on and test the mouse interactivity. I have the mouse coordinates compared to where the letters are but it is not currently updating so I added print statements. I should switch to a larger radius so that if the user hits a few values off the correct x or y-coordinate, it will still be counted as hitting that letter.
+### 5/27/19
+:goat: I moved the mouse method from the Soup class to WordGame and it is partially working. Some of the letters change color correctly when they are clicked on but others if you click on them, change the color of a different letter (minor bug needs to be resolved).
