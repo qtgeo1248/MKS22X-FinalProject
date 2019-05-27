@@ -112,6 +112,8 @@ class Soup implements Displayable {
   void mouseClicked() {
     int xpos = contains(positions[0], mouseX) ;
     int ypos = contains(positions[1], mouseY) ;
+    // these should both result in the same value!
+    //println("Are the x and y-values equal? " + (xpos == ypos)) ;
     if (xpos != -1 && ypos != -1) {
       // this means that the mouse is on a letter
       lockedOn = true ;
