@@ -30,7 +30,10 @@ class Crossword implements Displayable {
   String toString() {
     String ans = "";
     for (int i = 0; i < crossAns.length; i++) {
-      ans += Arrays.toString(crossAns[i]) + "\n";
+      for (int j = 0; j < crossAns[i].length; j++) {
+        ans += crossAns[i][j] + " ";
+      }
+      ans += "\n";
     }
     return ans;
   }

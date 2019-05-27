@@ -7,12 +7,9 @@ void setup() {
   a.display() ;
   lee++ ;
   Crossword test = new Crossword(new ArrayList<String>(), true);
-  test.display();
+  textSize(15);
+  text(test.toString(), 10, 10);
 }
  
 void draw() {
-  Level test = new Level("speak") ;
-  for (int i = 0; i < test.getAllPossWords().size(); i++) {
-    text(test.getAllPossWords().get(i), 10, 50 + 20 * i);
-  }
 }
