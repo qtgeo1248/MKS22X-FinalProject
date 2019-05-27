@@ -59,6 +59,13 @@ class Crossword implements Displayable {
     if (!doesCross) {
       return false;
     }
+    c = col;
+    idx = 0;
+    while (idx < word.length()) {
+      crossAns[row][c] = word.charAt(idx);
+      c++;
+      idx++;
+    }
     return true;
   }
   
@@ -82,6 +89,13 @@ class Crossword implements Displayable {
     }
     if (!doesCross) {
       return false;
+    }
+    r = row;
+    idx = 0;
+    while (idx < word.length()) {
+      crossAns[r][col] = word.charAt(idx);
+      r++;
+      idx++;
     }
     return true;
   }
