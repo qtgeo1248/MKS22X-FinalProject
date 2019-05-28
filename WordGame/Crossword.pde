@@ -113,6 +113,11 @@ class Crossword implements Displayable {
     }
   }
   
+  int[] intersections(String og, String compared) {
+    int[] ans = new int[3]; //returns the place of intersection, and it's x and y cor
+    return ans;
+  }
+  
   boolean isDone() { //checks if we're done with the level
     return unfoundedWords.size() == 0;
   }
