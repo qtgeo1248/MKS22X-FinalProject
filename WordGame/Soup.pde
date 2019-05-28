@@ -14,12 +14,15 @@ class Soup implements Displayable {
   // top row will represent x-coordinates of letters
   // bottom row will represent y-coordinates of letters
   boolean lockedOn, mouseOverLetter ;
+  PImage imageForShuffle ;
 
   Soup(String w, boolean specOrNot, int le) {
     // constructor
     lev = le ;
     lockedOn = false ;
     chosen = new boolean[10] ;
+    imageForShuffle = loadImage("HowWeMadeTheWords/shuf.png") ;
+    imageForShuffle.resize(50,50) ;
     for (int i = 0 ; i < 10 ; i++) {
       chosen[i] = false ;
       // in the beginning, none of the letters are chosen
@@ -126,8 +129,9 @@ class Soup implements Displayable {
     fill(255, 125, 0) ;
     ellipse(200, 600, 300, 300) ;
     // adding shuffle button
-    fill(255,255,15) ;
-    ellipse(325,525,50,250) ;
+    fill(140,0,1) ;
+    ellipse(50,450,50,50) ;
+    image(imageForShuffle, 27, 425) ;
     // adding the letters
     fill(0,0,0) ;
     textSize(40) ;
