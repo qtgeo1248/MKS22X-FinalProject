@@ -113,7 +113,7 @@ class Crossword implements Displayable {
     }
   }
   
-  int[] intersections(String og, String compared) {
+  int[] intersections(String og, Word compared) {
     int[] ans = new int[3]; //returns the place of intersection, and it's x and y cor
     return ans;
   }

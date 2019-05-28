@@ -1,11 +1,13 @@
 class Word {
   int xcor, ycor;
   String word;
+  boolean isHor;
   
-  Word(String str, int x, int y) { //represents where a certain word is in a grid of a crossword
+  Word(String str, int x, int y, boolean horizontalness) { //represents where a certain word is in a grid of a crossword
     xcor = x;                      //which provides easy access to usedWords
     ycor = y;
     word = str;
+    isHor = horizontalness;
   }
   
   void setX(int x) {
