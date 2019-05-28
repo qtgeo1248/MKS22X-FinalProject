@@ -23,6 +23,12 @@ class Word {
   int getY() {
     return ycor;
   }
+  boolean getIsHor() {
+    return isHor;
+  }
+  String getWord() {
+    return word;
+  }
   
   boolean equals(String otherWord) {
     return word.equals(otherWord);
