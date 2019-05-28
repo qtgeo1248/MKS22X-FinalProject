@@ -13,10 +13,9 @@ class Soup implements Displayable {
   float[][] positions ;
   // top row will represent x-coordinates of letters
   // bottom row will represent y-coordinates of letters
-  boolean shuffOrNot ;
   boolean lockedOn, mouseOverLetter ;
 
-  Soup(String w, boolean specOrNot, int le, boolean toShuffleOrNotToShuffle) {
+  Soup(String w, boolean specOrNot, int le) {
     // constructor
     lev = le ;
     lockedOn = false ;
@@ -25,7 +24,6 @@ class Soup implements Displayable {
       chosen[i] = false ;
       // in the beginning, none of the letters are chosen
     }
-    shuffOrNot = toShuffleOrNotToShuffle ;
     isSpecial = specOrNot ;
     ll = new Level(w) ;
     letters = new ArrayList<String>() ;
@@ -36,7 +34,6 @@ class Soup implements Displayable {
     // this 2D array will keep track of the coordinates of each letter --> the coordinates will be helpful for shuffle method
     positions = new float[2][10] ;
     ////// if we are not shuffling!!
-    if (!shuffOrNot) {
       int i = 0 ; // this will be keeping track of the letter? NOT SURE ABOUT IT YET
       for (int r = 0; r < 2; r++) {
         for (int c = 0; c < 10; c++) {
@@ -53,10 +50,6 @@ class Soup implements Displayable {
           }
         }
       }
-    }
-    else {
-      shuffle() ;
-    }
   }
   boolean isSpecial() {
     return isSpecial ;
