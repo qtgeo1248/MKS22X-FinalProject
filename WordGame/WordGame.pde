@@ -20,6 +20,7 @@ void draw() {
   println("X-coordinate: " + mouseX) ;
   println("Y-coordinate: " + mouseY) ;
   println("Mouse over letter?: " + (a.contains(a.positions[0], mouseX) != -1 && a.contains(a.positions[1], mouseY) != -1)) ;
+  println("Mouse over Shuffle button?: " + overShuff()) ;
   println("Mouse down?: " + mousePressed) ;
   // Crossword displaying
   test.display() ;
@@ -27,6 +28,11 @@ void draw() {
   for (int i = 0; i < test.getAllPossWords().size(); i++) {
     text(test.getAllPossWords().get(i), 10, 50 + 20 * i);
   }
+}
+
+boolean overShuff() {
+  // returns whether the mouse is over the shuffle button
+  return mouseX >= 300 && mouseX <= 350 && mouseY >= 400 && mouseY <= 650 ;
 }
 
 void mousePressed() {
