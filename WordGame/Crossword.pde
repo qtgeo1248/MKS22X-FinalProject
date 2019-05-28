@@ -100,6 +100,19 @@ class Crossword implements Displayable {
     return true;
   }
   
+  void addAllWords() {
+    int size = allPossWords.size();
+    for (int bigTrial = 0; bigTrial < size; bigTrial++) {
+      int center = allPossWords.get(0).length();
+      Word first = new Word(allPossWords.get(0), 10 - center, 10);
+      addWordHor(allPossWords.get(0), 10 - center, 10, true);
+      usedWords.add(first);
+      for (int wordIdx = 1; wordIdx < allPossWords.size(); wordIdx++) {
+        
+      }
+    }
+  }
+  
   boolean isDone() { //checks if we're done with the level
     return unfoundedWords.size() == 0;
   }
