@@ -125,6 +125,9 @@ class Soup implements Displayable {
     // drawing the soup bowl
     fill(255, 125, 0) ;
     ellipse(200, 600, 300, 300) ;
+    // adding shuffle button
+    fill(255,255,15) ;
+    ellipse(325,525,50,250) ;
     // adding the letters
     fill(0,0,0) ;
     textSize(40) ;
