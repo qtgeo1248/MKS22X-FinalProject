@@ -5,7 +5,7 @@ void setup() {
   size(400, 800) ;
   background(255) ;
   // soup bowl design added here
-  a = new Soup("PHLOEM", false, 1, false) ;
+  a = new Soup("PHLOEM", false, 1) ;
   test = new Crossword(new ArrayList<String>(), true);
 }
 
