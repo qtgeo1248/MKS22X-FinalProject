@@ -5,21 +5,21 @@ void setup() {
   size(400, 800) ;
   background(255) ;
   // soup bowl design added here
-  a = new Soup("PHLOEM",false, 1, false) ;
+  a = new Soup("PHLOEM", false, 1, false) ;
   test = new Crossword(new ArrayList<String>(), true);
 }
- 
+
 void draw() {
   /*Level test = new Level("speak");
-  ArrayList<String> tester = test.getAllPossWords();
-  for (int i = 0; i < tester.size(); i++) {
-    text(tester.get(i), 0, 15 * i + 20);
-  } */
+   ArrayList<String> tester = test.getAllPossWords();
+   for (int i = 0; i < tester.size(); i++) {
+   text(tester.get(i), 0, 15 * i + 20);
+   } */
   // Soup displaying
   a.display() ;
   println("X-coordinate: " + mouseX) ;
   println("Y-coordinate: " + mouseY) ;
-  println("Mouse over letter?: " + (a.contains(a.positions[0],mouseX) != -1 && a.contains(a.positions[1], mouseY) != -1)) ;
+  println("Mouse over letter?: " + (a.contains(a.positions[0], mouseX) != -1 && a.contains(a.positions[1], mouseY) != -1)) ;
   println("Mouse down?: " + mousePressed) ;
   // Crossword displaying
   test.display() ;
@@ -30,19 +30,23 @@ void draw() {
 }
 
 void mousePressed() {
-  int xpos = a.contains(a.positions[0], mouseX) ;
-  int ypos = a.contains(a.positions[1], mouseY) ;
-  if (xpos != -1 && ypos != -1) {
-    // this means that the mouse is on a letter or within a reasonable range of a letter
-    if (a.chosen[xpos]) {
+  if (mouseX <= 350 && mouseX >= 300 && mouseY >= 400 && mouseY <= 650) {
+    a.shuffle() ;
+  } 
+  else {
+    int xpos = a.contains(a.positions[0], mouseX) ;
+    int ypos = a.contains(a.positions[1], mouseY) ;
+    if (xpos != -1 && ypos != -1) {
+      // this means that the mouse is on a letter or within a reasonable range of a letter
+      if (a.chosen[xpos]) {
         // this means that the user is UNSELECTING the letter because it was previously chosen!
         a.chosen[xpos] = false ;
-      }
-      else {
+      } else {
         // this letter was not chosen/selected so we need to change that!
         a.chosen[xpos] = true ; // this helps us identify and keep track of the chosen letter
       }
-    //fill(255,255,15) ;
-    //ellipse(mouseX,mouseY,50,50) ;
+      //fill(255,255,15) ;
+      //ellipse(mouseX,mouseY,50,50) ;
+    }
   }
 }
