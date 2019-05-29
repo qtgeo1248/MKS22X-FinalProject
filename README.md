@@ -7,6 +7,7 @@ Processing
 A Mouse
 ```
 ## Instructions:
+![Bowl of Soup](https://media0.giphy.com/media/5xtDarBbqdSQxfGFdNS/giphy.gif?cid=790b76115cee9e746c34542e6fed6d1e&rid=giphy.gif)
 ## DevLogs:
 <p>:shoe: - George's doing<br/>
 :goat: - Victoria's doing<br/>
