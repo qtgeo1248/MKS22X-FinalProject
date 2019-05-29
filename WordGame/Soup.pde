@@ -57,14 +57,14 @@ class Soup implements Displayable {
   boolean isSpecial() {
     return isSpecial ;
   }
-  void shuffle() {
+  void shuffle(int ll) {
+    int unit = 360 / ll ;
     // mix around the letters
     Collections.shuffle(letters) ; // imports are for this
     // mix around the letters
     for (int r = 0; r < 2; r++) {
       for (int c = 0; c < 10; c++) {
         float pos ;
-        int unit = 360 / word.length() ;
         if (r == 0) {
           // we are adding x-coordinates to positions
           pos = cos(radians(unit * c)) ;
