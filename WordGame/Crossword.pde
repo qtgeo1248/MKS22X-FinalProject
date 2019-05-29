@@ -114,7 +114,7 @@ class Crossword implements Displayable {
   }
   
   ArrayList<int[]> intersections(String og, Word compared) {
-    ArrayList<int[]> ans = new ArrayList<int[]>(); //returns the place of intersection, and it's x and y cor
+    ArrayList<int[]> ans = new ArrayList<int[]>(); //returns the place of intersection, and the y and x cor of the place where og should start at
     String comparedS = compared.getWord();
     for (int i = 0; i < og.length(); i++) {
       char current = og.charAt(i);
@@ -123,11 +123,11 @@ class Crossword implements Displayable {
           int[] toAdd = new int[3];
           toAdd[0] = i;
           if (compared.isHor()) {
-            toAdd[1] = compared.getX() + j;
-            toAdd[2] = compared.getY() - i;
+            toAdd[2] = compared.getX() + j;
+            toAdd[1] = compared.getY() - i;
           } else {
-            toAdd[1] = compared.getX() - i;
-            toAdd[2] = compared.getY() + j;
+            toAdd[2] = compared.getX() - i;
+            toAdd[1] = compared.getY() + j;
           }
           ans.add(toAdd);
         }

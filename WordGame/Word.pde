@@ -3,9 +3,9 @@ class Word {
   String word;
   boolean isHor;
   
-  Word(String str, int x, int y, boolean horizontalness) { //represents where a certain word is in a grid of a crossword
-    xcor = x;                      //which provides easy access to usedWords
-    ycor = y;
+  Word(String str, int y, int x, boolean horizontalness) { //represents where a certain word is in a grid of a crossword
+    ycor = y;                      //which provides easy access to usedWords
+    xcor = x;
     word = str;
     isHor = horizontalness;
   }
