@@ -1,4 +1,5 @@
 class Crossword implements Displayable {
+  Random gen;
   ArrayList<String> allPossWords;
   ArrayList<Word> usedWords;
   ArrayList<Word> unfoundedWords;
@@ -14,6 +15,7 @@ class Crossword implements Displayable {
     foundedWords = new ArrayList<Word>();
     crossAns = new char[19][19];
     currentCross = new char[19][19];
+    gen = new Random();
     if (!isSpecial) {
       specialWord = "";
     } else { //TEMP
@@ -108,26 +110,32 @@ class Crossword implements Displayable {
       addWordHor(allPossWords.get(0), 10 - center, 10, true);
       usedWords.add(first);
       for (int wordIdx = 1; wordIdx < allPossWords.size(); wordIdx++) {
-        
+        String word = allPossWords.get(wordIdx);
+        ArrayList<int[]> places = new ArrayList<int[]>();
+        for (int i = 0; i < usedWords.size(); i++) {
+          places.add(
+        }
       }
     }
   }
   
   ArrayList<int[]> intersections(String og, Word compared) {
-    ArrayList<int[]> ans = new ArrayList<int[]>(); //returns the place of intersection, and the y and x cor of the place where og should start at
-    String comparedS = compared.getWord();
-    for (int i = 0; i < og.length(); i++) {
+    ArrayList<int[]> ans = new ArrayList<int[]>(); //returns distance the place of intersection is from edge of the word,
+    String comparedS = compared.getWord();         //the y and x cor of the place where og should start at,
+    for (int i = 0; i < og.length(); i++) {        //and a 0 or 1 (false or true) signifying if it's hor or ver
       char current = og.charAt(i);
       for (int j = 0; j < comparedS.length(); j++) {
         if (comparedS.charAt(j) == current) {
-          int[] toAdd = new int[3];
+          int[] toAdd = new int[4];
           toAdd[0] = i;
           if (compared.isHor()) {
             toAdd[2] = compared.getX() + j;
             toAdd[1] = compared.getY() - i;
+            toAdd[3] = 0;
           } else {
             toAdd[2] = compared.getX() - i;
             toAdd[1] = compared.getY() + j;
+            toAdd[3] = 1;
           }
           ans.add(toAdd);
         }
