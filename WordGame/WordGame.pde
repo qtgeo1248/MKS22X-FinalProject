@@ -10,6 +10,7 @@ void setup() {
 }
 
 void draw() {
+  background(255) ;
   /*Level test = new Level("speak");
    ArrayList<String> tester = test.getAllPossWords();
    for (int i = 0; i < tester.size(); i++) {
@@ -37,6 +38,8 @@ boolean overShuff() {
 void mousePressed() {
   if (overShuff()) {
     a.shuffle(6) ;
+    // we also need to remove any ellipses
+    
   } 
   else {
     int xpos = a.contains(a.positions[0], mouseX) ;
