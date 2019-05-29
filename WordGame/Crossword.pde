@@ -113,7 +113,7 @@ class Crossword implements Displayable {
         String word = allPossWords.get(wordIdx);
         ArrayList<int[]> places = new ArrayList<int[]>();
         for (int i = 0; i < usedWords.size(); i++) {
-          places.add(
+          places.addAll(intersections(word, usedWords.get(i)));
         }
       }
     }
@@ -122,7 +122,7 @@ class Crossword implements Displayable {
   ArrayList<int[]> intersections(String og, Word compared) {
     ArrayList<int[]> ans = new ArrayList<int[]>(); //returns distance the place of intersection is from edge of the word,
     String comparedS = compared.getWord();         //the y and x cor of the place where og should start at,
-    for (int i = 0; i < og.length(); i++) {        //and a 0 or 1 (false or true) signifying if it's hor or ver
+    for (int i = 0; i < og.length(); i++) {        //and a 0 or 1 (false or true) signifying if it's hor
       char current = og.charAt(i);
       for (int j = 0; j < comparedS.length(); j++) {
         if (comparedS.charAt(j) == current) {
