@@ -23,7 +23,7 @@ class Word {
   int getY() {
     return ycor;
   }
-  boolean getIsHor() {
+  boolean isHor() {
     return isHor;
   }
   String getWord() {

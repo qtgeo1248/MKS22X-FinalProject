@@ -113,8 +113,26 @@ class Crossword implements Displayable {
     }
   }
   
-  int[] intersections(String og, Word compared) {
-    int[] ans = new int[3]; //returns the place of intersection, and it's x and y cor
+  ArrayList<int[]> intersections(String og, Word compared) {
+    ArrayList<int[]> ans = new ArrayList<int[]>(); //returns the place of intersection, and it's x and y cor
+    String comparedS = compared.getWord();
+    for (int i = 0; i < og.length(); i++) {
+      char current = og.charAt(i);
+      for (int j = 0; j < comparedS.length(); j++) {
+        if (comparedS.charAt(j) == current) {
+          int[] toAdd = new int[3];
+          toAdd[0] = i;
+          if (compared.isHor()) {
+            toAdd[1] = compared.getX() + j;
+            toAdd[2] = compared.getY() - i;
+          } else {
+            toAdd[1] = compared.getX() - i;
+            toAdd[2] = compared.getY() + j;
+          }
+          ans.add(toAdd);
+        }
+      }
+    }
     return ans;
   }
   
