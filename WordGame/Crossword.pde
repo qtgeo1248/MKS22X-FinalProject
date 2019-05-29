@@ -112,10 +112,23 @@ class Crossword implements Displayable {
       for (int wordIdx = 1; wordIdx < allPossWords.size(); wordIdx++) {
         String word = allPossWords.get(wordIdx);
         ArrayList<int[]> places = new ArrayList<int[]>();
+        Collections.shuffle(places);
         for (int i = 0; i < usedWords.size(); i++) {
           places.addAll(intersections(word, usedWords.get(i)));
         }
         InterSorts.insertionSort(places);
+        boolean isPlaced = false;
+        for (int i = 0; i < places.size() && !isPlaced; i++) {
+          int[] location = places.get(i);
+          if (location[3] == 1) {
+            isPlaced = addWordHor(word, location[1], location[2], false);
+          } else {
+            isPlaced = addWordVer(word, location[1], location[2], false);
+          }
+          if (isPlaced) {
+            usedWords.add(new Word(word, location[1], location[2], location[3] == 1));
+          }
+        }
       }
     }
   }
