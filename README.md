@@ -43,3 +43,5 @@ A Mouse
 :goat: I made a new branch to work on and test the mouse interactivity. I have the mouse coordinates compared to where the letters are but it is not currently updating so I added print statements. I should switch to a larger radius so that if the user hits a few values off the correct x or y-coordinate, it will still be counted as hitting that letter.
 ### 5/27/19
 :goat: I moved the mouse method from the Soup class to WordGame and it is partially working. Some of the letters change color correctly when they are clicked on but others if you click on them, change the color of a different letter (minor bug needs to be resolved).
+### 5/28/19
+:goat: I worked on creating the shuffle button and displaying it along with an image. I also added to the mousePressed method by making sure that if the user clicks on the shuffle circle button, then it is detected. Lastly, the constructor for soup has one less parameter now because I didn't need a boolean for shuffling.
