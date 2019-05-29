@@ -6,28 +6,15 @@ void setup() {
   Soup a = new Soup("PHLOEM",false,lee, false) ;
   a.display() ;
   lee++ ;
-  Crossword test = new Crossword(new ArrayList<String>(), true);
-  test.addWordHor("SAD", 3, 4, true);
-  test.addWordVer("HAPPY", 2, 4, false);
-  test.addWordVer("HAPPY", 2, 5, false);
-  test.addWordHor("YAPPPY", 6, 5, false);
-  textSize(15);
+  Level tester = new Level("SPEAK");
+  ArrayList<String> words = tester.getAllPossWords();
+  textSize(20);
+  for (int i = 0; i < words.size(); i++) {
+    text(words.get(i), 10, 20 + 20 * i);
+  }
+  Crossword test = new Crossword(words, true);
+  test.addAllWords();
   text(test.toString(), 10, 10);
-  ArrayList<int[]> testing = test.intersections("happy", new Word("sad", 3, 4, true));
-  InterSorts.insertionSort(testing);
-  for (int i = 0; i < testing.size(); i++){
-    text(Arrays.toString(testing.get(i)), 10, 300 + i * 20);
-  }
-  testing = test.intersections("sad", new Word("happy", 2, 5, false));
-  InterSorts.insertionSort(testing);
-  for (int i = 0; i < testing.size(); i++){
-    text(Arrays.toString(testing.get(i)), 10, 320 + i * 20);
-  }
-  testing = test.intersections("happy", new Word("yappy", 6, 5, true));
-  InterSorts.insertionSort(testing);
-  for (int i = 0; i < testing.size(); i++){
-    text(Arrays.toString(testing.get(i)), 10, 340 + i * 20);
-  }
 }
  
 void draw() {
