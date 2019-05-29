@@ -115,6 +115,7 @@ class Crossword implements Displayable {
         for (int i = 0; i < usedWords.size(); i++) {
           places.addAll(intersections(word, usedWords.get(i)));
         }
+        InterSorts.insertionSort(places);
       }
     }
   }
@@ -127,7 +128,7 @@ class Crossword implements Displayable {
       for (int j = 0; j < comparedS.length(); j++) {
         if (comparedS.charAt(j) == current) {
           int[] toAdd = new int[4];
-          toAdd[0] = i;
+          toAdd[0] = min(abs(i), abs(og.length() - i));
           if (compared.isHor()) {
             toAdd[2] = compared.getX() + j;
             toAdd[1] = compared.getY() - i;

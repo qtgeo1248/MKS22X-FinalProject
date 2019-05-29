@@ -14,14 +14,17 @@ void setup() {
   textSize(15);
   text(test.toString(), 10, 10);
   ArrayList<int[]> testing = test.intersections("happy", new Word("sad", 3, 4, true));
+  InterSorts.insertionSort(testing);
   for (int i = 0; i < testing.size(); i++){
     text(Arrays.toString(testing.get(i)), 10, 300 + i * 20);
   }
   testing = test.intersections("sad", new Word("happy", 2, 5, false));
+  InterSorts.insertionSort(testing);
   for (int i = 0; i < testing.size(); i++){
     text(Arrays.toString(testing.get(i)), 10, 320 + i * 20);
   }
   testing = test.intersections("happy", new Word("yappy", 6, 5, true));
+  InterSorts.insertionSort(testing);
   for (int i = 0; i < testing.size(); i++){
     text(Arrays.toString(testing.get(i)), 10, 340 + i * 20);
   }
