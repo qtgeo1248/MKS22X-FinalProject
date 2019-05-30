@@ -166,23 +166,24 @@ class Crossword implements Displayable {
     }
   }
   
-  ArrayList<int[]> intersections(String og, Word compared) {
-    ArrayList<int[]> ans = new ArrayList<int[]>(); //returns distance the place of intersection is from edge of the word,
-    String comparedS = compared.getWord();         //the y and x cor of the place where og should start at,
-    for (int i = 0; i < og.length(); i++) {        //a 0 or 1 (false or true) signifying if it's hor,
-      char current = og.charAt(i);                 //and the Word it is intersecting
+  ArrayList<Intersection> intersections(String og, Word compared) {
+    ArrayList<Intersection> ans = new ArrayList<Intersection>(); //returns an instance of the Intersection class
+    String comparedS = compared.getWord();
+    for (int i = 0; i < og.length(); i++) {
+      char current = og.charAt(i);
       for (int j = 0; j < comparedS.length(); j++) {
         if (comparedS.charAt(j) == current) {
-          int[] toAdd = new int[5];
-          toAdd[0] = min(abs(i), abs(og.length() - i));
+          Intersection toAdd = new Intersection();
+          toAdd.setDist(min(abs(i), abs(og.length() - i));
+          toAdd.setOther(compared);
           if (compared.isHor()) {
-            toAdd[2] = compared.getX() + j;
-            toAdd[1] = compared.getY() - i;
-            toAdd[3] = 0;
+            toAdd.setX(compared.getX() + j);
+            toAdd.setY(compared.getY() - i);
+            toAdd.setHor(false);
           } else {
-            toAdd[2] = compared.getX() - i;
-            toAdd[1] = compared.getY() + j;
-            toAdd[3] = 1;
+            toAdd.setX(compared.getX() - i);
+            toAdd.setY(compared.getY() + j);
+            toAdd.setHor(true);
           }
           ans.add(toAdd);
         }
