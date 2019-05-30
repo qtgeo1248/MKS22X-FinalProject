@@ -100,13 +100,15 @@ class Soup implements Displayable {
   // checks whether the array has the float val and returns the index that it is in the array.
   // This will be related to the position in the ArrayList letters
   // it should return an array with 2 ints because 2 letters can have the same x-coordinate but different y-values
-  ArrayList<Integer> contains(float[] a, float val) {
-    ArrayList<Integer> res = new ArrayList<Integer>() ;
+  int[] contains(float[] a, float val) {
+    int[] res = new int[2] ;
+    int place = 0 ;
     int i = 0 ;
     for (float v : a) {
       if (val >= v - 34 && val <= v + 34) {
         // the user can be off by 34 units
-        res.add(i) ; 
+        res[place] = i ; 
+        place++ ;
       }
       i++ ;
     }
@@ -115,12 +117,14 @@ class Soup implements Displayable {
   
   int[] checkForCoordinate() {
     int[] arryOfCoordinatesXY = new int[2] ;
-    for (int a = 0 ; a < contains(positions[0], mouseX).size() ; a++) {
+    int[] xs = contains(positions[0], mouseX) ;
+    int[] ys = contains(positions[1], mouseY) ;
+    for (int a = 0 ; a < xs.length ; a++) {
       // we go through each of the provided x-coordinates and 
       // see if the index matches one of the indexes provided from the y ArrayList
-      for (int b = 0 ; b < contains(positions[1], mouseY).size() ; b++) {
+      for (int b = 0 ; b < ys.length ; b++) {
         // go through each of the y-coordinates provided to see if we have a matching index for the letter
-        if (contains(positions[0], mouseX).get(a) == contains(positions[0], mouseY).get(b)) {
+        if (xs[a] == ys[b]) {
           // this means that we have found the two coordinates that match to the same letter
           arryOfCoordinatesXY[0] = a ;
           arryOfCoordinatesXY[0] = b ;
