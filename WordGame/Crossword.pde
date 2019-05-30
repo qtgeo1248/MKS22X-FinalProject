@@ -61,7 +61,7 @@ class Crossword implements Displayable {
         }
       }
       if (idx == word.length() - 1) {
-        if (c < word.length() - 1 && crossAns[row][c + 1] != '_') {
+        if (c < crossAns[0].length - 1 && crossAns[row][c + 1] != '_') {
           return false;
         }
       }
@@ -102,6 +102,16 @@ class Crossword implements Displayable {
           return false;
         }
       }
+      if (idx == 0) {
+        if (r > 0 && crossAns[r - 1][col] != '_') {
+          return false;
+        }
+      }
+      if (idx == word.length() - 1) {
+        if (r < crossAns[0].length - 1 && crossAns[r + 1][col] != '_') {
+          return false;
+        }
+      }
       if (idx > 0 && idx < word.length() - 1) {
         if ((col < crossAns[0].length - 1 && crossAns[r][col + 1] != '_') ||
             (col > 0 && crossAns[r][col - 1] != '_')) {
@@ -127,9 +137,10 @@ class Crossword implements Displayable {
   void addAllWords() {
     int size = allPossWords.size();
     for (int bigTrial = 0; bigTrial < size; bigTrial++) {
-      int center = allPossWords.get(0).length();
-      Word first = new Word(allPossWords.get(0), 10 - center, 10, true);
-      addWordHor(allPossWords.get(0), 10 - center, 10, true);
+      int center = allPossWords.get(0).length() / 2;
+      println(center);
+      Word first = new Word(allPossWords.get(0), 10, 10 - center, true);
+      addWordHor(allPossWords.get(0), 10, 10 - center, true);
       usedWords.add(first);
       for (int wordIdx = 1; wordIdx < allPossWords.size(); wordIdx++) {
         String word = allPossWords.get(wordIdx);
@@ -158,11 +169,11 @@ class Crossword implements Displayable {
   ArrayList<int[]> intersections(String og, Word compared) {
     ArrayList<int[]> ans = new ArrayList<int[]>(); //returns distance the place of intersection is from edge of the word,
     String comparedS = compared.getWord();         //the y and x cor of the place where og should start at,
-    for (int i = 0; i < og.length(); i++) {        //and a 0 or 1 (false or true) signifying if it's hor
-      char current = og.charAt(i);
+    for (int i = 0; i < og.length(); i++) {        //a 0 or 1 (false or true) signifying if it's hor,
+      char current = og.charAt(i);                 //and the Word it is intersecting
       for (int j = 0; j < comparedS.length(); j++) {
         if (comparedS.charAt(j) == current) {
-          int[] toAdd = new int[4];
+          int[] toAdd = new int[5];
           toAdd[0] = min(abs(i), abs(og.length() - i));
           if (compared.isHor()) {
             toAdd[2] = compared.getX() + j;
