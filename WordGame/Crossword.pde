@@ -144,7 +144,7 @@ class Crossword implements Displayable {
       usedWords.add(first);
       for (int wordIdx = 1; wordIdx < allPossWords.size(); wordIdx++) {
         String word = allPossWords.get(wordIdx);
-        ArrayList<int[]> places = new ArrayList<int[]>();
+        ArrayList<Intersection> places = new ArrayList<Intersection>();
         Collections.shuffle(places);
         for (int i = 0; i < usedWords.size(); i++) {
           places.addAll(intersections(word, usedWords.get(i)));
@@ -152,14 +152,14 @@ class Crossword implements Displayable {
         InterSorts.insertionSort(places);
         boolean isPlaced = false;
         for (int i = 0; i < places.size() && !isPlaced; i++) {
-          int[] location = places.get(i);
-          if (location[3] == 1) {
-            isPlaced = addWordHor(word, location[1], location[2], false);
+          Intersection location = places.get(i);
+          if (location.isHor()) {
+            isPlaced = addWordHor(word, location.getY(), location.getX(), false);
           } else {
-            isPlaced = addWordVer(word, location[1], location[2], false);
+            isPlaced = addWordVer(word, location.getY(), location.getX(), false);
           }
           if (isPlaced) {
-            usedWords.add(new Word(word, location[1], location[2], location[3] == 1));
+            usedWords.add(new Word(word, location.getY(), location.getX(), location.isHor()));
           }
         }
       }
@@ -174,7 +174,7 @@ class Crossword implements Displayable {
       for (int j = 0; j < comparedS.length(); j++) {
         if (comparedS.charAt(j) == current) {
           Intersection toAdd = new Intersection();
-          toAdd.setDist(min(abs(i), abs(og.length() - i));
+          toAdd.setDist(min(abs(i), abs(og.length() - i)));
           toAdd.setOther(compared);
           if (compared.isHor()) {
             toAdd.setX(compared.getX() + j);
