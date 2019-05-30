@@ -40,7 +40,7 @@ class Crossword implements Displayable {
     return ans;
   }
   
-  boolean addWordHor(String word, int row, int col, boolean isFirst) {
+  boolean addWordHor(String word, int row, int col, boolean isFirst, Word intersecting) {
     if (col + word.length() > crossAns[0].length) {
       return false;
     }
@@ -59,10 +59,22 @@ class Crossword implements Displayable {
         if (c > 0 && crossAns[row][c - 1] != '_') {
           return false;
         }
+        if (c != intersecting.getX() && !isFirst) {
+          if ((row > 0 && crossAns[row - 1][c] != '_') ||
+              (row < crossAns.length - 1 && crossAns[row + 1][c] != '_')) {
+            return false;
+          }
+        }
       }
       if (idx == word.length() - 1) {
         if (c < crossAns[0].length - 1 && crossAns[row][c + 1] != '_') {
           return false;
+        }
+        if (c != intersecting.getX() && !isFirst) {
+          if ((row > 0 && crossAns[row - 1][c] != '_') ||
+              (row < crossAns.length - 1 && crossAns[row + 1][c] != '_')) {
+            return false;
+          }
         }
       }
       if (idx > 0 && idx < word.length() - 1) {
@@ -87,7 +99,7 @@ class Crossword implements Displayable {
     return true;
   }
   
-  boolean addWordVer(String word, int row, int col, boolean isFirst) {
+  boolean addWordVer(String word, int row, int col, boolean isFirst, Word other) {
     if (row + word.length() > crossAns.length) {
       return false;
     }
@@ -138,9 +150,8 @@ class Crossword implements Displayable {
     int size = allPossWords.size();
     for (int bigTrial = 0; bigTrial < size; bigTrial++) {
       int center = allPossWords.get(0).length() / 2;
-      println(center);
       Word first = new Word(allPossWords.get(0), 10, 10 - center, true);
-      addWordHor(allPossWords.get(0), 10, 10 - center, true);
+      addWordHor(allPossWords.get(0), 10, 10 - center, true, new Word("", 0, 0, false));
       usedWords.add(first);
       for (int wordIdx = 1; wordIdx < allPossWords.size(); wordIdx++) {
         String word = allPossWords.get(wordIdx);
@@ -154,9 +165,9 @@ class Crossword implements Displayable {
         for (int i = 0; i < places.size() && !isPlaced; i++) {
           Intersection location = places.get(i);
           if (location.isHor()) {
-            isPlaced = addWordHor(word, location.getY(), location.getX(), false);
+            isPlaced = addWordHor(word, location.getY(), location.getX(), false, location.getWord());
           } else {
-            isPlaced = addWordVer(word, location.getY(), location.getX(), false);
+            isPlaced = addWordVer(word, location.getY(), location.getX(), false, location.getWord());
           }
           if (isPlaced) {
             usedWords.add(new Word(word, location.getY(), location.getX(), location.isHor()));
