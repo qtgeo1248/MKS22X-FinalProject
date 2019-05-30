@@ -20,7 +20,7 @@ void draw() {
   a.display() ;
   println("X-coordinate: " + mouseX) ;
   println("Y-coordinate: " + mouseY) ;
-  println("Mouse over letter?: " + (a.contains(a.positions[0], mouseX) != -1 && a.contains(a.positions[1], mouseY) != -1)) ;
+  println("Mouse over letter?: " + (a.checkForCoordinate()[0] != -1 && a.checkForCoordinate()[1] != -1)) ;
   println("Mouse over Shuffle button?: " + overShuff()) ;
   // Crossword displaying
   test.display() ;
