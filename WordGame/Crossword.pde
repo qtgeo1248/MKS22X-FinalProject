@@ -92,6 +92,12 @@ class Crossword implements Displayable {
           return false;
         }
       }
+      if (idx > 0 && idx < word.length() - 1) {
+        if ((col < crossAns[0].length - 1 && crossAns[r][col + 1] != '_') ||
+            (col > 0 && crossAns[r][col - 1] != '_')) {
+          return false;
+        }
+      }
       r++;
       idx++;
     }
