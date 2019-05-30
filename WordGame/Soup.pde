@@ -128,7 +128,7 @@ class Soup implements Displayable {
           // this means that we have found the two coordinates that match to the same letter
           arryOfCoordinatesXY[0] = xxxx ;
           arryOfCoordinatesXY[1] = yyyy ;
-          println("Do we have good values? " + (xxxx == yyyy)) ;
+          //println("Do we have good values? " + (xxxx == yyyy)) ;
           return arryOfCoordinatesXY ; // returning earlier
         }
       }
