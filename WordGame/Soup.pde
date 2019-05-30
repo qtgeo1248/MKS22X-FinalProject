@@ -5,29 +5,29 @@ import java.io.* ;
 class Soup implements Displayable {
   // the bowl is centered at 200, 300 so the letters will have to be within that area
   int lev ;
-  boolean isSpecial ;
+  boolean isSpecial ; // is determined by lev
   String word ;
   Level ll ;
-  ArrayList<String> letters ;
-  boolean[] chosen ;
+  ArrayList<String> letters ; // to help us display the letters one at a time
+  boolean[] chosen ; // will keep track of whether the user chose the letters or not 
   float[][] positions ;
   // top row will represent x-coordinates of letters
   // bottom row will represent y-coordinates of letters
-  boolean lockedOn, mouseOverLetter ;
+  boolean mouseOverLetter ;
   PImage imageForShuffle ;
 
   Soup(String w, boolean specOrNot, int le) {
     // constructor
     lev = le ;
-    lockedOn = false ;
-    chosen = new boolean[10] ;
     imageForShuffle = loadImage("HowWeMadeTheWords/shuf.png") ;
     imageForShuffle.resize(50,50) ;
+    // instantiating chosen array
+    chosen = new boolean[10] ;
     for (int i = 0 ; i < 10 ; i++) {
       chosen[i] = false ;
       // in the beginning, none of the letters are chosen
     }
-    isSpecial = specOrNot ;
+    isSpecial = specOrNot ; // based on parameter
     ll = new Level(w) ;
     letters = new ArrayList<String>() ;
     for (int i = 0; i < w.length() ; i++) {
@@ -36,17 +36,19 @@ class Soup implements Displayable {
     }
     // this 2D array will keep track of the coordinates of each letter --> the coordinates will be helpful for shuffle method
     positions = new float[2][10] ;
-    ////// if we are not shuffling!!
-      int i = 0 ; // this will be keeping track of the letter? NOT SURE ABOUT IT YET
       for (int r = 0; r < 2; r++) {
+        // when r = 0, that means we are adding the x-coordinates
+        // when r = 1, that means we are adding the y-coordinates
         for (int c = 0; c < 10; c++) {
+          // c will represent which letter we're at
           float pos ;
           int unit = 360 / w.length() ;
           if (r == 0) {
             // we are adding x-coordinates to positions
             pos = cos(radians(unit * c)) ;
             positions[r][c] = 190 + (pos * 120) ;
-          } else {
+          } 
+          else {
             // we are adding y-coordinates to positions
             pos = sin(radians(unit * c)) ;
             positions[r][c] = 610 + (pos * 120) ;
@@ -55,6 +57,7 @@ class Soup implements Displayable {
       }
   }
   boolean isSpecial() {
+    // simple accessor method
     return isSpecial ;
   }
   void shuffle(int ll) {
@@ -131,8 +134,8 @@ class Soup implements Displayable {
     // adding shuffle button
     fill(140,0,1) ;
     ellipse(50,450,50,50) ;
-    image(imageForShuffle, 27, 425) ;
-    // adding the letters
+    image(imageForShuffle, 27, 425) ; // shuffle image displayed on soup bowl
+    // adding the letters part
     fill(0,0,0) ;
     textSize(40) ;
     for (int i = 0 ; i < letters.size() ; i++) {
