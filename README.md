@@ -7,6 +7,7 @@ Processing
 A Mouse
 ```
 ## Instructions:
+![Bowl of Soup](https://media0.giphy.com/media/5xtDarBbqdSQxfGFdNS/giphy.gif?cid=790b76115cee9e746c34542e6fed6d1e&rid=giphy.gif)
 ## DevLogs:
 <p>:shoe: - George's doing<br/>
 :goat: - Victoria's doing<br/>
@@ -41,9 +42,15 @@ A Mouse
 <img src="https://media.giphy.com/media/O0TdwJm7LKXqE/giphy.gif" width="500" height="500"/>
 ### 5/25/19
 :shoe: I finished the display method for crossword that displays the current condition of the crossword, by displaying the special word, squares of the crossword, and the characters in the crossword.<br/>
+:goat: I continued working on the helper methods that determined where a letter was in order to make a letter (if chosen) light up or look different. 
 ### 5/26/19
 :shoe: I finished the addWord method for the crossword such that it will add the word and return true, but return false only when it doesn't fit onto the board, crosses with a word incorrectly, or doesn't cross with the crossword at all. I will attempt the addallwords method tomorrow.<br/>
+:goat: I made a new branch to work on and test the mouse interactivity. I have the mouse coordinates compared to where the letters are but it is not currently updating so I added print statements. I should switch to a larger radius so that if the user hits a few values off the correct x or y-coordinate, it will still be counted as hitting that letter.
 ### 5/27/19
-:shoe: I started working on the addAllWords method, but first, it required me to find all the intersections of two given words (i.e. where are places where two letters are in common) and the coordinates of where they should be. I then needed to sort it based on distance from the crossword, as to make as good of a crossword as possible you would need to place the endings far away.<br/>
+:goat: I moved the mouse method from the Soup class to WordGame and it is partially working. Some of the letters change color correctly when they are clicked on but others if you click on them, change the color of a different letter (minor bug needs to be resolved). <br/>
+:shoe: I started working on the addAllWords method, but first, it required me to find all the intersections of two given words (i.e. where are places where two letters are in common) and the coordinates of where they should be. I then needed to sort it based on distance from the crossword, as to make as good of a crossword as possible you would need to place the endings far away.
 ### 5/28/19
-:shoe: I finished the addAllWords method, which was done by finishing the algorithm of adding words into the crosswords given its intersections with the current crossword. It currently requires some updates. I just to make it so words don't touch each other at all and them I'm done. <br/>
+:goat: I worked on creating the shuffle button and displaying it along with an image. I also added to the mousePressed method by making sure that if the user clicks on the shuffle circle button, then it is detected. Lastly, the constructor for soup has one less parameter now because I didn't need a boolean for shuffling. <br/>
+:shoe: I finished the addAllWords method, which was done by finishing the algorithm of adding words into the crosswords given its intersections with the current crossword. It currently requires some updates. I just to make it so words don't touch each other at all and them I'm done.
+### 5/29/19
+:goat: I resolved the issue with the circle (representing whether a letter was chosen) remaining after shuffling. I continued working on correcting the "chosen" aspect appearing but there's a mismatch in the pairing of the letter's coordinates so that choosing a letter works for only some of the letters.

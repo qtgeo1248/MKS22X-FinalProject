@@ -45,7 +45,7 @@ class Crossword implements Displayable {
     fill(128, 128, 128);
     if (specialWord != "") { //"" signifies no special word
       for (int i = 0; i < specialWord.length(); i++) {
-        square(10 + 20 * i, 10, 20);
+        rect(10 + 20 * i, 10, 20, 20); // square(10 + 20 * i, 10, 20) also works but for newest version of processing only
         textSize(20);
         fill(0, 0, 0);
         text(specialWord.charAt(i), 14 + 20 * i, 27.5);
@@ -56,7 +56,7 @@ class Crossword implements Displayable {
     for (int i = 0; i < currentCross.length; i++) {
       for (int j = 0; j < currentCross[i].length; j++) {
         if (crossAns[i][j] != ' ') {
-          square(10 + 20 * j, 50 + 20 * i, 20);
+          rect(10 + 20 * j, 50 + 20 * i, 20, 20);
         }
         if (currentCross[i][j] != ' ') {
           fill(0, 0, 0);
