@@ -132,8 +132,8 @@ class Soup implements Displayable {
   }
   // INTERACTIVE ASPECT hopefully
   void mouse() {
-    int xpos = contains(positions[0], mouseX) ;
-    int ypos = contains(positions[1], mouseY) ;
+    int xpos = checkForCoordinate()[0] ;
+    int ypos = checkForCoordinate()[1] ;
     // these should both result in the same value!
     //println("Are the x and y-values equal? " + (xpos == ypos)) ;
     if (xpos != -1 && ypos != -1 && mousePressed) {
