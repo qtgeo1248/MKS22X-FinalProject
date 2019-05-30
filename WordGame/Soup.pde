@@ -99,13 +99,19 @@ class Soup implements Displayable {
   
   // checks whether the array has the float val and returns the index that it is in the array.
   // This will be related to the position in the ArrayList letters
-  int contains(float[] a, float val) {
+  // it should return an array with 2 ints because 2 letters can have the same x-coordinate but different y-values
+  int[] contains(float[] a, float val) {
+    int[] res = new int[2] ;
+    int valueFound = 0 ;
     int i = 0 ;
     for (float v : a) {
-      if (val >= v - 34 && val <= v + 34) return i ; // the user can be off by 34 units
+      if (val >= v - 34 && val <= v + 34) {
+        res[valueFound] = i ; // the user can be off by 34 units
+        valueFound++ ;
+      }
       i++ ;
     }
-    return -1 ; // this means that the coordinate is not there so we don't have a match!
+    return res ; // this means that the coordinate is not there so we don't have a match!
   }
   // INTERACTIVE ASPECT hopefully
   void mouse() {
