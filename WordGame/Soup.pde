@@ -120,6 +120,12 @@ class Soup implements Displayable {
       // see if the index matches one of the indexes provided from the y ArrayList
       for (int b = 0 ; b < contains(positions[1], mouseY).size() ; b++) {
         // go through each of the y-coordinates provided to see if we have a matching index for the letter
+        if (contains(positions[0], mouseX).get(a) == contains(positions[0], mouseY).get(b)) {
+          // this means that we have found the two coordinates that match to the same letter
+          arryOfCoordinatesXY[0] = a ;
+          arryOfCoordinatesXY[0] = b ;
+          return arryOfCoordinatesXY ;
+        }
       }
     }
     return arryOfCoordinatesXY ;
