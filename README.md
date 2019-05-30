@@ -42,7 +42,7 @@ A Mouse
 <img src="https://media.giphy.com/media/O0TdwJm7LKXqE/giphy.gif" width="500" height="500"/>
 ### 5/25/19
 :shoe: I finished the display method for crossword that displays the current condition of the crossword, by displaying the special word, squares of the crossword, and the characters in the crossword.<br/>
-:goat: I continued working on the helper methods that determined where a letter was in order to make a letter (if chosen) light up or look different. 
+:goat: I continued working on the helper methods that determined where a letter was in order to make a letter (if chosen) light up or look different.
 ### 5/26/19
 :shoe: I finished the addWord method for the crossword such that it will add the word and return true, but return false only when it doesn't fit onto the board, crosses with a word incorrectly, or doesn't cross with the crossword at all. I will attempt the addallwords method tomorrow.<br/>
 :goat: I made a new branch to work on and test the mouse interactivity. I have the mouse coordinates compared to where the letters are but it is not currently updating so I added print statements. I should switch to a larger radius so that if the user hits a few values off the correct x or y-coordinate, it will still be counted as hitting that letter.
@@ -54,3 +54,5 @@ A Mouse
 :shoe: I finished the addAllWords method, which was done by finishing the algorithm of adding words into the crosswords given its intersections with the current crossword. It currently requires some updates. I just to make it so words don't touch each other at all and them I'm done.
 ### 5/29/19
 :goat: I resolved the issue with the circle (representing whether a letter was chosen) remaining after shuffling. I continued working on correcting the "chosen" aspect appearing but there's a mismatch in the pairing of the letter's coordinates so that choosing a letter works for only some of the letters.
+### 5/30/19
+:goat: I finally fixed the issue with different letters becoming chosen because I realized that 2 letters could have the same x-coordinates or the same y-coordinates. So that bug is squashed now! I also merged my branch (mouse) to the master and then started working on the submit button (for making words).
