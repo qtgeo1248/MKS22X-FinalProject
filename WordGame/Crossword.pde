@@ -252,11 +252,11 @@ class Crossword implements Displayable {
         if (crossAns[i][j] != '_') {
           square(10 + 20 * j, 50 + 20 * i, 20);
         }
-        if (currentCross[i][j] != '_') {
+        //if (currentCross[i][j] != '_') {
           fill(0, 0, 0);
-          text(currentCross[i][j], 14 + 20 * j, 67.5 + 20 * i);
+          text(crossAns[i][j], 14 + 20 * j, 67.5 + 20 * i); //change back to currentCross
           fill(128, 128, 128);
-        }
+        //}
       }
     }
   }
