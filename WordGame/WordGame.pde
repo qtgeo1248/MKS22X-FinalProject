@@ -37,9 +37,7 @@ boolean overShuff() {
 
 void mousePressed() {
   if (overShuff()) {
-    a.shuffle(6) ;
-    // we also need to remove any ellipses
-    
+    a.shuffle(6) ; // 6 is just for now because of the word length
   } 
   else {
     int xpos = a.contains(a.positions[0], mouseX) ;
@@ -53,8 +51,6 @@ void mousePressed() {
         // this letter was not chosen/selected so we need to change that!
         a.chosen[xpos] = true ; // this helps us identify and keep track of the chosen letter
       }
-      //fill(255,255,15) ;
-      //ellipse(mouseX,mouseY,50,50) ;
     }
   }
 }
