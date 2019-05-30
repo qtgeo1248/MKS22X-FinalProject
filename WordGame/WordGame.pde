@@ -40,7 +40,9 @@ void mousePressed() {
     a.shuffle(6) ; // 6 is just for now because of the word length
   } 
   else {
-    int xpos = a.contains(a.positions[0], mouseX) ;
+    a.mouse() ;
+    a.display() ;
+    /*int xpos = a.contains(a.positions[0], mouseX) ;
     int ypos = a.contains(a.positions[1], mouseY) ;
     if (xpos != -1 && ypos != -1) {
       // this means that the mouse is on a letter or within a reasonable range of a letter
@@ -51,6 +53,6 @@ void mousePressed() {
         // this letter was not chosen/selected so we need to change that!
         a.chosen[xpos] = true ; // this helps us identify and keep track of the chosen letter
       }
-    }
+    }*/
   }
 }
