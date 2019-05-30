@@ -164,12 +164,12 @@ class Soup implements Displayable {
     // adding shuffle button
     fill(140,0,1) ;
     ellipse(50,450,50,50) ;
-    image(imageForShuffle, 27, 425) ; 
+    image(imageForShuffle, 26, 425) ; 
     // shuffle image displayed on soup bowl
     // adding the submit button for making a word!!
     fill(0,255,0) ;
     ellipse(350, 450, 50, 50) ;
-    image(submit, 27, 425) ;
+    image(submit, 325.86, 425) ;
     // adding the letters part!!
     fill(0,0,0) ;
     textSize(40) ;
