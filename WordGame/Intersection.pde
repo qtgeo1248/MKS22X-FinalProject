@@ -16,6 +16,22 @@ class Intersection {
     isHor = isIt;
   }
   void setOther(Word intersecting) {
-    intersecting = other;
+    other = intersecting;
+  }
+  
+  int getDist() {
+    return distance;
+  }
+  int getX() {
+    return xcor;
+  }
+  int getY() {
+    return ycor;
+  }
+  boolean isHor() {
+    return isHor;
+  }
+  Word getWord() {
+    return other;
   }
 }
