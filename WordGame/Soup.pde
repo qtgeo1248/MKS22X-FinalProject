@@ -60,11 +60,11 @@ class Soup implements Displayable {
     // simple accessor method
     return isSpecial ;
   }
-  void shuffle(int ll) {
+  void shuffle(int ll) { 
     int unit = 360 / ll ;
-    // mix around the letters
+    // purpose/function: mix around the letters
     Collections.shuffle(letters) ; // imports are for this
-    // mix around the letters
+    // the following is basically what happens in the constructor
     for (int r = 0; r < 2; r++) {
       for (int c = 0; c < 10; c++) {
         float pos ;
@@ -102,10 +102,10 @@ class Soup implements Displayable {
   int contains(float[] a, float val) {
     int i = 0 ;
     for (float v : a) {
-      if (val >= v - 34 && val <= v + 34) return i ;
+      if (val >= v - 34 && val <= v + 34) return i ; // the user can be off by 34 units
       i++ ;
     }
-    return -1 ;
+    return -1 ; // this means that the coordinate is not there so we don't have a match!
   }
   // INTERACTIVE ASPECT hopefully
   void mouse() {
