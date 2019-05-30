@@ -42,6 +42,8 @@ A Mouse
 ### 5/25/19
 :shoe: I finished the display method for crossword that displays the current condition of the crossword, by displaying the special word, squares of the crossword, and the characters in the crossword.<br/>
 ### 5/26/19
-:shoe: I finished the addWord method for the crossword such that it will add the word and return true, but return false only when it doesn't fit onto the board, crosses with a word incorrectly, or doesn't cross with the crossword at all. I will attempt the addallwords method tomorrow.
+:shoe: I finished the addWord method for the crossword such that it will add the word and return true, but return false only when it doesn't fit onto the board, crosses with a word incorrectly, or doesn't cross with the crossword at all. I will attempt the addallwords method tomorrow.<br/>
 ### 5/27/19
-:shoe: I started working on the addAllWords method, but first, it required me to find all the intersections of two given words (i.e. where are places where two letters are in common) and the coordinates of where they should be. I then needed to sort it based on distance from the crossword, as to make as good of a crossword as possible you would need to place the endings far away.
+:shoe: I started working on the addAllWords method, but first, it required me to find all the intersections of two given words (i.e. where are places where two letters are in common) and the coordinates of where they should be. I then needed to sort it based on distance from the crossword, as to make as good of a crossword as possible you would need to place the endings far away.<br/>
+### 5/28/19
+:shoe: I finished the addAllWords method, which was done by finishing the algorithm of adding words into the crosswords given its intersections with the current crossword. It currently requires some updates. I just to make it so words don't touch each other at all and them I'm done. <br/>
