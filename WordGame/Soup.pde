@@ -116,7 +116,7 @@ class Soup implements Displayable {
     if (xpos != -1 && ypos != -1 && mousePressed) {
       // this means that the mouse is on a letter
       // the user has selected this letter to possibly make a word
-      if (chosen[xpos]) {
+      if (chosen[ypos]) {
         // this means that the user is UNSELECTING the letter because it was previously chosen!
         chosen[xpos] = false ;
       }
@@ -135,7 +135,7 @@ class Soup implements Displayable {
     fill(140,0,1) ;
     ellipse(50,450,50,50) ;
     image(imageForShuffle, 27, 425) ; // shuffle image displayed on soup bowl
-    // adding the letters part
+    // adding the letters part!!
     fill(0,0,0) ;
     textSize(40) ;
     for (int i = 0 ; i < letters.size() ; i++) {
