@@ -44,6 +44,9 @@ class Crossword implements Displayable {
     if (col + word.length() > crossAns[0].length) {
       return false;
     }
+    if (row < 0 || row >= crossAns.length || col < 0 || col >= crossAns[0].length) {
+      return false;
+    }
     int c = col;
     int idx = 0;
     boolean doesCross = false;
@@ -99,8 +102,11 @@ class Crossword implements Displayable {
     return true;
   }
   
-  boolean addWordVer(String word, int row, int col, boolean isFirst, Word other) {
+  boolean addWordVer(String word, int row, int col, boolean isFirst, Word intersecting) {
     if (row + word.length() > crossAns.length) {
+      return false;
+    }
+    if (row < 0 || row >= crossAns.length || col < 0 || col >= crossAns[0].length) {
       return false;
     }
     int r = row;
@@ -118,10 +124,22 @@ class Crossword implements Displayable {
         if (r > 0 && crossAns[r - 1][col] != '_') {
           return false;
         }
+        if (r != intersecting.getY() && !isFirst) {
+          if ((col > 0 && crossAns[r][col - 1] != '_') ||
+              (col < crossAns[0].length - 1 && crossAns[r][col + 1] != '_')) {
+            return false;
+          }
+        }
       }
       if (idx == word.length() - 1) {
         if (r < crossAns[0].length - 1 && crossAns[r + 1][col] != '_') {
           return false;
+        }
+        if (r != intersecting.getY() && !isFirst) {
+          if ((col > 0 && crossAns[r][col - 1] != '_') ||
+              (col < crossAns[0].length - 1 && crossAns[r][col + 1] != '_')) {
+            return false;
+          }
         }
       }
       if (idx > 0 && idx < word.length() - 1) {
