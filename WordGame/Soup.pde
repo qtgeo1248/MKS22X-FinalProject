@@ -110,7 +110,7 @@ class Soup implements Displayable {
       }
       i++ ;
     }
-    return res ; // this means that the coordinate is not there so we don't have a match!
+    return res ;
   }
   
   int[] checkForCoordinate() {
@@ -120,17 +120,20 @@ class Soup implements Displayable {
     for (int a = 0 ; a < xs.size() ; a++) {
       // we go through each of the provided x-coordinates and 
       // see if the index matches one of the indexes provided from the y ArrayList
+      int xxxx = xs.get(a) ;
       for (int b = 0 ; b < ys.size() ; b++) {
         // go through each of the y-coordinates provided to see if we have a matching index for the letter
-        if (xs.get(a) == ys.get(b)) {
+        int yyyy = ys.get(b) ;
+        if (xxxx == yyyy) {
           // this means that we have found the two coordinates that match to the same letter
-          arryOfCoordinatesXY[0] = a ;
-          arryOfCoordinatesXY[0] = b ;
-          return arryOfCoordinatesXY ;
+          arryOfCoordinatesXY[0] = xxxx ;
+          arryOfCoordinatesXY[1] = yyyy ;
+          println("Do we have good values? " + (xxxx == yyyy)) ;
+          return arryOfCoordinatesXY ; // returning earlier
         }
       }
     }
-    return arryOfCoordinatesXY ;
+    return arryOfCoordinatesXY ; // otherwise we'll return an empty array
   }
   // INTERACTIVE ASPECT hopefully
   void mouse() {
@@ -141,7 +144,7 @@ class Soup implements Displayable {
     if (xpos != -1 && ypos != -1 && mousePressed) {
       // this means that the mouse is on a letter
       // the user has selected this letter to possibly make a word
-      if (chosen[ypos]) {
+      if (chosen[xpos]) {
         // this means that the user is UNSELECTING the letter because it was previously chosen!
         chosen[xpos] = false ;
       }
