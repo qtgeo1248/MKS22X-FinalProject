@@ -55,6 +55,12 @@ class Crossword implements Displayable {
           return false;
         }
       }
+      if (idx > 0 && idx < word.length() - 1) {
+        if ((row < crossAns.length - 1 && crossAns[row + 1][c] != '_') ||
+            (row > 0 && crossAns[row - 1][c] != '_')) {
+          return false;
+        }
+      }
       c++;
       idx++;
     }
