@@ -173,7 +173,7 @@ class Soup implements Displayable {
       if (chosen[i]) {
         // the letter is selected so we need to make it look like that by adding a circle to highlight it
         fill(255,255,0) ;
-        ellipse(xxx,yyy,40,40) ;
+        ellipse(xxx + 10,yyy - 15,50,50) ;
       }
       fill(0,0,0) ; //makes the text black again
       text(l,xxx, yyy) ;
