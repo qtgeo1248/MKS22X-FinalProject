@@ -44,8 +44,8 @@ void mousePressed() {
     }
   } 
   else {
-    int xpos = a.contains(a.positions[0], mouseX) ;
-    int ypos = a.contains(a.positions[1], mouseY) ;
+    int xpos = a.checkForCoordinate()[0] ;
+    int ypos = a.checkForCoordinate()[1] ;
     if (xpos != -1 && ypos != -1) {
       // this means that the mouse is on a letter or within a reasonable range of a letter
       if (a.chosen[xpos]) {
