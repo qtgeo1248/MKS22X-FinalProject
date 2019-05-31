@@ -39,8 +39,9 @@ void mousePressed() {
   if (overShuff()) {
     a.shuffle(6) ; // 6 is just for now because of the word length
     for (int i = 0 ; i < a.chosen.length ; i++) {
-      a.chosen[i] = false ;
       // reassures that no chosen letters will have a circle on them after shuffling 
+      a.chosen[i] = false ;
+      a.wordBeingMade.clear() ;
     }
   } 
   else {
