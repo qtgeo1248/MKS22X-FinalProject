@@ -52,10 +52,13 @@ void mousePressed() {
       if (a.chosen[xpos]) {
         // this means that the user is UNSELECTING the letter because it was previously chosen!
         a.chosen[xpos] = false ;
+        a.wordBeingMade.remove(a.letters.get(xpos)) ; // adds the letter to the arraylist that's keeping track of the letters that the user has selected
       } else {
         // this letter was not chosen/selected so we need to change that!
         a.chosen[xpos] = true ; // this helps us identify and keep track of the chosen letter
+        a.wordBeingMade.add(a.letters.get(xpos)) ;
       }
     }
   }
+  println(a.wordBeingMade.toString()) ;
 }
