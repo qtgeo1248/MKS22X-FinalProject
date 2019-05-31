@@ -9,6 +9,7 @@ class Soup implements Displayable {
   String word ;
   Level ll ;
   ArrayList<String> letters ; // to help us display the letters one at a time
+  ArrayList<String> wordBeingMade ;
   boolean[] chosen ; // will keep track of whether the user chose the letters or not 
   float[][] positions ;
   // top row will represent x-coordinates of letters
@@ -29,6 +30,7 @@ class Soup implements Displayable {
       chosen[i] = false ;
       // in the beginning, none of the letters are chosen
     }
+    wordBeingMade = new ArrayList<String>() ;
     isSpecial = specOrNot ; // based on parameter
     ll = new Level(w) ;
     letters = new ArrayList<String>() ;
