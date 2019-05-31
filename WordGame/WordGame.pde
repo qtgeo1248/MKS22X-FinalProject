@@ -18,10 +18,10 @@ void draw() {
    } */
   // Soup displaying
   a.display() ;
-  //println("X-coordinate: " + mouseX) ;
-  //println("Y-coordinate: " + mouseY) ;
-  //println("Mouse over letter?: " + (a.checkForCoordinate()[0] != -1 && a.checkForCoordinate()[1] != -1)) ;
-  //println("Mouse over Shuffle button?: " + overShuff()) ;
+  println("X-coordinate: " + mouseX) ;
+  println("Y-coordinate: " + mouseY) ;
+  println("Mouse over letter?: " + (a.checkForCoordinate()[0] != -1 && a.checkForCoordinate()[1] != -1)) ;
+  println("Mouse over Shuffle button?: " + overShuff()) ;
   // Crossword displaying
   test.display() ;
   Level test = new Level("speak") ;
@@ -35,6 +35,12 @@ boolean overShuff() {
   return mouseX >= 20 && mouseX <= 77 && mouseY >= 420 && mouseY <= 480 ;
 }
 
+boolean overSub() {
+  // returns whether the mouse is over the submit button
+  //println("WOOHOO SUBMIT BUTTON DETECTED!") ;
+  return mouseX >= 320 && mouseX <= 380 && mouseY >= 420 && mouseY <= 480 ;
+}
+
 void mousePressed() {
   if (overShuff()) {
     a.shuffle(6) ; // 6 is just for now because of the word length
@@ -44,6 +50,9 @@ void mousePressed() {
       a.wordBeingMade.clear() ;
     }
   } 
+  else if (overSub()) {
+    
+  }
   else {
     int xpos = a.checkForCoordinate()[0] ;
     int ypos = a.checkForCoordinate()[1] ;
@@ -54,11 +63,11 @@ void mousePressed() {
         a.chosen[xpos] = false ;
         a.wordBeingMade.remove(a.letters.get(xpos)) ; // adds the letter to the arraylist that's keeping track of the letters that the user has selected
       } else {
-        // this letter was not chosen/selected so we need to change that!
+        // this letter was not chosen/selected so we need to change that! //<>//
         a.chosen[xpos] = true ; // this helps us identify and keep track of the chosen letter
         a.wordBeingMade.add(a.letters.get(xpos)) ;
       }
     }
   }
-  println(a.wordBeingMade.toString()) ;
+  //println(a.wordBeingMade.toString()) ;
 }
