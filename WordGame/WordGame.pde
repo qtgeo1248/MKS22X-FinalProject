@@ -6,11 +6,10 @@ void setup() {
   Soup a = new Soup("PHLOEM",false,lee, false) ;
   a.display() ;
   lee++ ;
-  Level tester = new Level("PEAKS");
+  Level tester = new Level("SPEAK");
   ArrayList<String> words = tester.getAllPossWords();
   textSize(20);
-  Crossword test = new Crossword(words, true);
-  test.addAllWords();
+  Crossword test = new Crossword(words, false);
   test.display();
 }
  

@@ -27,6 +27,7 @@ class Crossword implements Displayable {
         currentCross[i][j] = '_';
       }
     }
+    addAllWords();
   }
   
   String toString() {
@@ -168,10 +169,16 @@ class Crossword implements Displayable {
     int size = allPossWords.size();
     int center = allPossWords.get(0).length() / 2;
     Word first = new Word(allPossWords.get(0), 10, 10 - center, true);
-    addWordHor(allPossWords.get(0), 10, 10 - center, true, new Word("", 0, 0, false));
+    addWordHor(allPossWords.remove(0), 10, 10 - center, true, new Word("", 0, 0, false));
     usedWords.add(first);
     if (!specialWord.equals("")) {
-      specialWord = allPossWords.remove(0);
+      boolean isDone = false;
+      for (int i = 0; i < allPossWords.size() && !isDone; i++) {
+        if (allPossWords.get(i).length() < first.getWord().length()) {
+          specialWord = allPossWords.remove(i);
+          isDone = true;
+        }
+      }
     }
     for (int bigTrial = 0; bigTrial < size; bigTrial++) {
       for (int wordIdx = 1; wordIdx < allPossWords.size(); wordIdx++) {
@@ -256,9 +263,9 @@ class Crossword implements Displayable {
         if (crossAns[i][j] != '_') {
           square(10 + 20 * j, 50 + 20 * i, 20);
         }
-        if (currentCross[i][j] != '_') {
+        if (crossAns[i][j] != '_') {
           fill(0, 0, 0);
-          text(currentCross[i][j], 14 + 20 * j, 67.5 + 20 * i); //change back to currentCross
+          text(crossAns[i][j], 14 + 20 * j, 67.5 + 20 * i); //change back to currentCross
           fill(128, 128, 128);
         }
       }
