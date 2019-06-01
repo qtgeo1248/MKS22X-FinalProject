@@ -260,8 +260,8 @@ class Crossword implements Displayable {
     
     for (int i = 0; i < currentCross.length; i++) {
       for (int j = 0; j < currentCross[i].length; j++) {
-        if (crossAns[i][j] != '_') {
-          square(10 + 20 * j, 50 + 20 * i, 20);
+        if (crossAns[i][j] != ' ') {
+          rect(10 + 20 * j, 50 + 20 * i, 20, 20);
         }
         if (crossAns[i][j] != '_') {
           fill(0, 0, 0);
