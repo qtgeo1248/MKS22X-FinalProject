@@ -18,10 +18,10 @@ void draw() {
    } */
   // Soup displaying
   a.display() ;
-  //println("X-coordinate: " + mouseX) ;
-  //println("Y-coordinate: " + mouseY) ;
-  //println("Mouse over letter?: " + (a.checkForCoordinate()[0] != -1 && a.checkForCoordinate()[1] != -1)) ;
-  //println("Mouse over Shuffle button?: " + overShuff()) ;
+  println("X-coordinate: " + mouseX) ;
+  println("Y-coordinate: " + mouseY) ;
+  println("Mouse over letter?: " + (a.checkForCoordinate()[0] != -1 && a.checkForCoordinate()[1] != -1)) ;
+  println("Mouse over Shuffle button?: " + overShuff()) ;
   // Crossword displaying
   test.display() ;
   Level test = new Level("speak") ;
