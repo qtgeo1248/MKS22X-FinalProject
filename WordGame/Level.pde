@@ -23,7 +23,7 @@ class Level {
   
   void findValidWords(ArrayList<String> dict) {
     for (int i = 0; i < allPossWords.size(); i++) {
-      if (!checkValHelp(allPossWords.get(i), 0, dict.size() - 1, dict)) {
+      if (!checkValHelp(allPossWords.get(i).toLowerCase(), 0, dict.size() - 1, dict)) {
         allPossWords.remove(i);
         i--;
       }
