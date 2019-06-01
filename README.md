@@ -53,4 +53,10 @@ A Mouse
 :goat: I worked on creating the shuffle button and displaying it along with an image. I also added to the mousePressed method by making sure that if the user clicks on the shuffle circle button, then it is detected. Lastly, the constructor for soup has one less parameter now because I didn't need a boolean for shuffling. <br/>
 :shoe: I finished the addAllWords method, which was done by finishing the algorithm of adding words into the crosswords given its intersections with the current crossword. It currently requires some updates. I just to make it so words don't touch each other at all and them I'm done.
 ### 5/29/19
+:shoe: I started did what I promised to do yesterday, which was that I needed to resolve an issue with addAllWords where words were allowed to be adjacent to each other. I only fixed the non-edge cases, which was just a simple couple of booleans.
 :goat: I resolved the issue with the circle (representing whether a letter was chosen) remaining after shuffling. I continued working on correcting the "chosen" aspect appearing but there's a mismatch in the pairing of the letter's coordinates so that choosing a letter works for only some of the letters.
+### 5/30/19
+:shoe: I finished resolving issues that the addAllWords method had. The issue I fixed was that at the edge of a currently added word, it was unable to detect whether or not if the squares adjacent to it was the word it was supposed to be intersecting, or the word that just so happened to be next to it, which is not allowed. This required a lot more work. However, that was all I did since I had ARML tomorrow and needed to rest before going.<br/>
+<img src="https://media.giphy.com/media/1jl173guBKkbvC03rQ/giphy.gif" width="1500" height="500"/>
+### 5/31/19
+:shoe: Once I finished with the addAllWords method, I worked on how to make one of the all possible words to be a special word, which was not hard. A special word needed to be a word that is the largest length that is smaller than the original word.<br/>
