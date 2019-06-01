@@ -30,7 +30,7 @@ class Word {
     return word;
   }
   
-  boolean equals(String otherWord) {
-    return word.equals(otherWord);
+  boolean equals(Word otherWord) {
+    return word.equals(otherWord.getWord());
   }
 }

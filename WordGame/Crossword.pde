@@ -18,8 +18,8 @@ class Crossword implements Displayable {
     gen = new Random();
     if (!isSpecial) {
       specialWord = "";
-    } else { //TEMP
-      specialWord = "SADNESS";
+    } else {
+      specialWord = "yes";
     }
     for (int i = 0; i < crossAns.length; i++) {
       for (int j = 0; j < crossAns[i].length; j++) {
@@ -166,11 +166,14 @@ class Crossword implements Displayable {
   
   void addAllWords() {
     int size = allPossWords.size();
+    int center = allPossWords.get(0).length() / 2;
+    Word first = new Word(allPossWords.get(0), 10, 10 - center, true);
+    addWordHor(allPossWords.get(0), 10, 10 - center, true, new Word("", 0, 0, false));
+    usedWords.add(first);
+    if (!specialWord.equals("")) {
+      specialWord = allPossWords.remove(0);
+    }
     for (int bigTrial = 0; bigTrial < size; bigTrial++) {
-      int center = allPossWords.get(0).length() / 2;
-      Word first = new Word(allPossWords.get(0), 10, 10 - center, true);
-      addWordHor(allPossWords.get(0), 10, 10 - center, true, new Word("", 0, 0, false));
-      usedWords.add(first);
       for (int wordIdx = 1; wordIdx < allPossWords.size(); wordIdx++) {
         String word = allPossWords.get(wordIdx);
         ArrayList<Intersection> places = new ArrayList<Intersection>();
@@ -191,6 +194,7 @@ class Crossword implements Displayable {
             usedWords.add(new Word(word, location.getY(), location.getX(), location.isHor()));
           }
         }
+        allPossWords.remove(word);
       }
     }
   }
@@ -252,11 +256,11 @@ class Crossword implements Displayable {
         if (crossAns[i][j] != '_') {
           square(10 + 20 * j, 50 + 20 * i, 20);
         }
-        //if (currentCross[i][j] != '_') {
+        if (currentCross[i][j] != '_') {
           fill(0, 0, 0);
-          text(crossAns[i][j], 14 + 20 * j, 67.5 + 20 * i); //change back to currentCross
+          text(currentCross[i][j], 14 + 20 * j, 67.5 + 20 * i); //change back to currentCross
           fill(128, 128, 128);
-        //}
+        }
       }
     }
   }
