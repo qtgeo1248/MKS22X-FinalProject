@@ -9,6 +9,7 @@ class Soup implements Displayable {
   String word ;
   Level ll ;
   ArrayList<String> letters ; // to help us display the letters one at a time
+  ArrayList<String> wordBeingMade ;
   boolean[] chosen ; // will keep track of whether the user chose the letters or not 
   float[][] positions ;
   // top row will represent x-coordinates of letters
@@ -29,6 +30,7 @@ class Soup implements Displayable {
       chosen[i] = false ;
       // in the beginning, none of the letters are chosen
     }
+    wordBeingMade = new ArrayList<String>() ;
     isSpecial = specOrNot ; // based on parameter
     ll = new Level(w) ;
     letters = new ArrayList<String>() ;
@@ -83,18 +85,12 @@ class Soup implements Displayable {
     }
   }
   
-  // This method will be used later but it goes through the array chosen (which has booleans)
-  // and if the boolean is true, it means that the user has chosen that letter and we can add it to the String res
-  // Otherwise if the user had not chosen or clicked on it, that would make the boolean in chosen be false and we wouldn't add it to res
+  // This method will be used later but it goes through the arraylist wordBeingMade and if there are Strings in there, 
+  // it means that the user has chosen that letter and we can add it to the String res (what will be returned)
   String makeWordFromChosenLetters() {
     String res = "" ;
-    int i = 0 ;
-    for (boolean b : chosen) {
-      if (b) {
-        // the letter was chosen so we need to add it to the String to make a word
-        res += letters.get(i) ;
-      }
-      i++ ;
+    for (String b : wordBeingMade) {
+      res += b ;
     }
     return res ;
   }
@@ -106,8 +102,8 @@ class Soup implements Displayable {
     ArrayList<Integer> res = new ArrayList<Integer>() ;
     int i = 0 ;
     for (float v : a) {
-      if (val >= v - 34 && val <= v + 34) {
-        // the user can be off by 34 units
+      if (val >= v - 20 && val <= v + 20) {
+        // the user can be off by 20 units
         res.add(i) ; 
       }
       i++ ;
