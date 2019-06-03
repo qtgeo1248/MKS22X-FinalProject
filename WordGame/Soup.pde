@@ -153,15 +153,6 @@ class Soup implements Displayable {
     }
   }
   
-  ArrayList<String> findAllDictWords(int lenn) {
-    String[] lines = loadStrings("HowWeMadeTheWords/words.txt") ;
-    ArrayList<String> w = new ArrayList<String>() ;
-    for (int i = 0 ; i < lines.length ; i++) {
-      if (lines[i].length() <= lenn && lines[i].length() >= 3) w.add(lines[i]) ;
-    }
-    return w ;
-  }
-  
   // visual aspect of soup - draws soup bowl, shows letters, and allows user to click on letters
   void display() {
     // drawing the soup bowl
