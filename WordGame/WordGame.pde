@@ -18,14 +18,11 @@ void draw() {
    } */
   // Soup displaying
   a.display() ;
-  println("X-coordinate: " + mouseX) ;
-  println("Y-coordinate: " + mouseY) ;
-  println("Mouse over letter?: " + (a.checkForCoordinate()[0] != -1 && a.checkForCoordinate()[1] != -1)) ;
-  println("Mouse over Shuffle button?: " + overShuff()) ;
-<<<<<<< HEAD
-=======
+  //println("X-coordinate: " + mouseX) ;
+  //println("Y-coordinate: " + mouseY) ;
+  //println("Mouse over letter?: " + (a.checkForCoordinate()[0] != -1 && a.checkForCoordinate()[1] != -1)) ;
+  //println("Mouse over Shuffle button?: " + overShuff()) ;
   println("Mouse over Submit button? " + overSub()) ;
->>>>>>> 57360a6d8aaabbf2744cab4578dd90831779f9b1
   // Crossword displaying
   test.display() ;
   Level test = new Level("speak") ;
@@ -56,10 +53,16 @@ void mousePressed() {
   } 
   else if (overSub()) {
     // this means that the user has hit the submit button
-    if (a.ll.findAllDictWords(6).contains(a.makeWordFromChosenLetters())) {
-      // if the dictionary has found the word that the user created, then we do thisss
-      println("WOOHOO WE HAVE A WORD: " + a.makeWordFromChosenLetters()) ;
-      // might need to remove or clear the array list keeping track of the letters/word being made
+    if (a.wordBeingMade.size() >= 3) {
+      if (a.ll.findAllDictWords(6).contains(a.makeWordFromChosenLetters())) {
+        // if the dictionary has found the word that the user created, then we do thisss
+        println("WOOHOO WE HAVE A WORD: " + a.makeWordFromChosenLetters()) ;
+        // might need to remove or clear the array list keeping track of the letters/word being made
+        background(255) ;
+      }
+    }
+    else {
+      //println("You have not chosen enough letters") ;
     }
   }
   else {
