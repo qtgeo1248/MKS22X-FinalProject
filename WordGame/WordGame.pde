@@ -1,10 +1,12 @@
 Soup a ;
 Crossword test ;
+int lev ;
 
 void setup() {
   size(400, 800) ;
   background(255) ;
   // soup bowl design added here
+  lev = 1 ;
   a = new Soup("PHLOEM", false, 1) ;
   test = new Crossword(new ArrayList<String>(), true);
 }
@@ -25,10 +27,18 @@ void draw() {
   //println("Mouse over Submit button? " + overSub()) ;
   // Crossword displaying
   test.display() ;
-  Level test = new Level("speak") ;
+  Level test = new Level("speak", 1) ;
   for (int i = 0; i < test.getAllPossWords().size(); i++) {
     text(test.getAllPossWords().get(i), 10, 50 + 20 * i);
   }
+  /* pseudo-code
+  if (all the words have been found for this level) {
+    *we must clear the screen
+    *we must increase lev (variable) by 1
+    *we must create a new instance of soup that has the updated lev
+    *we do the same process that we did for the previous level
+  }
+  */
 }
 
 boolean overShuff() {
@@ -57,9 +67,13 @@ void mousePressed() {
     println(a.wordBeingMade.toString()) ;
     // this means that the user has hit the submit button
     if (a.wordBeingMade.size() >= 3) {
-      if (a.ll.findAllDictWords(6).contains(a.makeWordFromChosenLetters())) {
+      String wo = "" ;
+      for (String lett : a.wordBeingMade) {
+        wo += lett ; 
+      }
+      if (a.findAllDictWords(6).contains(wo)) {
         // if the dictionary has found the word that the user created, then we do thisss
-        println("WOOHOO WE HAVE A WORD: " + a.makeWordFromChosenLetters()) ;
+        println("WOOHOO WE HAVE A WORD: " + wo) ;
         println("Length of word: " + a.wordBeingMade.size()) ;
         a.wordBeingMade.clear() ; // after the user has made the word we just clear it from the array list
         // might need to remove or clear the array list keeping track of the letters/word being made
