@@ -266,12 +266,16 @@ class Crossword implements Displayable {
     return foundedWords.contains(word);
   }
   boolean checkSpecialWord(String word) {
-    return specialWord.equals(word);
+    if (specialWord.equals(word)) {
+      foundSpecial = true;
+      return true;
+    }
+    return false;
   }
   
   void display() {
     fill(128, 128, 128);
-    if (specialWord != "_") { //"_" signifies no special word
+    if (specialWord != "") { //"" signifies no special word
       for (int i = 0; i < specialWord.length(); i++) {
         rect(10 + 20 * i, 10, 20, 20); // square(10 + 20 * i, 10, 20) also works but for newest version of processing only
         textSize(20);
