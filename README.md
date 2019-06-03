@@ -53,12 +53,17 @@ A Mouse
 :goat: I worked on creating the shuffle button and displaying it along with an image. I also added to the mousePressed method by making sure that if the user clicks on the shuffle circle button, then it is detected. Lastly, the constructor for soup has one less parameter now because I didn't need a boolean for shuffling. <br/>
 :shoe: I finished the addAllWords method, which was done by finishing the algorithm of adding words into the crosswords given its intersections with the current crossword. It currently requires some updates. I just to make it so words don't touch each other at all and them I'm done. <br/>
 ### 5/29/19
+:shoe: I started did what I promised to do yesterday, which was that I needed to resolve an issue with addAllWords where words were allowed to be adjacent to each other. I only fixed the non-edge cases, which was just a simple couple of booleans. <br/>
 :goat: I resolved the issue with the circle (representing whether a letter was chosen) remaining after shuffling. I continued working on correcting the "chosen" aspect appearing but there's a mismatch in the pairing of the letter's coordinates so that choosing a letter works for only some of the letters. <br/>
 ### 5/30/19
 :goat: I finally fixed the issue with different letters becoming chosen because I realized that 2 letters could have the same x-coordinates or the same y-coordinates. So that bug is squashed now! I also merged my branch (mouse) to the master and then started working on the submit button (for making words). <br/>
+:shoe: I finished resolving issues that the addAllWords method had. The issue I fixed was that at the edge of a currently added word, it was unable to detect whether or not if the squares adjacent to it was the word it was supposed to be intersecting, or the word that just so happened to be next to it, which is not allowed. This required a lot more work. However, that was all I did since I had ARML tomorrow and needed to rest before going.<br/>
+<img src="https://media.giphy.com/media/1jl173guBKkbvC03rQ/giphy.gif" width="1500" height="500"/>
 ### 5/31/19
 :goat: In class, I worked on interactivity with the submit button. I'm close to being done with it but now I just need to see if the word that the user has made is an actual word and if it's in the crossword that we have.<br/>
+:shoe: Once I finished with the addAllWords method, I worked on how to make one of the all possible words to be a special word, which was not hard. A special word needed to be a word that is the largest length that is smaller than the original word.<br/>
 ### 6/1/19
-:goat: I took my SAT II today and was also sick so I didn't do a lot today. I brainstormed about making the submit button capture the letters chosen and then be able to erase them.
+:shoe: I had ARML that day, but because electronics were taken away the entire day, I could not code. In addition, I fell asleep as soon as I got home.<br/>
+:goat: I took my SAT II today and was also sick so I didn't do as much as yesterday. I worked on making the submit button capture the letters chosen and then be able to erase them. <br/>
 ### 6/2/19
 :goat: I continued working on the submit button and made progress with keeping track of the letters. The chosen letters still appear chosen after submitting, but if I check it with the crossword method, that's a better way to check if the word the user has chosen is an actual word.
