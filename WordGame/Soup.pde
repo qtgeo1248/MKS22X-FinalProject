@@ -32,7 +32,7 @@ class Soup implements Displayable {
     }
     wordBeingMade = new ArrayList<String>() ;
     isSpecial = specOrNot ; // based on parameter
-    ll = new Level(w) ;
+    ll = new Level(w, le) ;
     letters = new ArrayList<String>() ;
     for (int i = 0; i < w.length() ; i++) {
       letters.add(w.charAt(i) + "") ;
@@ -152,6 +152,16 @@ class Soup implements Displayable {
       }
     }
   }
+  
+  ArrayList<String> findAllDictWords(int len) {
+    String[] lines = loadStrings("HowWeMadeTheWords/words.txt");
+    ArrayList<String> w = new ArrayList<String>();
+    for (int i = 0 ; i < lines.length ; i++) {
+      if (lines[i].length() <= len && lines[i].length() >= 3) w.add(lines[i]);
+    }
+    return w;
+  }
+  
   // visual aspect of soup - draws soup bowl, shows letters, and allows user to click on letters
   void display() {
     // drawing the soup bowl
