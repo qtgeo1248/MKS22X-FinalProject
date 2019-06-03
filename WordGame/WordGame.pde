@@ -12,14 +12,9 @@ void setup() {
 }
 
 void draw() {
-  background(255) ;
-  /*Level test = new Level("speak");
-   ArrayList<String> tester = test.getAllPossWords();
-   for (int i = 0; i < tester.size(); i++) {
-   text(tester.get(i), 0, 15 * i + 20);
-   } */
+  //background(255) ;
   // Soup displaying
-  a.display() ;
+  //a.display() ; put back later
   //println("X-coordinate: " + mouseX) ;
   //println("Y-coordinate: " + mouseY) ;
   //println("Mouse over letter?: " + (a.checkForCoordinate()[0] != -1 && a.checkForCoordinate()[1] != -1)) ;
