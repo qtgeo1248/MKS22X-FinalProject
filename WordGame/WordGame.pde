@@ -71,6 +71,19 @@ void mousePressed() {
   ////////////////////////////////////////////////////////////////////////////////
   else if (overSub()) {
     println("The mouse is over the submit button") ;
+    String wo = "" ;
+    for (String lett : a.wordBeingMade) {
+      wo += lett ; 
+    }
+    if (test.checkUnfoundedWord(wo)) {
+      // word will be filled in automatically
+    }
+    else if (test.checkSpecialWord(wo)) {
+      // word will be filled in automatically
+    }
+    else {
+    }
+    /*
     println(a.wordBeingMade.toString()) ;
     // this means that the user has hit the submit button
     if (a.wordBeingMade.size() >= 3) {
@@ -79,10 +92,11 @@ void mousePressed() {
         wo += lett ; 
       }
       println(wo) ;
-      ArrayList<String> woo = a.findAllDictWords(6) ;
-      println((cont(woo, wo))) ;
+      ArrayList<String> woo = findAllDictWords(6) ;
       //println(woo.toString()) ;
-      if (!cont(woo,wo)) {
+      println(woo.contains(wo)) ;
+      //println(woo.toString()) ;
+      if (woo.contains(wo)) {
         // if the dictionary has found the word that the user created, then we do thisss
         println("WOOHOO WE HAVE A WORD: " + wo) ;
         println("Length of word: " + a.wordBeingMade.size()) ;
@@ -96,9 +110,8 @@ void mousePressed() {
         background(255) ;
       }
     }
-    else {
-      //println("You have not chosen enough letters") ;
-    }
+    else { //println("You have not chosen enough letters") ;}
+    */ //<>//
   }
   ////////////////////////////////////////////////////////////////////////////////
   else {
@@ -119,3 +132,12 @@ void mousePressed() {
   }
   //println(a.wordBeingMade.toString()) ;
 }
+
+ArrayList<String> findAllDictWords(int lenn) {
+    String[] lines = loadStrings("HowWeMadeTheWords/words.txt") ;
+    ArrayList<String> w = new ArrayList<String>() ;
+    for (int i = 0 ; i < lines.length ; i++) {
+      if (lines[i].length() <= lenn && lines[i].length() >= 3) w.add(lines[i]) ;
+    }
+    return w ;
+  }
