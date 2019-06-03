@@ -241,10 +241,21 @@ class Crossword implements Displayable {
   
   boolean checkUnfoundedWord(String word) {
     for (int i = 0; i < unfoundedWords.size(); i++) {
-      if (unfoundedWords.get(i).equals(word)) {
+      Word current = unfoundedWords.get(i);
+      if (current.equals(word)) {
+        int startX = current.getX();
+        int startY = current.getY();
+        if (current.isHor()) {
+          for (int j = 0; j < word.length(); j++) {
+            currentCross[startY][startX + j] = word.charAt(j);
+          }
+        } else {
+          
+        }
         return true;
       }
     }
+    return false;
   }
   boolean checkFoundedWord(String word) {
     return foundedWords.contains(word);
