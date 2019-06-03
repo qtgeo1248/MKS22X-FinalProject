@@ -22,7 +22,7 @@ void draw() {
   //println("Y-coordinate: " + mouseY) ;
   //println("Mouse over letter?: " + (a.checkForCoordinate()[0] != -1 && a.checkForCoordinate()[1] != -1)) ;
   //println("Mouse over Shuffle button?: " + overShuff()) ;
-  println("Mouse over Submit button? " + overSub()) ;
+  //println("Mouse over Submit button? " + overSub()) ;
   // Crossword displaying
   test.display() ;
   Level test = new Level("speak") ;
@@ -57,6 +57,8 @@ void mousePressed() {
       if (a.ll.findAllDictWords(6).contains(a.makeWordFromChosenLetters())) {
         // if the dictionary has found the word that the user created, then we do thisss
         println("WOOHOO WE HAVE A WORD: " + a.makeWordFromChosenLetters()) ;
+        println("Length of word: " + a.wordBeingMade.size()) ;
+        a.wordBeingMade.clear() ; // after the user has made the word we just clear it from the array list
         // might need to remove or clear the array list keeping track of the letters/word being made
         background(255) ;
       }
