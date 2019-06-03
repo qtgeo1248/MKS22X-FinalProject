@@ -11,28 +11,19 @@ void setup() {
   ArrayList<String> words = tester.getAllPossWords();
   textSize(20);
   Crossword test = new Crossword(words, false);
+  test.checkUnfoundedWord("SPEAK");
   test.display();
 }
 
 void draw() {
-  background(255) ;
-  /*Level test = new Level("speak");
-   ArrayList<String> tester = test.getAllPossWords();
-   for (int i = 0; i < tester.size(); i++) {
-   text(tester.get(i), 0, 15 * i + 20);
-   } */
+  //background(255) ;
   // Soup displaying
-  a.display() ;
+  //a.display() ; put back later
   //println("X-coordinate: " + mouseX) ;
   //println("Y-coordinate: " + mouseY) ;
   //println("Mouse over letter?: " + (a.checkForCoordinate()[0] != -1 && a.checkForCoordinate()[1] != -1)) ;
   //println("Mouse over Shuffle button?: " + overShuff()) ;
   // Crossword displaying
-  test.display() ;
-  Level test = new Level("speak") ;
-  for (int i = 0; i < test.getAllPossWords().size(); i++) {
-    text(test.getAllPossWords().get(i), 10, 50 + 20 * i);
-  }
 }
 
 boolean overShuff() {

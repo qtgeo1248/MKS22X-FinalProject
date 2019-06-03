@@ -266,7 +266,7 @@ class Crossword implements Displayable {
   
   void display() {
     fill(128, 128, 128);
-    if (specialWord != "") { //"" signifies no special word
+    if (specialWord != "_") { //"_" signifies no special word
       for (int i = 0; i < specialWord.length(); i++) {
         rect(10 + 20 * i, 10, 20, 20); // square(10 + 20 * i, 10, 20) also works but for newest version of processing only
         textSize(20);
@@ -278,12 +278,14 @@ class Crossword implements Displayable {
     
     for (int i = 0; i < currentCross.length; i++) {
       for (int j = 0; j < currentCross[i].length; j++) {
-        if (crossAns[i][j] != ' ') {
+        if (crossAns[i][j] != '_') {
           rect(10 + 20 * j, 50 + 20 * i, 20, 20);
         }
-        if (crossAns[i][j] != '_') {
-          fill(0, 0, 0);
-          text(crossAns[i][j], 14 + 20 * j, 67.5 + 20 * i); //change back to currentCross
+        if (currentCross[i][j] != '_') {
+          fill(0, 128, 0);
+          rect(10 + 20 * j, 50 + 20 * i, 20, 20);
+          fill(255, 255, 255);
+          text(currentCross[i][j], 14 + 20 * j, 67.5 + 20 * i); //change back to currentCross
           fill(128, 128, 128);
         }
       }
