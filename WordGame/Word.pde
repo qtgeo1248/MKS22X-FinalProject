@@ -33,4 +33,7 @@ class Word {
   boolean equals(Word otherWord) {
     return word.equals(otherWord.getWord());
   }
+  boolean equals(String otherWord) {
+    return word.equals(otherWord);
+  }
 }

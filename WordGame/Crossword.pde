@@ -240,7 +240,11 @@ class Crossword implements Displayable {
   }
   
   boolean checkUnfoundedWord(String word) {
-    return unfoundedWords.contains(word);
+    for (int i = 0; i < unfoundedWords.size(); i++) {
+      if (unfoundedWords.get(i).equals(word)) {
+        return true;
+      }
+    }
   }
   boolean checkFoundedWord(String word) {
     return foundedWords.contains(word);
