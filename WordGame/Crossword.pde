@@ -7,7 +7,7 @@ class Crossword implements Displayable {
   char[][] crossAns;
   char[][] currentCross;
   String specialWord; //a special word is a word separate from the crossword, meaning it's harder to find
-                      //will be empty string if it's not special level
+  boolean foundSpecial; //will be empty string if it's not special level
   Crossword(ArrayList<String> wordList, boolean isSpecial) {
     allPossWords = wordList;
     usedWords = new ArrayList<Word>();
@@ -15,6 +15,7 @@ class Crossword implements Displayable {
     foundedWords = new ArrayList<Word>();
     crossAns = new char[19][19];
     currentCross = new char[19][19];
+    foundSpecial = false;
     gen = new Random();
     if (!isSpecial) {
       specialWord = "";
@@ -250,8 +251,12 @@ class Crossword implements Displayable {
             currentCross[startY][startX + j] = word.charAt(j);
           }
         } else {
-          
+          for (int j = 0; j < word.length(); j++) {
+            currentCross[startY + j][startX] = word.charAt(j);
+          }
         }
+        foundedWords.add(current);
+        unfoundedWords.remove(current);
         return true;
       }
     }

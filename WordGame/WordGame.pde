@@ -12,6 +12,7 @@ void setup() {
   textSize(20);
   Crossword test = new Crossword(words, false);
   test.checkUnfoundedWord("SPEAK");
+  test.checkUnfoundedWord("PEAS");
   test.display();
 }
 
