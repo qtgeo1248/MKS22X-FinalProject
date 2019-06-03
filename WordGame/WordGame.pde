@@ -5,9 +5,8 @@ void setup() {
   size(400, 800) ;
   background(255) ;
   // soup bowl design added here
-  Soup a = new Soup("PHLOEM",false,lee, false) ;
+  Soup a = new Soup("PHLOEM",false, 1) ;
   a.display() ;
-  lee++ ;
   Level tester = new Level("SPEAK");
   ArrayList<String> words = tester.getAllPossWords();
   textSize(20);

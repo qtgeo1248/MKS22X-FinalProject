@@ -28,6 +28,9 @@ class Crossword implements Displayable {
       }
     }
     addAllWords();
+    for (int i = 0; i < usedWords.size(); i++) {
+      unfoundedWords.add(usedWords.get(i));
+    }
   }
   
   String toString() {
