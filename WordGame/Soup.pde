@@ -9,26 +9,30 @@ class Soup implements Displayable {
   String word ;
   Level ll ;
   ArrayList<String> letters ; // to help us display the letters one at a time
+  ArrayList<String> wordBeingMade ;
   boolean[] chosen ; // will keep track of whether the user chose the letters or not 
   float[][] positions ;
   // top row will represent x-coordinates of letters
   // bottom row will represent y-coordinates of letters
   boolean mouseOverLetter ;
-  PImage imageForShuffle ;
+  PImage imageForShuffle, submit ;
 
   Soup(String w, boolean specOrNot, int le) {
     // constructor
     lev = le ;
     imageForShuffle = loadImage("HowWeMadeTheWords/shuf.png") ;
     imageForShuffle.resize(50,50) ;
+    submit = loadImage("HowWeMadeTheWords/submit.png") ;
+    submit.resize(50,50) ;
     // instantiating chosen array
     chosen = new boolean[10] ;
     for (int i = 0 ; i < 10 ; i++) {
       chosen[i] = false ;
       // in the beginning, none of the letters are chosen
     }
+    wordBeingMade = new ArrayList<String>() ;
     isSpecial = specOrNot ; // based on parameter
-    ll = new Level(w) ;
+    ll = new Level(w, le) ;
     letters = new ArrayList<String>() ;
     for (int i = 0; i < w.length() ; i++) {
       letters.add(w.charAt(i) + "") ;
@@ -81,18 +85,12 @@ class Soup implements Displayable {
     }
   }
   
-  // This method will be used later but it goes through the array chosen (which has booleans)
-  // and if the boolean is true, it means that the user has chosen that letter and we can add it to the String res
-  // Otherwise if the user had not chosen or clicked on it, that would make the boolean in chosen be false and we wouldn't add it to res
+  // This method will be used later but it goes through the arraylist wordBeingMade and if there are Strings in there, 
+  // it means that the user has chosen that letter and we can add it to the String res (what will be returned)
   String makeWordFromChosenLetters() {
     String res = "" ;
-    int i = 0 ;
-    for (boolean b : chosen) {
-      if (b) {
-        // the letter was chosen so we need to add it to the String to make a word
-        res += letters.get(i) ;
-      }
-      i++ ;
+    for (String b : wordBeingMade) {
+      res += b ;
     }
     return res ;
   }
@@ -104,8 +102,8 @@ class Soup implements Displayable {
     ArrayList<Integer> res = new ArrayList<Integer>() ;
     int i = 0 ;
     for (float v : a) {
-      if (val >= v - 34 && val <= v + 34) {
-        // the user can be off by 34 units
+      if (val >= v - 20 && val <= v + 20) {
+        // the user can be off by 20 units
         res.add(i) ; 
       }
       i++ ;
@@ -154,6 +152,7 @@ class Soup implements Displayable {
       }
     }
   }
+  
   // visual aspect of soup - draws soup bowl, shows letters, and allows user to click on letters
   void display() {
     // drawing the soup bowl
@@ -161,8 +160,13 @@ class Soup implements Displayable {
     ellipse(200, 600, 300, 300) ;
     // adding shuffle button
     fill(140,0,1) ;
-    ellipse(50,450,50,50) ;
-    image(imageForShuffle, 27, 425) ; // shuffle image displayed on soup bowl
+    ellipse(50,470,50,50) ;
+    image(imageForShuffle, 26, 445) ; 
+    // shuffle image displayed on soup bowl
+    // adding the submit button for making a word!!
+    fill(0,255,0) ;
+    ellipse(350, 470, 50, 50) ;
+    image(submit, 325.86, 445) ;
     // adding the letters part!!
     fill(0,0,0) ;
     textSize(40) ;
@@ -173,7 +177,7 @@ class Soup implements Displayable {
       if (chosen[i]) {
         // the letter is selected so we need to make it look like that by adding a circle to highlight it
         fill(255,255,0) ;
-        ellipse(xxx,yyy,40,40) ;
+        ellipse(xxx + 10,yyy - 15,50,50) ;
       }
       fill(0,0,0) ; //makes the text black again
       text(l,xxx, yyy) ;

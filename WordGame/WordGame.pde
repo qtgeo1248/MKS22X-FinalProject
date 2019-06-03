@@ -1,17 +1,14 @@
 Soup a ;
 Crossword test ;
+int lev ;
 
 void setup() {
   size(400, 800) ;
   background(255) ;
   // soup bowl design added here
-  Soup a = new Soup("PHLOEM",false, 1) ;
-  a.display() ;
-  Level tester = new Level("SPEAK");
-  ArrayList<String> words = tester.getAllPossWords();
-  textSize(20);
-  Crossword test = new Crossword(words, false);
-  test.display();
+  lev = 1 ;
+  a = new Soup("PHLOEM", false, 1) ;
+  test = new Crossword(new ArrayList<String>(), true);
 }
 
 void draw() {
@@ -27,27 +24,96 @@ void draw() {
   //println("Y-coordinate: " + mouseY) ;
   //println("Mouse over letter?: " + (a.checkForCoordinate()[0] != -1 && a.checkForCoordinate()[1] != -1)) ;
   //println("Mouse over Shuffle button?: " + overShuff()) ;
+  //println("Mouse over Submit button? " + overSub()) ;
   // Crossword displaying
   test.display() ;
-  Level test = new Level("speak") ;
+  Level test = new Level("speak", 1) ;
   for (int i = 0; i < test.getAllPossWords().size(); i++) {
     text(test.getAllPossWords().get(i), 10, 50 + 20 * i);
   }
+  /* pseudo-code
+  if (all the words have been found for this level) {
+    *we must clear the screen
+    *we must increase lev (variable) by 1
+    *we must create a new instance of soup that has the updated lev
+    *we do the same process that we did for the previous level
+  }
+  */
 }
 
 boolean overShuff() {
   // returns whether the mouse is over the shuffle button
-  return mouseX >= 20 && mouseX <= 77 && mouseY >= 420 && mouseY <= 480 ;
+  return mouseX >= 20 && mouseX <= 77 && mouseY >= 440 && mouseY <= 500 ;
+}
+
+boolean overSub() {
+  // returns whether the mouse is over the submit button
+  //println("WOOHOO SUBMIT BUTTON DETECTED!") ;
+  return mouseX >= 320 && mouseX <= 380 && mouseY >= 440 && mouseY <= 500 ;
+}
+
+boolean cont(ArrayList<String> data, String thing) {
+  for (String d : data) {
+    if (d.equals(thing)) return true ;
+  }
+  return false ;
 }
 
 void mousePressed() {
   if (overShuff()) {
     a.shuffle(6) ; // 6 is just for now because of the word length
     for (int i = 0 ; i < a.chosen.length ; i++) {
-      a.chosen[i] = false ;
       // reassures that no chosen letters will have a circle on them after shuffling 
+      a.chosen[i] = false ;
+      a.wordBeingMade.clear() ;
     }
   } 
+  ////////////////////////////////////////////////////////////////////////////////
+  else if (overSub()) {
+    println("The mouse is over the submit button") ;
+    String wo = "" ;
+    for (String lett : a.wordBeingMade) {
+      wo += lett ; 
+    }
+    if (test.checkUnfoundedWord(wo)) {
+      // word will be filled in automatically
+    }
+    else if (test.checkSpecialWord(wo)) {
+      // word will be filled in automatically
+    }
+    else {
+    }
+    /*
+    println(a.wordBeingMade.toString()) ;
+    // this means that the user has hit the submit button
+    if (a.wordBeingMade.size() >= 3) {
+      String wo = "" ;
+      for (String lett : a.wordBeingMade) {
+        wo += lett ; 
+      }
+      println(wo) ;
+      ArrayList<String> woo = findAllDictWords(6) ;
+      //println(woo.toString()) ;
+      println(woo.contains(wo)) ;
+      //println(woo.toString()) ;
+      if (woo.contains(wo)) {
+        // if the dictionary has found the word that the user created, then we do thisss
+        println("WOOHOO WE HAVE A WORD: " + wo) ;
+        println("Length of word: " + a.wordBeingMade.size()) ;
+        a.wordBeingMade.clear() ; // after the user has made the word we just clear it from the array list
+        // might need to remove or clear the array list keeping track of the letters/word being made
+        for (int i = 0 ; i < a.chosen.length ; i++) {
+          // reassures that no chosen letters will have a circle on them after shuffling 
+          a.chosen[i] = false ;
+          a.wordBeingMade.clear() ;
+        }
+        background(255) ;
+      }
+    }
+    else { //println("You have not chosen enough letters") ;}
+    */ //<>//
+  }
+  ////////////////////////////////////////////////////////////////////////////////
   else {
     int xpos = a.checkForCoordinate()[0] ;
     int ypos = a.checkForCoordinate()[1] ;
@@ -56,10 +122,22 @@ void mousePressed() {
       if (a.chosen[xpos]) {
         // this means that the user is UNSELECTING the letter because it was previously chosen!
         a.chosen[xpos] = false ;
+        a.wordBeingMade.remove(a.letters.get(xpos)) ; // adds the letter to the arraylist that's keeping track of the letters that the user has selected
       } else {
-        // this letter was not chosen/selected so we need to change that!
+        // this letter was not chosen/selected so we need to change that! //<>//
         a.chosen[xpos] = true ; // this helps us identify and keep track of the chosen letter
+        a.wordBeingMade.add(a.letters.get(xpos)) ;
       }
     }
   }
+  //println(a.wordBeingMade.toString()) ;
 }
+
+ArrayList<String> findAllDictWords(int lenn) {
+    String[] lines = loadStrings("HowWeMadeTheWords/words.txt") ;
+    ArrayList<String> w = new ArrayList<String>() ;
+    for (int i = 0 ; i < lines.length ; i++) {
+      if (lines[i].length() <= lenn && lines[i].length() >= 3) w.add(lines[i]) ;
+    }
+    return w ;
+  }
