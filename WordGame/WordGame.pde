@@ -43,13 +43,13 @@ void draw() {
 
 boolean overShuff() {
   // returns whether the mouse is over the shuffle button
-  return mouseX >= 20 && mouseX <= 77 && mouseY >= 420 && mouseY <= 480 ;
+  return mouseX >= 20 && mouseX <= 77 && mouseY >= 440 && mouseY <= 500 ;
 }
 
 boolean overSub() {
   // returns whether the mouse is over the submit button
   //println("WOOHOO SUBMIT BUTTON DETECTED!") ;
-  return mouseX >= 320 && mouseX <= 380 && mouseY >= 420 && mouseY <= 480 ;
+  return mouseX >= 320 && mouseX <= 380 && mouseY >= 440 && mouseY <= 500 ;
 }
 
 void mousePressed() {
@@ -71,6 +71,8 @@ void mousePressed() {
       for (String lett : a.wordBeingMade) {
         wo += lett ; 
       }
+      println(wo) ;
+      println(a.findAllDictWords(6).contains(wo)) ;
       if (a.findAllDictWords(6).contains(wo)) {
         // if the dictionary has found the word that the user created, then we do thisss
         println("WOOHOO WE HAVE A WORD: " + wo) ;
