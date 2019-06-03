@@ -58,3 +58,7 @@ A Mouse
 :goat: I finally fixed the issue with different letters becoming chosen because I realized that 2 letters could have the same x-coordinates or the same y-coordinates. So that bug is squashed now! I also merged my branch (mouse) to the master and then started working on the submit button (for making words). <br/>
 ### 5/31/19
 :goat: In class, I worked on interactivity with the submit button. I'm close to being done with it but now I just need to see if the word that the user has made is an actual word and if it's in the crossword that we have.<br/>
+### 6/1/19
+:goat: I took my SAT II today and was also sick so I didn't do a lot today. I brainstormed about making the submit button capture the letters chosen and then be able to erase them.
+### 6/2/19
+:goat: I continued working on the submit button and made progress with keeping track of the letters. The chosen letters still appear chosen after submitting, but if I check it with the crossword method, that's a better way to check if the word the user has chosen is an actual word.
