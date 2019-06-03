@@ -3,7 +3,7 @@ class Level {
   ArrayList<String> allPossWords;
   ArrayList<String> dict;
 
-  Level(String newWord) {
+  Level(String newWord, int lev) {
     // constructor
     word = newWord;
     allPossWords = new NoDupAR<String>();
@@ -12,14 +12,14 @@ class Level {
     findValidWords(dict);
     allPossWords = reverse(allPossWords);
   }
-
-  ArrayList<String> findAllDictWords(int len) {
-    String[] lines = loadStrings("HowWeMadeTheWords/words.txt");
-    ArrayList<String> w = new ArrayList<String>();
+  
+  ArrayList<String> findAllDictWords(int lenn) {
+    String[] lines = loadStrings("HowWeMadeTheWords/words.txt") ;
+    ArrayList<String> w = new ArrayList<String>() ;
     for (int i = 0 ; i < lines.length ; i++) {
-      if (lines[i].length() <= len && lines[i].length() >= 3) w.add(lines[i]);
+      if (lines[i].length() <= lenn && lines[i].length() >= 3) w.add(lines[i]) ;
     }
-    return w;
+    return w ;
   }
   
   void findValidWords(ArrayList<String> dict) {

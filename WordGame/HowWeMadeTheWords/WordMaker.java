@@ -3,7 +3,7 @@ import java.io.* ;
 
 public class WordMaker {
   public static void main(String[] args) {
-    System.out.println(findAllWords(3)) ;
+    System.out.println(findAllWords(6).contains("hole")) ;
   }
   public static ArrayList<String> findAllWords(int len) {
     String fileName = "words.txt";
