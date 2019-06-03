@@ -60,3 +60,5 @@ A Mouse
 <img src="https://media.giphy.com/media/1jl173guBKkbvC03rQ/giphy.gif" width="1500" height="500"/>
 ### 5/31/19
 :shoe: Once I finished with the addAllWords method, I worked on how to make one of the all possible words to be a special word, which was not hard. A special word needed to be a word that is the largest length that is smaller than the original word.<br/>
+### 6/1/19
+:shoe: I had ARML that day, but because electronics were taken away the entire day, I could not code. In addition, I fell asleep as soon as I got home.<br/>
