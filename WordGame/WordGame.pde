@@ -10,9 +10,10 @@ void setup() {
   Level tester = new Level("SPEAK");
   ArrayList<String> words = tester.getAllPossWords();
   textSize(20);
-  Crossword test = new Crossword(words, false);
+  Crossword test = new Crossword(words, true);
   test.checkUnfoundedWord("SPEAK");
   test.checkUnfoundedWord("PEAS");
+  test.checkSpecialWord("PEAK");
   test.display();
 }
 
