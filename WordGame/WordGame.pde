@@ -52,6 +52,13 @@ boolean overSub() {
   return mouseX >= 320 && mouseX <= 380 && mouseY >= 440 && mouseY <= 500 ;
 }
 
+boolean cont(ArrayList<String> data, String thing) {
+  for (String d : data) {
+    if (d.equals(thing)) return true ;
+  }
+  return false ;
+}
+
 void mousePressed() {
   if (overShuff()) {
     a.shuffle(6) ; // 6 is just for now because of the word length
@@ -72,8 +79,10 @@ void mousePressed() {
         wo += lett ; 
       }
       println(wo) ;
-      println(a.findAllDictWords(6).contains(wo)) ;
-      if (a.findAllDictWords(6).contains(wo)) {
+      ArrayList<String> woo = a.findAllDictWords(6) ;
+      println((cont(woo, wo))) ;
+      //println(woo.toString()) ;
+      if (!cont(woo,wo)) {
         // if the dictionary has found the word that the user created, then we do thisss
         println("WOOHOO WE HAVE A WORD: " + wo) ;
         println("Length of word: " + a.wordBeingMade.size()) ;
