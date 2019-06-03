@@ -2,16 +2,29 @@ class Level {
   String word;
   ArrayList<String> allPossWords;
 
-  Level(String newWord) {
+  Level(String newWord, int lev) {
     // constructor
     word = newWord;
     allPossWords = new NoDupAR<String>();
     allCombos();
-    ArrayList<String> dict = findAllDictWords(10);
+    // levels will determine how long the words can be
+    int l = 0 ;
+    if (lev <= 8) {
+      // these are the beginning levels so you start out with 3 letters
+      l = 3 ;
+    }
+    if (lev > 8 && lev <= 16) l = 4 ;
+    if (lev > 16 && lev <= 24) l = 5 ;
+    if (lev > 24 && lev <= 32) l = 6 ;
+    if (lev > 32 && lev <= 40) l = 7 ;
+    if (lev > 40) && lev <= 48) l = 8 ;
+    if (lev > 48 && lev <= 56) l = 9 ;
+    if (lev > 56 && lev <= 64) l = 10 ;
+    ArrayList<String> dict = findAllDictWords(l);
     findValidWords(dict);
     allPossWords = reverse(allPossWords);
   }
-
+  
   ArrayList<String> findAllDictWords(int len) {
     String[] lines = loadStrings("HowWeMadeTheWords/words.txt");
     ArrayList<String> w = new ArrayList<String>();
