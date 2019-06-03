@@ -14,6 +14,7 @@ void setup() {
   test.checkUnfoundedWord("SPEAK");
   test.checkUnfoundedWord("PEAS");
   test.checkSpecialWord("PEAK");
+  println(test.checkAnyWord("FAMILY"));
   test.display();
 }
 

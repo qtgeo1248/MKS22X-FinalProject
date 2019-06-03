@@ -110,7 +110,4 @@ class Level {
   ArrayList<String> getAllPossWords() {
     return allPossWords;
   }
-  ArrayList<String> getDict() {
-    return dict;
-  }
 }

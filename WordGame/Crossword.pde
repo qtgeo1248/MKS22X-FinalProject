@@ -272,6 +272,15 @@ class Crossword implements Displayable {
     }
     return false;
   }
+  boolean checkAnyWord(String word) {
+    String[] lines = loadStrings("HowWeMadeTheWords/words.txt");
+    for (int i = 0 ; i < lines.length ; i++) {
+      if (lines[i].equals(word.toLowerCase())) {
+        return true;
+      }
+    }
+    return false;
+  }
   
   void display() {
     fill(128, 128, 128);
