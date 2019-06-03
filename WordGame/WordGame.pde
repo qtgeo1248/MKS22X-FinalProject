@@ -51,7 +51,10 @@ void mousePressed() {
       a.wordBeingMade.clear() ;
     }
   } 
+  ////////////////////////////////////////////////////////////////////////////////
   else if (overSub()) {
+    println("The mouse is over the submit button") ;
+    println(a.wordBeingMade.toString()) ;
     // this means that the user has hit the submit button
     if (a.wordBeingMade.size() >= 3) {
       if (a.ll.findAllDictWords(6).contains(a.makeWordFromChosenLetters())) {
@@ -60,6 +63,11 @@ void mousePressed() {
         println("Length of word: " + a.wordBeingMade.size()) ;
         a.wordBeingMade.clear() ; // after the user has made the word we just clear it from the array list
         // might need to remove or clear the array list keeping track of the letters/word being made
+        for (int i = 0 ; i < a.chosen.length ; i++) {
+          // reassures that no chosen letters will have a circle on them after shuffling 
+          a.chosen[i] = false ;
+          a.wordBeingMade.clear() ;
+        }
         background(255) ;
       }
     }
@@ -67,6 +75,7 @@ void mousePressed() {
       //println("You have not chosen enough letters") ;
     }
   }
+  ////////////////////////////////////////////////////////////////////////////////
   else {
     int xpos = a.checkForCoordinate()[0] ;
     int ypos = a.checkForCoordinate()[1] ;
