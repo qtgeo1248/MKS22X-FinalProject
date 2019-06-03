@@ -155,11 +155,11 @@ class Soup implements Displayable {
   
   ArrayList<String> findAllDictWords(int len) {
     String[] lines = loadStrings("HowWeMadeTheWords/words.txt");
-    ArrayList<String> w = new ArrayList<String>();
+    ArrayList<String> w = new ArrayList<String>() ;
     for (int i = 0 ; i < lines.length ; i++) {
       if (lines[i].length() <= len && lines[i].length() >= 3) w.add(lines[i]);
     }
-    return w;
+    return w ;
   }
   
   // visual aspect of soup - draws soup bowl, shows letters, and allows user to click on letters
@@ -169,13 +169,13 @@ class Soup implements Displayable {
     ellipse(200, 600, 300, 300) ;
     // adding shuffle button
     fill(140,0,1) ;
-    ellipse(50,450,50,50) ;
-    image(imageForShuffle, 26, 425) ; 
+    ellipse(50,470,50,50) ;
+    image(imageForShuffle, 26, 445) ; 
     // shuffle image displayed on soup bowl
     // adding the submit button for making a word!!
     fill(0,255,0) ;
-    ellipse(350, 450, 50, 50) ;
-    image(submit, 325.86, 425) ;
+    ellipse(350, 470, 50, 50) ;
+    image(submit, 325.86, 445) ;
     // adding the letters part!!
     fill(0,0,0) ;
     textSize(40) ;
