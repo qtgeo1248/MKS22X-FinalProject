@@ -1,13 +1,14 @@
 class Level {
   String word;
   ArrayList<String> allPossWords;
+  ArrayList<String> dict;
 
   Level(String newWord) {
     // constructor
     word = newWord;
     allPossWords = new NoDupAR<String>();
     allCombos();
-    ArrayList<String> dict = findAllDictWords(10);
+    dict = findAllDictWords(10);
     findValidWords(dict);
     allPossWords = reverse(allPossWords);
   }
@@ -108,5 +109,8 @@ class Level {
   
   ArrayList<String> getAllPossWords() {
     return allPossWords;
+  }
+  ArrayList<String> getDict() {
+    return dict;
   }
 }

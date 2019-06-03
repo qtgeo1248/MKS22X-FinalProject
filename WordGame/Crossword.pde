@@ -280,9 +280,9 @@ class Crossword implements Displayable {
         rect(10 + 20 * i, 10, 20, 20); // square(10 + 20 * i, 10, 20) also works but for newest version of processing only
         textSize(20);
         if (foundSpecial) {
-          fill(255, 255, 0);
+          fill(200, 200, 0);
           rect(10 + 20 * i, 10, 20, 20);
-          fill(0, 0, 0);
+          fill(255, 255, 255);
           text(specialWord.charAt(i), 14 + 20 * i, 27.5);
           fill(128, 128, 128);
         }
