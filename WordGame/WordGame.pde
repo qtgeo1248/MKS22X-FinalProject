@@ -7,17 +7,23 @@ int foundTimestamp;
 boolean isDone;
 boolean special;
 boolean founded;
+String[] levels;
 
 void setup() {
   size(400, 800) ;
   background(255) ;
   // soup bowl design added here
+  levels = loadStrings("levels.txt");
   lev = 0 ;
-  ww = "DRAW" ;
+  ww = levels[0] ;
   Level le = new Level(ww) ;
   //println(le.getAllPossWords()) ;
-  test = new Crossword(le.getAllPossWords(), true) ;
-  a = new Soup(ww, true, lev) ;
+  boolean isSpecial = lev % 3 == 0;
+  if (ww.length() <= 3) {
+    isSpecial = false;
+  }
+  test = new Crossword(le.getAllPossWords(), isSpecial) ;
+  a = new Soup(ww, isSpecial, lev) ;
   specTimestamp = 0;
   foundTimestamp = 0;
   special = false;
@@ -65,24 +71,29 @@ void draw() {
     fill(0) ;
     textAlign(CENTER) ;
     text("You found a bonus word!",200,780) ;
-    textAlign(BASELINE) ;
+    textAlign(BASELINE) ; //<>//
     if (millis() - specTimestamp >= 1500) {
       special = false;
     }
   }
-   //<>//
+  
   if (test.isDone()) {
     isDone = true;
-    lev++;
-    Level le = new Level("PHLOEM");
-    test = new Crossword(le.getAllPossWords(), false);
-    a = new Soup("PHLOEM", false, lev);
+    boolean isSpecial = lev % 3 == 0;
+    if (ww.length() <= 3) {
+      isSpecial = false;
+    }
+    lev++; //<>//
+    ww = levels[lev];
+    Level le = new Level(ww);
+    test = new Crossword(le.getAllPossWords(), isSpecial);
+    a = new Soup(ww, isSpecial, lev);
     textSize(20);
     textAlign(CENTER); //<>//
     fill(0);
     text("CONGRATULATIONS!", 200,770);
     text("You found all the words!", 200, 790);
-    textAlign(BASELINE); //<>//
+    textAlign(BASELINE);
   }
 }
 
@@ -106,7 +117,7 @@ boolean cont(ArrayList<String> data, String thing) {
 
 void mousePressed() {
   if (overShuff()) {
-    a.shuffle(5) ; 
+    a.shuffle(ww.length()) ; 
     for (int i = 0 ; i < a.chosen.length ; i++) {
       // reassures that no chosen letters will have a circle on them after shuffling 
       a.chosen[i] = false ;
