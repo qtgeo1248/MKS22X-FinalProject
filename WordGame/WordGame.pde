@@ -57,11 +57,24 @@ void draw() {
     textSize(20) ;
     fill(0) ;
     textAlign(CENTER) ;
-    text("Congrats! You found a bonus word!",200,780) ;
+    text("You found a bonus word!",200,780) ;
     textAlign(BASELINE) ;
     if (millis() - specTimestamp >= 1500) {
       special = false;
     }
+  }
+  
+  if (test.isDone()) {
+    lev++;
+    Level le = new Level("PHLOEM");
+    test = new Crossword(le.getAllPossWords(), false);
+    a = new Soup("PHLOEM", false, lev);
+    textSize(20);
+    textAlign(CENTER); //<>//
+    fill(0);
+    text("CONGRATULATIONS! You found all the words!", 200,700);
+    textAlign(BASELINE);
+    delay(3000);
   }
   /* pseudo-code
   if (all the words have been found for this level) {
@@ -69,8 +82,8 @@ void draw() {
     *we must increase lev (variable) by 1
     *we must create a new instance of soup that has the updated lev
     *we do the same process that we did for the previous level
-  }
-  */ //<>//
+  } //<>//
+  */
 }
 
 boolean overShuff() {
@@ -82,7 +95,7 @@ boolean overSub() {
   // returns whether the mouse is over the submit button
   //println("WOOHOO SUBMIT BUTTON DETECTED!") ;
   return mouseX >= 320 && mouseX <= 380 && mouseY >= 440 && mouseY <= 500 ;
-} //<>//
+}
 
 boolean cont(ArrayList<String> data, String thing) {
   for (String d : data) {

@@ -278,6 +278,9 @@ class Crossword implements Displayable {
     return false;
   }
   boolean checkAnyWord(String word) {
+    if (word.length() < 3) {
+      return false;
+    }
     String[] lines = loadStrings("HowWeMadeTheWords/words.txt");
     for (int i = 0 ; i < lines.length ; i++) {
       if (lines[i].equals(word.toLowerCase())) {
