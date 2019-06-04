@@ -2,7 +2,8 @@ Soup a ;
 Crossword test ;
 int lev ;
 String ww ;
-int timestamp;
+int specTimestamp;
+int foundTimestamp;
 boolean special;
 boolean founded;
 
@@ -16,6 +17,8 @@ void setup() {
   //println(le.getAllPossWords()) ;
   test = new Crossword(le.getAllPossWords(), true) ;
   a = new Soup(ww, true, lev) ;
+  specTimestamp = 0;
+  foundTimestamp = 0;
   special = false;
   founded = false;
 }
@@ -40,8 +43,18 @@ void draw() {
     textAlign(CENTER) ;
     text("You have already found this word!",200,780) ;
     textAlign(BASELINE) ;
-    if (millis() - timestamp >= 1500) {
+    if (millis() - foundTimestamp >= 1500) {
       founded  = false;
+    }
+  }
+  if (special) {
+    textSize(20) ;
+    fill(0) ;
+    textAlign(CENTER) ;
+    text("Congrats! You found a bonus word!",200,780) ;
+    textAlign(BASELINE) ;
+    if (millis() - specTimestamp >= 1500) {
+      special = false;
     }
   }
   /* pseudo-code
@@ -57,7 +70,7 @@ void draw() {
 boolean overShuff() {
   // returns whether the mouse is over the shuffle button
   return mouseX >= 20 && mouseX <= 77 && mouseY >= 440 && mouseY <= 500 ;
-}
+} //<>//
 
 boolean overSub() {
   // returns whether the mouse is over the submit button
@@ -69,8 +82,8 @@ boolean cont(ArrayList<String> data, String thing) {
   for (String d : data) {
     if (d.equals(thing)) return true ;
   }
-  return false ;
-} //<>//
+  return false ; //<>//
+}
 
 void mousePressed() {
   if (overShuff()) {
@@ -82,7 +95,7 @@ void mousePressed() {
     }
   } 
   else if (overSub()) {
-    //println("The mouse is over the submit button") ; //<>//
+    //println("The mouse is over the submit button") ;
     String wo = "" ;
     for (String lett : a.wordBeingMade) {
       wo += lett ; 
@@ -91,7 +104,7 @@ void mousePressed() {
       // word will be filled in automatically
       // that means it's a duplicate word already found
       founded = true;
-      timestamp = millis();
+      foundTimestamp = millis();
     }
     else if (test.checkSpecialWord(wo)) {
       // word will be filled in automatically //<>//
@@ -100,12 +113,7 @@ void mousePressed() {
     } //<>//
     else if (test.checkAnyWord(wo)) {
       special = true;
-      timestamp = millis();
-      textSize(20) ;
-      fill(0) ;
-      textAlign(CENTER) ;
-      text("Congrats! You found a bonus word!",200,780) ;
-      textAlign(BASELINE) ;
+      specTimestamp = millis();
     }
   }
   else {
