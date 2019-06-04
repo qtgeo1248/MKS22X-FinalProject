@@ -8,6 +8,7 @@ void setup() {
   // soup bowl design added here
   lev = 1 ;
   Level le = new Level("SPEAK") ;
+  println(le.getAllPossWords()) ;
   test = new Crossword(le.getAllPossWords(), true) ;
   a = new Soup("SPEAK", true, lev) ;
 }
@@ -61,17 +62,22 @@ void mousePressed() {
     for (String lett : a.wordBeingMade) {
       wo += lett ; 
     }
-    if (test.checkUnfoundedWord(wo)) {
+    if (test.checkFoundedWord(wo)) {
       // word will be filled in automatically
+      // that means it's a duplicate word already found
+      textSize(30) ;
+      fill(0) ;
+      text("You have already found this word!",200,730) ;
     }
     else if (test.checkSpecialWord(wo)) {
       // word will be filled in automatically
     }
-    else if (test.checkFoundedWord(wo)) {
-      // that means it's a duplicate word already found
-      textSize(30) ;
-      text("You have already found this word!",200,730) ;
+    else if (test.checkUnfoundedWord(wo)) {
+      
     } //<>//
+    else if(test.checkAnyWord(wo)) {
+      
+    }
   }
   else {
     int xpos = a.checkForCoordinate()[0] ;
