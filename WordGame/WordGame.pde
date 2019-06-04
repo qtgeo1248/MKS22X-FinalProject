@@ -2,6 +2,9 @@ Soup a ;
 Crossword test ;
 int lev ;
 String ww ;
+int timestamp;
+boolean special;
+boolean founded;
 
 void setup() {
   size(400, 800) ;
@@ -13,6 +16,8 @@ void setup() {
   //println(le.getAllPossWords()) ;
   test = new Crossword(le.getAllPossWords(), true) ;
   a = new Soup(ww, true, lev) ;
+  special = false;
+  founded = false;
 }
 
 void draw() {
@@ -29,6 +34,16 @@ void draw() {
   textAlign(CENTER) ;
   textSize(20) ;
   text(wooo,150, 345) ;
+  if (founded) {
+    textSize(20) ;
+    fill(0) ;
+    textAlign(CENTER) ;
+    text("You have already found this word!",200,780) ;
+    textAlign(BASELINE) ;
+    if (millis() - timestamp >= 1500) {
+      founded  = false;
+    }
+  }
   /* pseudo-code
   if (all the words have been found for this level) {
     *we must clear the screen
@@ -55,7 +70,7 @@ boolean cont(ArrayList<String> data, String thing) {
     if (d.equals(thing)) return true ;
   }
   return false ;
-}
+} //<>//
 
 void mousePressed() {
   if (overShuff()) {
@@ -67,7 +82,7 @@ void mousePressed() {
     }
   } 
   else if (overSub()) {
-    //println("The mouse is over the submit button") ;
+    //println("The mouse is over the submit button") ; //<>//
     String wo = "" ;
     for (String lett : a.wordBeingMade) {
       wo += lett ; 
@@ -75,18 +90,17 @@ void mousePressed() {
     if (test.checkFoundedWord(wo)) {
       // word will be filled in automatically
       // that means it's a duplicate word already found
-      textSize(20) ;
-      fill(0) ;
-      textAlign(CENTER) ;
-      text("You have already found this word!",200,780) ;
-      textAlign(BASELINE) ;
+      founded = true;
+      timestamp = millis();
     }
     else if (test.checkSpecialWord(wo)) {
       // word will be filled in automatically //<>//
     }
     else if (test.checkUnfoundedWord(wo)) {
     } //<>//
-    else if(test.checkAnyWord(wo)) {
+    else if (test.checkAnyWord(wo)) {
+      special = true;
+      timestamp = millis();
       textSize(20) ;
       fill(0) ;
       textAlign(CENTER) ;
