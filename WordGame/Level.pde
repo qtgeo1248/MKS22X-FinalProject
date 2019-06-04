@@ -3,7 +3,7 @@ class Level {
   ArrayList<String> allPossWords;
   ArrayList<String> dict;
 
-  Level(String newWord, int lev) {
+  Level(String newWord) {
     // constructor
     word = newWord;
     allPossWords = new NoDupAR<String>();
