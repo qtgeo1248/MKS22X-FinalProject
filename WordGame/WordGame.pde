@@ -138,6 +138,9 @@ void mousePressed() {
       a.chosen[i] = false;
       a.wordBeingMade.clear();
     }
+    for (int i = 0 ; i < a.chosen.length ; i++) {
+      a.chosen[i] = false ;
+    }
   }
   else {
     int xpos = a.checkForCoordinate()[0] ;
