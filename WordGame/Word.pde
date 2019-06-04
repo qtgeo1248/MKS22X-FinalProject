@@ -29,7 +29,9 @@ class Word {
   String getWord() {
     return word;
   }
-  
+  String toString() {
+    return word;
+  }
   boolean equals(Word otherWord) {
     return word.equals(otherWord.getWord());
   }

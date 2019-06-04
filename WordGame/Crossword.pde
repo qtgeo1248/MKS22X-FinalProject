@@ -259,7 +259,7 @@ class Crossword implements Displayable {
             currentCross[startY + j][startX] = word.charAt(j);
           }
         }
-        foundedWords.add(current);
+        foundedWords.add(new Word(word, 0,0, false));
         unfoundedWords.remove(current);
         return true;
       }
@@ -267,7 +267,12 @@ class Crossword implements Displayable {
     return false;
   }
   boolean checkFoundedWord(String word) {
-    return foundedWords.contains(word);
+    for (int i = 0; i < foundedWords.size(); i++) {
+      if (foundedWords.get(i).equals(word)) {
+        return true;
+      }
+    }
+    return false;
   }
   boolean checkSpecialWord(String word) {
     if (specialWord.equals(word)) {

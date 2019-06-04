@@ -4,6 +4,7 @@ int lev ;
 String ww ;
 int specTimestamp;
 int foundTimestamp;
+boolean isDone;
 boolean special;
 boolean founded;
 
@@ -21,6 +22,7 @@ void setup() {
   foundTimestamp = 0;
   special = false;
   founded = false;
+  isDone = false;
 }
 
 void draw() {
@@ -50,7 +52,7 @@ void draw() {
     text("You have already found this word!",200,780) ;
     textAlign(BASELINE) ;
     if (millis() - foundTimestamp >= 1500) {
-      founded  = false;
+      founded = false;
     }
   }
   if (special) {
@@ -65,26 +67,22 @@ void draw() {
   }
   
   if (test.isDone()) {
+    isDone = true;
     lev++;
     Level le = new Level("PHLOEM");
-    test = new Crossword(le.getAllPossWords(), false);
+    test = new Crossword(le.getAllPossWords(), false); //<>//
     a = new Soup("PHLOEM", false, lev);
     textSize(20);
     textAlign(CENTER); //<>//
     fill(0);
     text("CONGRATULATIONS! You found all the words!", 200,700);
     textAlign(BASELINE);
-    delay(3000);
   }
-  /* pseudo-code
-  if (all the words have been found for this level) {
-    *we must clear the screen
-    *we must increase lev (variable) by 1
-    *we must create a new instance of soup that has the updated lev
-    *we do the same process that we did for the previous level
-  } //<>//
-  */
-}
+  if (isDone) {
+    delay(3000);
+    isDone = false;
+  }
+} //<>//
 
 boolean overShuff() {
   // returns whether the mouse is over the shuffle button
