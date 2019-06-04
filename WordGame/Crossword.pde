@@ -8,6 +8,8 @@ class Crossword implements Displayable {
   char[][] currentCross;
   String specialWord;        //a special word is a word separate from the crossword, meaning it's harder to find
   boolean foundSpecial;      //will be empty string if it's not special level
+  int numBonusWords ;
+  
   Crossword(ArrayList<String> wordList, boolean isSpecial) {
     allPossWords = wordList;
     usedWords = new ArrayList<Word>();
@@ -16,6 +18,7 @@ class Crossword implements Displayable {
     crossAns = new char[19][19];
     currentCross = new char[19][19];
     foundSpecial = false;
+    numBonusWords = 0 ;
     gen = new Random();
     if (!isSpecial) {
       specialWord = "";
@@ -278,12 +281,16 @@ class Crossword implements Displayable {
     String[] lines = loadStrings("HowWeMadeTheWords/words.txt");
     for (int i = 0 ; i < lines.length ; i++) {
       if (lines[i].equals(word.toLowerCase())) {
+        foundedWords.add(new Word(word,0,0, true)) ;
+        numBonusWords++ ;
         return true;
       }
     }
     return false;
   }
-  
+  int getNumBonusWords() {
+    return numBonusWords ;
+  }
   void display() {
     fill(128, 128, 128);
     if (specialWord != "") { //"" signifies no special word
