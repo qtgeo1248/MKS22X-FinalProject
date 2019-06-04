@@ -8,18 +8,15 @@ void setup() {
   // soup bowl design added here
   lev = 1 ;
   a = new Soup("PHLOEM", false, 1) ;
-  test = new Crossword(new ArrayList<String>(), true);
 }
 
 void draw() {
   //background(255) ;
   // Soup displaying
   // Crossword displaying
+  Level le = new Level("SPEAK", 1) ;
+  test = new Crossword(le.getAllPossWords(), true) ;
   test.display() ;
-  Level test = new Level("speak", 1) ;
-  for (int i = 0; i < test.getAllPossWords().size(); i++) {
-    text(test.getAllPossWords().get(i), 10, 50 + 20 * i);
-  }
   /* pseudo-code
   if (all the words have been found for this level) {
     *we must clear the screen
@@ -69,7 +66,10 @@ void mousePressed() {
     else if (test.checkSpecialWord(wo)) {
       // word will be filled in automatically
     }
-    else {
+    else if (test.checkFoundedWord(wo)) {
+      // that means it's a duplicate word already found
+      textSize(30) ;
+      text("You have already found this word!",200,730) ;
     } //<>//
   }
   else {
