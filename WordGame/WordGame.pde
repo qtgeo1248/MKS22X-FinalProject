@@ -121,6 +121,10 @@ void mousePressed() {
       special = true;
       specTimestamp = millis();
     }
+    for (int i = 0; i < a.chosen.length; i++) {
+      a.chosen[i] = false;
+      a.wordBeingMade.clear();
+    }
   }
   else {
     int xpos = a.checkForCoordinate()[0] ;
