@@ -2,6 +2,10 @@ Soup a ;
 Crossword test ;
 int lev ;
 String ww ;
+int specTimestamp;
+int foundTimestamp;
+boolean special;
+boolean founded;
 
 void setup() {
   size(400, 800) ;
@@ -13,6 +17,10 @@ void setup() {
   //println(le.getAllPossWords()) ;
   test = new Crossword(le.getAllPossWords(), true) ;
   a = new Soup(ww, true, lev) ;
+  specTimestamp = 0;
+  foundTimestamp = 0;
+  special = false;
+  founded = false;
 }
 
 void draw() {
@@ -25,10 +33,36 @@ void draw() {
   for (int i = 0 ; i < a.wordBeingMade.size() ; i++) {
     wooo += (a.wordBeingMade.get(i)) ;
   }
-  fill(0) ;
+  textAlign(RIGHT);
+  textSize(18);
+  fill(0);
+  text("# of Bonus Words Found: " + test.getNumBonusWords(), 380, 30);
+  textAlign(BASELINE);
   textAlign(CENTER) ;
+  fill(0) ;
   textSize(20) ;
-  text(wooo,150, 345) ;
+  text(wooo, 200, 445) ;
+  textAlign(BASELINE);
+  if (founded) {
+    textSize(20) ;
+    fill(0) ;
+    textAlign(CENTER) ;
+    text("You have already found this word!",200,780) ;
+    textAlign(BASELINE) ;
+    if (millis() - foundTimestamp >= 1500) {
+      founded  = false;
+    }
+  }
+  if (special) {
+    textSize(20) ;
+    fill(0) ;
+    textAlign(CENTER) ;
+    text("Congrats! You found a bonus word!",200,780) ;
+    textAlign(BASELINE) ;
+    if (millis() - specTimestamp >= 1500) {
+      special = false;
+    }
+  }
   /* pseudo-code
   if (all the words have been found for this level) {
     *we must clear the screen
@@ -36,7 +70,7 @@ void draw() {
     *we must create a new instance of soup that has the updated lev
     *we do the same process that we did for the previous level
   }
-  */
+  */ //<>//
 }
 
 boolean overShuff() {
@@ -48,7 +82,7 @@ boolean overSub() {
   // returns whether the mouse is over the submit button
   //println("WOOHOO SUBMIT BUTTON DETECTED!") ;
   return mouseX >= 320 && mouseX <= 380 && mouseY >= 440 && mouseY <= 500 ;
-}
+} //<>//
 
 boolean cont(ArrayList<String> data, String thing) {
   for (String d : data) {
@@ -75,23 +109,21 @@ void mousePressed() {
     if (test.checkFoundedWord(wo)) {
       // word will be filled in automatically
       // that means it's a duplicate word already found
-      textSize(20) ;
-      fill(0) ;
-      textAlign(CENTER) ;
-      text("You have already found this word!",200,780) ;
-      textAlign(BASELINE) ;
+      founded = true;
+      foundTimestamp = millis();
     }
     else if (test.checkSpecialWord(wo)) {
       // word will be filled in automatically //<>//
     }
     else if (test.checkUnfoundedWord(wo)) {
     } //<>//
-    else if(test.checkAnyWord(wo)) {
-      textSize(20) ;
-      fill(0) ;
-      textAlign(CENTER) ;
-      text("Congrats! You found a bonus word!",200,780) ;
-      textAlign(BASELINE) ;
+    else if (test.checkAnyWord(wo)) {
+      special = true;
+      specTimestamp = millis();
+    }
+    for (int i = 0; i < a.chosen.length; i++) {
+      a.chosen[i] = false;
+      a.wordBeingMade.clear();
     }
     for (int i = 0 ; i < a.chosen.length ; i++) {
       a.chosen[i] = false ;
