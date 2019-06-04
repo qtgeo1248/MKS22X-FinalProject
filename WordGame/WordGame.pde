@@ -1,24 +1,34 @@
 Soup a ;
 Crossword test ;
 int lev ;
+String ww ;
 
 void setup() {
   size(400, 800) ;
   background(255) ;
   // soup bowl design added here
   lev = 1 ;
-  Level le = new Level("SPEAK") ;
-  println(le.getAllPossWords()) ;
+  ww = "SPEAK" ;
+  Level le = new Level(ww) ;
+  //println(le.getAllPossWords()) ;
   test = new Crossword(le.getAllPossWords(), true) ;
-  a = new Soup("SPEAK", true, lev) ;
+  a = new Soup(ww, true, lev) ;
 }
 
 void draw() {
-  //background(255) ;
+  background(255) ;
   // Soup displaying
   // Crossword displaying
   test.display() ;
   a.display() ;
+  String wooo = "" ;
+  for (int i = 0 ; i < a.wordBeingMade.size() ; i++) {
+    wooo += (a.wordBeingMade.get(i)) ;
+  }
+  fill(0) ;
+  textAlign(CENTER) ;
+  textSize(20) ;
+  text(wooo,150, 345) ;
   /* pseudo-code
   if (all the words have been found for this level) {
     *we must clear the screen
@@ -49,7 +59,7 @@ boolean cont(ArrayList<String> data, String thing) {
 
 void mousePressed() {
   if (overShuff()) {
-    a.shuffle(6) ; // 6 is just for now because of the word length
+    a.shuffle(5) ; 
     for (int i = 0 ; i < a.chosen.length ; i++) {
       // reassures that no chosen letters will have a circle on them after shuffling 
       a.chosen[i] = false ;
@@ -65,18 +75,23 @@ void mousePressed() {
     if (test.checkFoundedWord(wo)) {
       // word will be filled in automatically
       // that means it's a duplicate word already found
-      textSize(30) ;
+      textSize(20) ;
       fill(0) ;
-      text("You have already found this word!",200,730) ;
+      textAlign(CENTER) ;
+      text("You have already found this word!",200,780) ;
+      textAlign(BASELINE) ;
     }
     else if (test.checkSpecialWord(wo)) {
       // word will be filled in automatically //<>//
     }
     else if (test.checkUnfoundedWord(wo)) {
-      text("Congrats! You found a bonus word!",200,730) ;
     } //<>//
     else if(test.checkAnyWord(wo)) {
-      
+      textSize(20) ;
+      fill(0) ;
+      textAlign(CENTER) ;
+      text("Congrats! You found a bonus word!",200,780) ;
+      textAlign(BASELINE) ;
     }
   }
   else {
