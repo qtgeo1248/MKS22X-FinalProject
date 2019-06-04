@@ -12,7 +12,7 @@ void setup() {
   size(400, 800) ;
   background(255) ;
   // soup bowl design added here
-  lev = 1 ;
+  lev = 0 ;
   ww = "DRAW" ;
   Level le = new Level(ww) ;
   //println(le.getAllPossWords()) ;
@@ -40,13 +40,14 @@ void draw() {
     wooo += (a.wordBeingMade.get(i)) ;
   }
   textAlign(RIGHT);
-  textSize(18);
+  textSize(20);
   fill(0);
-  text("# of Bonus Words Found: " + test.getNumBonusWords(), 380, 30);
+  text("#oBWF: " + test.getNumBonusWords(), 390, 30);
   textAlign(BASELINE);
   textAlign(CENTER) ;
   fill(0) ;
   textSize(20) ;
+  text("LEVEL " + (lev + 1), 200, 30);
   text(wooo, 200, 445) ;
   textAlign(BASELINE);
   if (founded) {
@@ -69,8 +70,8 @@ void draw() {
       special = false;
     }
   }
-  
-  if (test.isDone()) { //<>//
+   //<>//
+  if (test.isDone()) {
     isDone = true;
     lev++;
     Level le = new Level("PHLOEM");
@@ -81,8 +82,8 @@ void draw() {
     fill(0);
     text("CONGRATULATIONS!", 200,770);
     text("You found all the words!", 200, 790);
-    textAlign(BASELINE);
-  } //<>//
+    textAlign(BASELINE); //<>//
+  }
 }
 
 boolean overShuff() {
