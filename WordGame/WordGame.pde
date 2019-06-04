@@ -7,16 +7,17 @@ void setup() {
   background(255) ;
   // soup bowl design added here
   lev = 1 ;
-  a = new Soup("PHLOEM", false, 1) ;
+  Level le = new Level("SPEAK") ;
+  test = new Crossword(le.getAllPossWords(), true) ;
+  a = new Soup("SPEAK", true, lev) ;
 }
 
 void draw() {
   //background(255) ;
   // Soup displaying
   // Crossword displaying
-  Level le = new Level("SPEAK", 1) ;
-  test = new Crossword(le.getAllPossWords(), true) ;
   test.display() ;
+  a.display() ;
   /* pseudo-code
   if (all the words have been found for this level) {
     *we must clear the screen
