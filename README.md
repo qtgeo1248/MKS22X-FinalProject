@@ -66,4 +66,7 @@ A Mouse
 :shoe: I had ARML that day, but because electronics were taken away the entire day, I could not code. In addition, I fell asleep as soon as I got home.<br/>
 :goat: I took my SAT II today and was also sick so I didn't do as much as yesterday. I worked on making the submit button capture the letters chosen and then be able to erase them. <br/>
 ### 6/2/19
+:shoe: I finished the checkUnfounded words method, which requires a lot of work since it first checks if it's part of the crossword, but then if it is, it adds the word to the crossword and changes its color to a very fun green!<br/>
 :goat: I continued working on the submit button and made progress with keeping track of the letters. The chosen letters still appear chosen after submitting, but if I check it with the crossword method, that's a better way to check if the word the user has chosen is an actual word.
+### 6/3/19
+:shoe: I worked on the other check methods which modified the Crossword whenever you checked if a word was part of the crossword, was already found, if it's a regular word, or if it's not a word at all.<br/>
