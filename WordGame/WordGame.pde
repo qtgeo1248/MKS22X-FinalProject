@@ -14,12 +14,6 @@ void setup() {
 void draw() {
   //background(255) ;
   // Soup displaying
-  //a.display() ; put back later
-  //println("X-coordinate: " + mouseX) ;
-  //println("Y-coordinate: " + mouseY) ;
-  //println("Mouse over letter?: " + (a.checkForCoordinate()[0] != -1 && a.checkForCoordinate()[1] != -1)) ;
-  //println("Mouse over Shuffle button?: " + overShuff()) ;
-  //println("Mouse over Submit button? " + overSub()) ;
   // Crossword displaying
   test.display() ;
   Level test = new Level("speak", 1) ;
@@ -63,9 +57,8 @@ void mousePressed() {
       a.wordBeingMade.clear() ;
     }
   } 
-  ////////////////////////////////////////////////////////////////////////////////
   else if (overSub()) {
-    println("The mouse is over the submit button") ;
+    //println("The mouse is over the submit button") ;
     String wo = "" ;
     for (String lett : a.wordBeingMade) {
       wo += lett ; 
@@ -77,38 +70,8 @@ void mousePressed() {
       // word will be filled in automatically
     }
     else {
-    }
-    /*
-    println(a.wordBeingMade.toString()) ;
-    // this means that the user has hit the submit button
-    if (a.wordBeingMade.size() >= 3) {
-      String wo = "" ;
-      for (String lett : a.wordBeingMade) {
-        wo += lett ; 
-      }
-      println(wo) ;
-      ArrayList<String> woo = findAllDictWords(6) ;
-      //println(woo.toString()) ;
-      println(woo.contains(wo)) ;
-      //println(woo.toString()) ;
-      if (woo.contains(wo)) {
-        // if the dictionary has found the word that the user created, then we do thisss
-        println("WOOHOO WE HAVE A WORD: " + wo) ;
-        println("Length of word: " + a.wordBeingMade.size()) ;
-        a.wordBeingMade.clear() ; // after the user has made the word we just clear it from the array list
-        // might need to remove or clear the array list keeping track of the letters/word being made
-        for (int i = 0 ; i < a.chosen.length ; i++) {
-          // reassures that no chosen letters will have a circle on them after shuffling 
-          a.chosen[i] = false ;
-          a.wordBeingMade.clear() ;
-        }
-        background(255) ;
-      }
-    }
-    else { //println("You have not chosen enough letters") ;}
-    */ //<>//
+    } //<>//
   }
-  ////////////////////////////////////////////////////////////////////////////////
   else {
     int xpos = a.checkForCoordinate()[0] ;
     int ypos = a.checkForCoordinate()[1] ;
@@ -125,7 +88,6 @@ void mousePressed() {
       }
     }
   }
-  //println(a.wordBeingMade.toString()) ;
 }
 
 ArrayList<String> findAllDictWords(int lenn) {
