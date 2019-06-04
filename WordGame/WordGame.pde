@@ -13,7 +13,7 @@ void setup() {
   background(255) ;
   // soup bowl design added here
   lev = 1 ;
-  ww = "SPEAK" ;
+  ww = "DRAW" ;
   Level le = new Level(ww) ;
   //println(le.getAllPossWords()) ;
   test = new Crossword(le.getAllPossWords(), true) ;
@@ -27,6 +27,10 @@ void setup() {
 
 void draw() {
   background(255) ;
+  if (isDone) {
+    delay(3000);
+    isDone = false;
+  }
   // Soup displaying
   // Crossword displaying
   test.display() ;
@@ -66,23 +70,20 @@ void draw() {
     }
   }
   
-  if (test.isDone()) {
+  if (test.isDone()) { //<>//
     isDone = true;
     lev++;
     Level le = new Level("PHLOEM");
-    test = new Crossword(le.getAllPossWords(), false); //<>//
+    test = new Crossword(le.getAllPossWords(), false);
     a = new Soup("PHLOEM", false, lev);
     textSize(20);
     textAlign(CENTER); //<>//
     fill(0);
-    text("CONGRATULATIONS! You found all the words!", 200,700);
+    text("CONGRATULATIONS!", 200,770);
+    text("You found all the words!", 200, 790);
     textAlign(BASELINE);
-  }
-  if (isDone) {
-    delay(3000);
-    isDone = false;
-  }
-} //<>//
+  } //<>//
+}
 
 boolean overShuff() {
   // returns whether the mouse is over the shuffle button
