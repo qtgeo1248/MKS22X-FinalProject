@@ -93,6 +93,9 @@ void mousePressed() {
       text("Congrats! You found a bonus word!",200,780) ;
       textAlign(BASELINE) ;
     }
+    for (int i = 0 ; i < a.chosen.length ; i++) {
+      a.chosen[i] = false ;
+    }
   }
   else {
     int xpos = a.checkForCoordinate()[0] ;
