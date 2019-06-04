@@ -33,10 +33,16 @@ void draw() {
   for (int i = 0 ; i < a.wordBeingMade.size() ; i++) {
     wooo += (a.wordBeingMade.get(i)) ;
   }
-  fill(0) ;
+  textAlign(RIGHT);
+  textSize(18);
+  fill(0);
+  text("# of Bonus Words Found: " + test.getNumBonusWords(), 380, 30);
+  textAlign(BASELINE);
   textAlign(CENTER) ;
+  fill(0) ;
   textSize(20) ;
-  text(wooo,150, 345) ;
+  text(wooo, 200, 445) ;
+  textAlign(BASELINE);
   if (founded) {
     textSize(20) ;
     fill(0) ;
@@ -64,25 +70,25 @@ void draw() {
     *we must create a new instance of soup that has the updated lev
     *we do the same process that we did for the previous level
   }
-  */
+  */ //<>//
 }
 
 boolean overShuff() {
   // returns whether the mouse is over the shuffle button
   return mouseX >= 20 && mouseX <= 77 && mouseY >= 440 && mouseY <= 500 ;
-} //<>//
+}
 
 boolean overSub() {
   // returns whether the mouse is over the submit button
   //println("WOOHOO SUBMIT BUTTON DETECTED!") ;
   return mouseX >= 320 && mouseX <= 380 && mouseY >= 440 && mouseY <= 500 ;
-}
+} //<>//
 
 boolean cont(ArrayList<String> data, String thing) {
   for (String d : data) {
     if (d.equals(thing)) return true ;
   }
-  return false ; //<>//
+  return false ;
 }
 
 void mousePressed() {
