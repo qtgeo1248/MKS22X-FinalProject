@@ -107,6 +107,16 @@ class Level {
     return ans;
   }
   
+  void removeSs(ArrayList<String> arr) {
+    for (int i = 0; i < arr.size(); i++) {
+      String s = arr.get(i);
+      if (s.charAt(s.length() - 1) == 's') {
+        arr.remove(i);
+        i--;
+      }
+    }
+  }
+  
   ArrayList<String> getAllPossWords() {
     return allPossWords;
   }
