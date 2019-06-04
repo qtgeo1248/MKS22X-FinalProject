@@ -70,10 +70,10 @@ void mousePressed() {
       text("You have already found this word!",200,730) ;
     }
     else if (test.checkSpecialWord(wo)) {
-      // word will be filled in automatically
+      // word will be filled in automatically //<>//
     }
     else if (test.checkUnfoundedWord(wo)) {
-      
+      text("Congrats! You found a bonus word!",200,730) ;
     } //<>//
     else if(test.checkAnyWord(wo)) {
       
@@ -82,7 +82,7 @@ void mousePressed() {
   else {
     int xpos = a.checkForCoordinate()[0] ;
     int ypos = a.checkForCoordinate()[1] ;
-    if (xpos != -1 && ypos != -1) {
+    if (xpos != -1 && ypos != -1) { //<>//
       // this means that the mouse is on a letter or within a reasonable range of a letter
       if (a.chosen[xpos]) {
         // this means that the user is UNSELECTING the letter because it was previously chosen!
