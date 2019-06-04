@@ -32,7 +32,7 @@ class Soup implements Displayable {
     }
     wordBeingMade = new ArrayList<String>() ;
     isSpecial = specOrNot ; // based on parameter
-    ll = new Level(w, le) ;
+    ll = new Level(w) ;
     letters = new ArrayList<String>() ;
     for (int i = 0; i < w.length() ; i++) {
       letters.add(w.charAt(i) + "") ;
