@@ -237,7 +237,7 @@ class Crossword implements Displayable {
   }
   
   boolean isDone() { //checks if we're done with the level
-    return unfoundedWords.size() == 0;
+    return unfoundedWords.size() == 0 && foundSpecial;
   }
   
   boolean checkUnfoundedWord(String word) {
