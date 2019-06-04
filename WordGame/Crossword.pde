@@ -171,6 +171,7 @@ class Crossword implements Displayable {
   
   void addAllWords() {
     int size = allPossWords.size();
+    //println(allPossWords) ;
     int center = allPossWords.get(0).length() / 2;
     Word first = new Word(allPossWords.get(0), 10, 10 - center, true);
     addWordHor(allPossWords.remove(0), 10, 10 - center, true, new Word("", 0, 0, false));
@@ -268,6 +269,7 @@ class Crossword implements Displayable {
   boolean checkSpecialWord(String word) {
     if (specialWord.equals(word)) {
       foundSpecial = true;
+      foundedWords.add(new Word(word,0,0,true)) ;
       return true;
     }
     return false;
