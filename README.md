@@ -7,6 +7,15 @@ Processing
 A Mouse
 ```
 ## Instructions:
+1. Navigate to our repo and open processing!
+2. Click the play/run button in the upper left corner.
+3. When your screen appears, you will see a gray crossword and a big orange bowl with letters in it. Your goal is to make words from the letters you are given! There is one special word per level! 
+4. Click on the letters that you want to use to make a word. Be sure to click on the bottom left corner of the letter! If you don’t, WE WILL CHOOSE A LETTER FOR YOU that will be added to the word you are trying to make :happy:
+5. Once you have clicked on the letters you want to make a word, go to the right side and click on the blue submit button!
+6. Once you make one word, keep trying to find the rest of the words! If you’re having trouble finding more words, use the red shuffle button on the left side of the soup.
+7. Once in a while, you will see a word that is separated from the rest. This is the special word. It is a harder word to find because there is no clue for it.
+8. If you find a word that is not part of the crossword, it will be counted as a bonus word! It gives brownie points.
+9. Once you have found all of the words for the level along with the special word if it exists, we will tell you “Congratulations!” and take you to the very next level where you can try your hand at making more words from a different set of letters!<br/>
 ![Bowl of Soup](https://media0.giphy.com/media/5xtDarBbqdSQxfGFdNS/giphy.gif?cid=790b76115cee9e746c34542e6fed6d1e&rid=giphy.gif)
 ## DevLogs:
 <p>:shoe: - George's doing<br/>
@@ -70,3 +79,5 @@ A Mouse
 :goat: I continued working on the submit button and made progress with keeping track of the letters. The chosen letters still appear chosen after submitting, but if I check it with the crossword method, that's a better way to check if the word the user has chosen is an actual word.
 ### 6/3/19
 :shoe: I worked on the other check methods which modified the Crossword whenever you checked if a word was part of the crossword, was already found, if it's a regular word, or if it's not a word at all.<br/>
+### 6/4/19
+:trollface: We did partner coding so that we were able to mix our two parts together (which were the crossword (which George did) and the user input on the soup (which Victoria did)). We created the levels, the checking of the words given a submitted word, the background images, and the ability to move on to the next level. We also fixed some errors which were caused by mixing the tow parts together.<br/>
