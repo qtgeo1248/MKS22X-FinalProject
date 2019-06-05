@@ -82,7 +82,6 @@ A Mouse
 ### 6/4/19
 :trollface: We did partner coding so that we were able to mix our two parts together (which were the crossword (which George did) and the user input on the soup (which Victoria did)). We created the levels, the checking of the words given a submitted word, the background images, and the ability to move on to the next level. We also fixed some errors which were caused by mixing the two parts together.<br/>
 ## Sources/Inspiration
-- One of the sources we used for the Spanish dictionary was: https://github.com/bitcoin/bips/blob/master/bip-0039/spanish.txt  <br/>
-<br/>
-- Another source we used for the english dictionary was: http://www.gwicks.net/dictionaries.htm <br/>
-![Hip hip hooray! We have finished!](https://media.giphy.com/media/26gsfdArwyEnXnDGw/source.gif)
+- One of the sources we used for the Spanish dictionary was: https://github.com/bitcoin/bips/blob/master/bip-0039/spanish.txt
+- Another source we used for the english dictionary was: http://www.gwicks.net/dictionaries.htm
+<img src="https://media.giphy.com/media/26gsfdArwyEnXnDGw/source.gif" width="1500" height="500"/>
