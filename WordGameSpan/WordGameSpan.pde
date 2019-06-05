@@ -146,8 +146,6 @@ void mousePressed() {
     }
   } 
   else if (overSub()) {
-    println(test.unfoundedWords);
-    println(test.specialWord);
     //println("The mouse is over the submit button") ;
     String wo = "" ;
     for (String lett : a.wordBeingMade) {
