@@ -79,11 +79,12 @@ void draw() {
   
   if (test.isDone()) {
     isDone = true;
+    lev++;
     boolean isSpecial = lev % 3 == 0;
+    println(isSpecial);
     if (ww.length() <= 3) {
       isSpecial = false;
-    }
-    lev++; //<>//
+    } //<>//
     ww = levels[lev];
     Level le = new Level(ww);
     test = new Crossword(le.getAllPossWords(), isSpecial);

@@ -22,6 +22,7 @@ class Crossword implements Displayable {
     gen = new Random();
     if (!isSpecial) {
       specialWord = "";
+      foundSpecial = true;
     } else {
       specialWord = "yes";
     }
