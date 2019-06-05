@@ -7,7 +7,7 @@ Processing
 A Mouse
 ```
 ## Instructions:
-1. Navigate to our repo and open processing!
+1. Navigate to our repo (and the sketch WordGame) and open processing!
 2. Click the play/run button in the upper left corner.
 3. When your screen appears, you will see a gray crossword and a big orange bowl with letters in it. Your goal is to make words from the letters you are given! There is one special word per level!
 4. Click on the letters that you want to use to make a word. Be sure to click on the bottom left corner of the letter! If you don’t, WE WILL CHOOSE A LETTER FOR YOU that will be added to the word you are trying to make :happy:
@@ -16,6 +16,9 @@ A Mouse
 7. Once in a while, you will see a word that is separated from the rest. This is the special word. It is a harder word to find because there is no clue for it.
 8. If you find a word that is not part of the crossword, it will be counted as a bonus word! It gives brownie points.
 9. Once you have found all of the words for the level along with the special word if it exists, we will tell you “Congratulations!” and take you to the very next level where you can try your hand at making more words from a different set of letters!<br/>
+
+**What's also interesting is the Spanish version:** :smile:
+- There is a separate sketch folder named WordGameSpan. If you follow the above directions for it, you can play the game in Spanish!
 ![Bowl of Soup](https://media0.giphy.com/media/5xtDarBbqdSQxfGFdNS/giphy.gif?cid=790b76115cee9e746c34542e6fed6d1e&rid=giphy.gif)
 ## DevLogs:
 <p>:shoe: - George's doing<br/>
@@ -79,9 +82,10 @@ A Mouse
 :goat: I continued working on the submit button and made progress with keeping track of the letters. The chosen letters still appear chosen after submitting, but if I check it with the crossword method, that's a better way to check if the word the user has chosen is an actual word.
 ### 6/3/19
 :shoe: I worked on the other check methods which modified the Crossword whenever you checked if a word was part of the crossword, was already found, if it's a regular word, or if it's not a word at all.<br/>
+:goat: I worked on the submit button and was able to organize the letters into an ArrayList. I also worked more on the display methods to make sure everything is aligned and that there are appropriate responses to where the mouse clicks. <br/>
 ### 6/4/19
-:trollface: We did partner coding so that we were able to mix our two parts together (which were the crossword (which George did) and the user input on the soup (which Victoria did)). We created the levels, the checking of the words given a submitted word, the background images, and the ability to move on to the next level. We also fixed some errors which were caused by mixing the two parts together.<br/>
-## Sources/Inspiration
+:trollface: We did partner coding (4 hours straight :smile:) so that we were able to mix our two parts together (which were the crossword (which George did) and the user input on the soup (which Victoria did)). We created the levels, the checking of the words given a submitted word, the background images, and the ability to move on to the next level. We also fixed some errors which were caused by mixing the two parts together.<br/>
+## Sources && Inspiration
 - One of the sources we used for the Spanish dictionary was: https://github.com/bitcoin/bips/blob/master/bip-0039/spanish.txt
 - Another source we used for the english dictionary was: http://www.gwicks.net/dictionaries.htm
 <img src="https://media.giphy.com/media/26gsfdArwyEnXnDGw/source.gif" width="1500" height="500"/>
