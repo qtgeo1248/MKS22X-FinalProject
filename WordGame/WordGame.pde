@@ -32,6 +32,12 @@ void setup() {
   special = false;
   founded = false;
   isDone = false;
+  a.shuffle(ww.length()) ; 
+  for (int i = 0 ; i < a.chosen.length ; i++) {
+    // reassures that no chosen letters will have a circle on them after shuffling 
+    a.chosen[i] = false ;
+    a.wordBeingMade.clear() ;
+  }
 }
 
 void draw() {
@@ -100,6 +106,12 @@ void draw() {
     text("CONGRATULATIONS!", 200,770);
     text("You found all the words!", 200, 790);
     textAlign(BASELINE);
+    a.shuffle(ww.length()) ; 
+    for (int i = 0 ; i < a.chosen.length ; i++) {
+      // reassures that no chosen letters will have a circle on them after shuffling 
+      a.chosen[i] = false ;
+      a.wordBeingMade.clear() ;
+    }
   }
 }
 
