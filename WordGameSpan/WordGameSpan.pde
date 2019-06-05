@@ -4,45 +4,30 @@ int lev ;
 String ww ;
 int specTimestamp;
 int foundTimestamp;
-boolean isDone;
 boolean special;
 boolean founded;
 PImage bg ;
-String[] levels;
 
 void setup() {
   size(400, 800) ;
-  bg = loadImage("HowWeMadeTheWords/tropical.png") ;
+  bg = loadImage("Imagenes/tropical.png") ;
   bg.resize(400,800) ;
   background(bg) ;
   // soup bowl design added here
-  levels = loadStrings("levels.txt");
-  lev = 0 ;
-  ww = levels[0] ;
+  lev = 1 ;
+  ww = "ESTARON" ;
   Level le = new Level(ww) ;
   //println(le.getAllPossWords()) ;
-  boolean isSpecial = lev % 3 == 0;
-  if (ww.length() <= 3) {
-    isSpecial = false;
-  }
-  test = new Crossword(le.getAllPossWords(), isSpecial) ;
-  a = new Soup(ww, isSpecial, lev) ;
+  test = new Crossword(le.getAllPossWords(), true) ;
+  a = new Soup(ww, true, lev) ;
   specTimestamp = 0;
   foundTimestamp = 0;
   special = false;
   founded = false;
-  isDone = false;
 }
 
 void draw() {
   background(bg) ;
-  // this will be to switch languages
-  fill(0,100,40) ;
-  ellipse(27,55,20,20) ;
-  if (isDone) {
-    delay(3000);
-    isDone = false;
-  }
   // Soup displaying
   // Crossword displaying
   test.display() ;
@@ -52,14 +37,13 @@ void draw() {
     wooo += (a.wordBeingMade.get(i)) ;
   }
   textAlign(RIGHT);
-  textSize(20);
+  textSize(18);
   fill(0);
-  text("#oBWF: " + test.getNumBonusWords(), 390, 30);
+  text("# of Bonus Words Found: " + test.getNumBonusWords(), 380, 30);
   textAlign(BASELINE);
   textAlign(CENTER) ;
   fill(0) ;
   textSize(20) ;
-  text("LEVEL " + (lev + 1), 200, 30);
   text(wooo, 200, 445) ;
   textAlign(BASELINE);
   if (founded) {
@@ -69,51 +53,39 @@ void draw() {
     text("You have already found this word!",200,780) ;
     textAlign(BASELINE) ;
     if (millis() - foundTimestamp >= 1500) {
-      founded = false;
+      founded  = false;
     }
   }
   if (special) {
     textSize(20) ;
     fill(0) ;
     textAlign(CENTER) ;
-    text("You found a bonus word!",200,780) ;
-    textAlign(BASELINE) ; //<>//
+    text("Congrats! You found a bonus word!",200,780) ;
+    textAlign(BASELINE) ;
     if (millis() - specTimestamp >= 1500) {
       special = false;
     }
   }
-  
-  if (test.isDone()) {
-    isDone = true;
-    lev++;
-    boolean isSpecial = lev % 3 == 0;
-    println(isSpecial);
-    if (ww.length() <= 3) {
-      isSpecial = false;
-    } //<>//
-    ww = levels[lev];
-    Level le = new Level(ww);
-    test = new Crossword(le.getAllPossWords(), isSpecial);
-    a = new Soup(ww, isSpecial, lev);
-    textSize(20);
-    textAlign(CENTER); //<>//
-    fill(0);
-    text("CONGRATULATIONS!", 200,770);
-    text("You found all the words!", 200, 790);
-    textAlign(BASELINE);
+  /* pseudo-code
+  if (all the words have been found for this level) {
+    *we must clear the screen
+    *we must increase lev (variable) by 1
+    *we must create a new instance of soup that has the updated lev
+    *we do the same process that we did for the previous level
   }
+  */ //<>//
 }
 
 boolean overShuff() {
-  // returns whether the mouse is over the shuffle button //<>//
+  // returns whether the mouse is over the shuffle button
   return mouseX >= 20 && mouseX <= 77 && mouseY >= 440 && mouseY <= 500 ;
 }
- //<>//
+
 boolean overSub() {
   // returns whether the mouse is over the submit button
   //println("WOOHOO SUBMIT BUTTON DETECTED!") ;
   return mouseX >= 320 && mouseX <= 380 && mouseY >= 440 && mouseY <= 500 ;
-}
+} //<>//
 
 boolean cont(ArrayList<String> data, String thing) {
   for (String d : data) {
@@ -121,14 +93,11 @@ boolean cont(ArrayList<String> data, String thing) {
   }
   return false ;
 }
- //<>//
+
 void mousePressed() {
-  if (mouseX >= 15 && mouseX <= 39 && mouseY >= 33 && mouseY <= 77) {
-    // we need to switch languages
-  }
-  else if (overShuff()) {
-    a.shuffle(w.length()) ; 
-    for (int i = 0 ; i < a.chosen.length ; i++) { //<>//
+  if (overShuff()) {
+    a.shuffle(7) ; 
+    for (int i = 0 ; i < a.chosen.length ; i++) {
       // reassures that no chosen letters will have a circle on them after shuffling 
       a.chosen[i] = false ;
       a.wordBeingMade.clear() ;
