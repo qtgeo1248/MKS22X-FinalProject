@@ -71,7 +71,7 @@ void draw() {
     if (millis() - foundTimestamp >= 1500) {
       founded = false;
     }
-  }
+  } //<>//
   if (special) {
     textSize(20) ;
     fill(0) ;
@@ -84,13 +84,13 @@ void draw() {
   }
   
   if (test.isDone()) {
-    isDone = true;
+    isDone = true; //<>//
     lev++;
     boolean isSpecial = lev % 3 == 0;
     println(isSpecial);
     if (ww.length() <= 3) {
       isSpecial = false;
-    } //<>//
+    } //<>// //<>//
     ww = levels[lev];
     Level le = new Level(ww);
     test = new Crossword(le.getAllPossWords(), isSpecial);
@@ -127,7 +127,7 @@ void mousePressed() {
     // we need to switch languages
   }
   else if (overShuff()) {
-    a.shuffle(w.length()) ; 
+    a.shuffle(ww.length()) ; 
     for (int i = 0 ; i < a.chosen.length ; i++) { //<>//
       // reassures that no chosen letters will have a circle on them after shuffling 
       a.chosen[i] = false ;
@@ -138,10 +138,10 @@ void mousePressed() {
     //println("The mouse is over the submit button") ;
     String wo = "" ;
     for (String lett : a.wordBeingMade) {
-      wo += lett ; 
+      wo += lett ;  //<>//
     }
     if (test.checkFoundedWord(wo)) {
-      // word will be filled in automatically
+      // word will be filled in automatically //<>//
       // that means it's a duplicate word already found
       founded = true;
       foundTimestamp = millis();
@@ -157,14 +157,14 @@ void mousePressed() {
     }
     for (int i = 0; i < a.chosen.length; i++) {
       a.chosen[i] = false;
-      a.wordBeingMade.clear();
+      a.wordBeingMade.clear(); //<>//
     }
     for (int i = 0 ; i < a.chosen.length ; i++) {
       a.chosen[i] = false ;
     }
   }
   else {
-    int xpos = a.checkForCoordinate()[0] ;
+    int xpos = a.checkForCoordinate()[0] ; //<>//
     int ypos = a.checkForCoordinate()[1] ;
     if (xpos != -1 && ypos != -1) { //<>//
       // this means that the mouse is on a letter or within a reasonable range of a letter
