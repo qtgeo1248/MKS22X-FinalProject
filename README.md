@@ -9,7 +9,7 @@ A Mouse
 ## Instructions:
 1. Navigate to our repo and open processing!
 2. Click the play/run button in the upper left corner.
-3. When your screen appears, you will see a gray crossword and a big orange bowl with letters in it. Your goal is to make words from the letters you are given! There is one special word per level! 
+3. When your screen appears, you will see a gray crossword and a big orange bowl with letters in it. Your goal is to make words from the letters you are given! There is one special word per level!
 4. Click on the letters that you want to use to make a word. Be sure to click on the bottom left corner of the letter! If you don’t, WE WILL CHOOSE A LETTER FOR YOU that will be added to the word you are trying to make :happy:
 5. Once you have clicked on the letters you want to make a word, go to the right side and click on the blue submit button!
 6. Once you make one word, keep trying to find the rest of the words! If you’re having trouble finding more words, use the red shuffle button on the left side of the soup.
@@ -80,4 +80,8 @@ A Mouse
 ### 6/3/19
 :shoe: I worked on the other check methods which modified the Crossword whenever you checked if a word was part of the crossword, was already found, if it's a regular word, or if it's not a word at all.<br/>
 ### 6/4/19
-:trollface: We did partner coding so that we were able to mix our two parts together (which were the crossword (which George did) and the user input on the soup (which Victoria did)). We created the levels, the checking of the words given a submitted word, the background images, and the ability to move on to the next level. We also fixed some errors which were caused by mixing the tow parts together.<br/>
+:trollface: We did partner coding so that we were able to mix our two parts together (which were the crossword (which George did) and the user input on the soup (which Victoria did)). We created the levels, the checking of the words given a submitted word, the background images, and the ability to move on to the next level. We also fixed some errors which were caused by mixing the two parts together.<br/>
+## Sources/Inspiration
+- One of the sources we used for the Spanish dictionary was: https://github.com/bitcoin/bips/blob/master/bip-0039/spanish.txt
+- Another source we used for the english dictionary was: http://www.gwicks.net/dictionaries.htm
+<img src="https://media.giphy.com/media/26gsfdArwyEnXnDGw/source.gif" width="1500" height="500"/>
