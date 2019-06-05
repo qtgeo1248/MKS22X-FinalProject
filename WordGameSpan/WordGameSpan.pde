@@ -6,10 +6,12 @@ int specTimestamp;
 int foundTimestamp;
 boolean special;
 boolean founded;
-bg = loadImage("Imagenes/tropical.jpg");
+PImage bg ;
 
 void setup() {
   size(400, 800) ;
+  bg = loadImage("Imagenes/tropical.png") ;
+  bg.resize(400,800) ;
   background(bg) ;
   // soup bowl design added here
   lev = 1 ;
