@@ -18,7 +18,7 @@ A Mouse
 9. Once you have found all of the words for the level along with the special word if it exists, we will tell you “Congratulations!” and take you to the very next level where you can try your hand at making more words from a different set of letters!<br/>
 
 **What's also interesting is the Spanish version:** :smile:
-- There is a separate sketch folder named WordGameSpan. If you follow the above directions for it, you can play the game in Spanish!
+- There is a separate sketch folder (WordGameSpan). If you follow the above directions, you can play it in Spanish!
 ![Bowl of Soup](https://media0.giphy.com/media/5xtDarBbqdSQxfGFdNS/giphy.gif?cid=790b76115cee9e746c34542e6fed6d1e&rid=giphy.gif)
 ## DevLogs:
 <p>:shoe: - George's doing<br/>
