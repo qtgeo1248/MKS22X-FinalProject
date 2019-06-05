@@ -6,10 +6,15 @@ int specTimestamp;
 int foundTimestamp;
 boolean special;
 boolean founded;
+boolean isSpanish ;
+PImage bg ;
 
 void setup() {
   size(400, 800) ;
-  background(255) ;
+  bg = loadImage("HowWeMadeTheWords/tropical.png") ;
+  bg.resize(400,800) ;
+  background(bg) ;
+  isSpanish = false ;
   // soup bowl design added here
   lev = 1 ;
   ww = "SPEAK" ;
@@ -24,7 +29,10 @@ void setup() {
 }
 
 void draw() {
-  background(255) ;
+  background(bg) ;
+  // this will be to switch languages
+  fill(0,100,40) ;
+  ellipse(27,55,20,20) ;
   // Soup displaying
   // Crossword displaying
   test.display() ;
@@ -74,10 +82,10 @@ void draw() {
 }
 
 boolean overShuff() {
-  // returns whether the mouse is over the shuffle button
+  // returns whether the mouse is over the shuffle button //<>//
   return mouseX >= 20 && mouseX <= 77 && mouseY >= 440 && mouseY <= 500 ;
 }
-
+ //<>//
 boolean overSub() {
   // returns whether the mouse is over the submit button
   //println("WOOHOO SUBMIT BUTTON DETECTED!") ;
@@ -90,11 +98,14 @@ boolean cont(ArrayList<String> data, String thing) {
   }
   return false ;
 }
-
+ //<>//
 void mousePressed() {
-  if (overShuff()) {
+  if (mouseX >= 15 && mouseX <= 39 && mouseY >= 33 && mouseY <= 77) {
+    // we need to switch languages
+  }
+  else if (overShuff()) {
     a.shuffle(5) ; 
-    for (int i = 0 ; i < a.chosen.length ; i++) {
+    for (int i = 0 ; i < a.chosen.length ; i++) { //<>//
       // reassures that no chosen letters will have a circle on them after shuffling 
       a.chosen[i] = false ;
       a.wordBeingMade.clear() ;
