@@ -22,6 +22,7 @@ class Crossword implements Displayable {
     gen = new Random();
     if (!isSpecial) {
       specialWord = "";
+      foundSpecial = true;
     } else {
       specialWord = "yes";
     }
@@ -259,7 +260,7 @@ class Crossword implements Displayable {
             currentCross[startY + j][startX] = word.charAt(j);
           }
         }
-        foundedWords.add(current);
+        foundedWords.add(new Word(word, 0,0, false));
         unfoundedWords.remove(current);
         return true;
       }
@@ -267,7 +268,12 @@ class Crossword implements Displayable {
     return false;
   }
   boolean checkFoundedWord(String word) {
-    return foundedWords.contains(word);
+    for (int i = 0; i < foundedWords.size(); i++) {
+      if (foundedWords.get(i).equals(word)) {
+        return true;
+      }
+    }
+    return false;
   }
   boolean checkSpecialWord(String word) {
     if (specialWord.equals(word)) {
@@ -278,6 +284,9 @@ class Crossword implements Displayable {
     return false;
   }
   boolean checkAnyWord(String word) {
+    if (word.length() < 3) {
+      return false;
+    }
     String[] lines = loadStrings("span.txt");
     for (int i = 0 ; i < lines.length ; i++) {
       if (lines[i].equals(word.toLowerCase())) {

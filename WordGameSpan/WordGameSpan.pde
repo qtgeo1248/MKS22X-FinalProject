@@ -4,9 +4,11 @@ int lev ;
 String ww ;
 int specTimestamp;
 int foundTimestamp;
+boolean isDone;
 boolean special;
 boolean founded;
 PImage bg ;
+String[] levels;
 
 void setup() {
   size(400, 800) ;
@@ -14,20 +16,33 @@ void setup() {
   bg.resize(400,800) ;
   background(bg) ;
   // soup bowl design added here
-  lev = 1 ;
-  ww = "ESTARON" ;
+  levels = loadStrings("levels.txt");
+  lev = 0 ;
+  ww = levels[0] ;
   Level le = new Level(ww) ;
   //println(le.getAllPossWords()) ;
-  test = new Crossword(le.getAllPossWords(), true) ;
-  a = new Soup(ww, true, lev) ;
+  boolean isSpecial = (lev + 2) % 3 == 0;
+  if (ww.length() <= 3) {
+    isSpecial = false;
+  }
+  test = new Crossword(le.getAllPossWords(), isSpecial) ;
+  a = new Soup(ww, isSpecial, lev) ;
   specTimestamp = 0;
   foundTimestamp = 0;
   special = false;
   founded = false;
+  isDone = false;
 }
 
 void draw() {
   background(bg) ;
+  // this will be to switch languages
+  fill(0,100,40) ;
+  ellipse(27,55,20,20) ;
+  if (isDone) {
+    delay(3000);
+    isDone = false;
+  }
   // Soup displaying
   // Crossword displaying
   test.display() ;
@@ -37,55 +52,67 @@ void draw() {
     wooo += (a.wordBeingMade.get(i)) ;
   }
   textAlign(RIGHT);
-  textSize(18);
+  textSize(20);
   fill(0);
-  text("# of Bonus Words Found: " + test.getNumBonusWords(), 380, 30);
+  text("#dPPE: " + test.getNumBonusWords(), 390, 30);
   textAlign(BASELINE);
   textAlign(CENTER) ;
   fill(0) ;
   textSize(20) ;
+  text("NIVEL " + (lev + 1), 200, 30);
   text(wooo, 200, 445) ;
   textAlign(BASELINE);
   if (founded) {
     textSize(20) ;
     fill(0) ;
     textAlign(CENTER) ;
-    text("You have already found this word!",200,780) ;
+    text("Tú has encontrado esta palabra!",200,780) ;
     textAlign(BASELINE) ;
     if (millis() - foundTimestamp >= 1500) {
-      founded  = false;
+      founded = false;
     }
-  }
+  } //<>//
   if (special) {
     textSize(20) ;
     fill(0) ;
     textAlign(CENTER) ;
-    text("Congrats! You found a bonus word!",200,780) ;
-    textAlign(BASELINE) ;
+    text("Tú encontraste una palabra prima!",200,780) ;
+    textAlign(BASELINE) ; //<>//
     if (millis() - specTimestamp >= 1500) {
       special = false;
     }
   }
-  /* pseudo-code
-  if (all the words have been found for this level) {
-    *we must clear the screen
-    *we must increase lev (variable) by 1
-    *we must create a new instance of soup that has the updated lev
-    *we do the same process that we did for the previous level
+  
+  if (test.isDone()) {
+    isDone = true; //<>//
+    lev++;
+    boolean isSpecial = (lev + 2) % 3 == 0;
+    if (ww.length() <= 3) {
+      isSpecial = false;
+    } //<>// //<>//
+    ww = levels[lev];
+    Level le = new Level(ww);
+    test = new Crossword(le.getAllPossWords(), isSpecial);
+    a = new Soup(ww, isSpecial, lev);
+    textSize(20);
+    textAlign(CENTER); //<>//
+    fill(0);
+    text("FELICIDADES!", 200,770);
+    text("Tú encontraste todas las palabras!", 200, 790);
+    textAlign(BASELINE);
   }
-  */ //<>//
 }
 
 boolean overShuff() {
-  // returns whether the mouse is over the shuffle button
+  // returns whether the mouse is over the shuffle button //<>//
   return mouseX >= 20 && mouseX <= 77 && mouseY >= 440 && mouseY <= 500 ;
 }
-
+ //<>//
 boolean overSub() {
   // returns whether the mouse is over the submit button
   //println("WOOHOO SUBMIT BUTTON DETECTED!") ;
   return mouseX >= 320 && mouseX <= 380 && mouseY >= 440 && mouseY <= 500 ;
-} //<>//
+}
 
 boolean cont(ArrayList<String> data, String thing) {
   for (String d : data) {
@@ -93,24 +120,29 @@ boolean cont(ArrayList<String> data, String thing) {
   }
   return false ;
 }
-
+ //<>//
 void mousePressed() {
-  if (overShuff()) {
-    a.shuffle(7) ; 
-    for (int i = 0 ; i < a.chosen.length ; i++) {
+  if (mouseX >= 15 && mouseX <= 39 && mouseY >= 33 && mouseY <= 77) {
+    // we need to switch languages
+  }
+  else if (overShuff()) {
+    a.shuffle(ww.length()) ; 
+    for (int i = 0 ; i < a.chosen.length ; i++) { //<>//
       // reassures that no chosen letters will have a circle on them after shuffling 
       a.chosen[i] = false ;
       a.wordBeingMade.clear() ;
     }
   } 
   else if (overSub()) {
+    println(test.unfoundedWords);
+    println(test.specialWord);
     //println("The mouse is over the submit button") ;
     String wo = "" ;
     for (String lett : a.wordBeingMade) {
-      wo += lett ; 
+      wo += lett ;  //<>//
     }
     if (test.checkFoundedWord(wo)) {
-      // word will be filled in automatically
+      // word will be filled in automatically //<>//
       // that means it's a duplicate word already found
       founded = true;
       foundTimestamp = millis();
@@ -126,14 +158,14 @@ void mousePressed() {
     }
     for (int i = 0; i < a.chosen.length; i++) {
       a.chosen[i] = false;
-      a.wordBeingMade.clear();
+      a.wordBeingMade.clear(); //<>//
     }
     for (int i = 0 ; i < a.chosen.length ; i++) {
       a.chosen[i] = false ;
     }
   }
   else {
-    int xpos = a.checkForCoordinate()[0] ;
+    int xpos = a.checkForCoordinate()[0] ; //<>//
     int ypos = a.checkForCoordinate()[1] ;
     if (xpos != -1 && ypos != -1) { //<>//
       // this means that the mouse is on a letter or within a reasonable range of a letter

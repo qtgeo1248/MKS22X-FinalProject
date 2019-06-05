@@ -1,5 +1,5 @@
-class NoDupArryList<T> extends ArrayList<T> { //an arraylist with no duplicates
-  public NoDupArryList() {
+class NoDupAR<T> extends ArrayList<T> { //an arraylist with no duplicates
+  public NoDupAR() {
     super();
   }
   public boolean add(T t) {

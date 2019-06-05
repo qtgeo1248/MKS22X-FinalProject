@@ -21,7 +21,7 @@ void setup() {
   ww = levels[0] ;
   Level le = new Level(ww) ;
   //println(le.getAllPossWords()) ;
-  boolean isSpecial = lev % 3 == 0;
+  boolean isSpecial = (lev + 2) % 3 == 0;
   if (ww.length() <= 3) {
     isSpecial = false;
   }
@@ -86,8 +86,7 @@ void draw() {
   if (test.isDone()) {
     isDone = true; //<>//
     lev++;
-    boolean isSpecial = lev % 3 == 0;
-    println(isSpecial);
+    boolean isSpecial = (lev + 2) % 3 == 0;
     if (ww.length() <= 3) {
       isSpecial = false;
     } //<>// //<>//

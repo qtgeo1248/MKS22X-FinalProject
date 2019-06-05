@@ -20,9 +20,9 @@ class Soup implements Displayable {
   Soup(String w, boolean specOrNot, int le) {
     // constructor
     lev = le ;
-    imageForShuffle = loadImage("Imagenes/shuf.png") ;
+    imageForShuffle = loadImage("HowWeMadeTheWords/shuf.png") ;
     imageForShuffle.resize(50,50) ;
-    submit = loadImage("Imagenes/submit.png") ;
+    submit = loadImage("HowWeMadeTheWords/submit.png") ;
     submit.resize(50,50) ;
     // instantiating chosen array
     chosen = new boolean[10] ;
