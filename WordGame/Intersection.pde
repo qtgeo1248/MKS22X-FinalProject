@@ -8,7 +8,7 @@ class Intersection {
   }
   void setX(int x) {
     xcor = x;
-  } 
+  }
   void setY(int y) {
     ycor = y;
   }

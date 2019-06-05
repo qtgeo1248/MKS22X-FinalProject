@@ -1,55 +1,61 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>8</zoom_level>
+  <zoom_level>10</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>120</x>
-      <y>0</y>
-      <w>224</w>
-      <h>224</h>
+      <x>130</x>
+      <y>10</y>
+      <w>370</w>
+      <h>340</h>
     </coordinates>
     <panel_attributes>Soup
 --
--level: int
+-lev: int
 -isSpecial: boolean
 -word: String
--letters: ArrayList&lt;String&gt;
+-ll: Level
++letters: ArrayList&lt;String&gt;
++wordBeingMade: ArrayList&lt;String&gt;
++chosen: boolean[]
 -positions: float[][]
--shuffledWord: String
--specialWord:String
--isNo3: boolean
-+numBonusWords: int
-+charsSelected: ArrayList&lt;Character&gt;
+-mouseOverLetter:
+-imageForShuffle: PImage
+-submit: PImage
 --
-+Soup(String, boolean)
++Soup(String, boolean, int)
 +isSpecial(): boolean
-+shuffle()
-+display()
-+makeCrossword()</panel_attributes>
++shuffle(int)
++makeWordFromChosenLetters(): String
++contains(float[], val): ArrayList&lt;Integer&gt;
++checkForCoordinate(): int[]
++mouse()
++display()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>496</x>
-      <y>192</y>
-      <w>264</w>
-      <h>176</h>
+      <x>690</x>
+      <y>320</y>
+      <w>420</w>
+      <h>240</h>
     </coordinates>
     <panel_attributes>Level
 --
+-word: String
 -allPossWords: NoDupAR&lt;String&gt;
 -word: String
 --
-+Word(String)
++Level(String)
 +findAllDictWords(int): ArrayList&lt;String&gt;
 -findValidWords(ArrayList&lt;String&gt;)
--checkValHelp(String word)
+-checkValHelp(String, int, int, ArrayList&lt;String&gt;): boolean
 -allCombos()
 -permutate(String, int, int, ArrayList&lt;String&gt;)
 -swap(String, int, int): String
 +getWord(): String
+-reverse(ArrayList&lt;String&gt;): ArrayList&lt;String&gt;
 +getAllPossWords: ArrayList&lt;String&gt;
 </panel_attributes>
     <additional_attributes/>
@@ -57,10 +63,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>256</y>
-      <w>296</w>
-      <h>312</h>
+      <x>70</x>
+      <y>390</y>
+      <w>370</w>
+      <h>390</h>
     </coordinates>
     <panel_attributes>Crossword
 --
@@ -92,10 +98,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>120</x>
-      <y>216</y>
-      <w>136</w>
-      <h>56</h>
+      <x>220</x>
+      <y>340</y>
+      <w>170</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;50.0;150.0;10.0</additional_attributes>
@@ -103,21 +109,21 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>336</x>
-      <y>160</y>
-      <w>272</w>
-      <h>48</h>
+      <x>490</x>
+      <y>270</y>
+      <w>340</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>320.0;40.0;10.0;10.0</additional_attributes>
+    <additional_attributes>320.0;50.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>120</x>
-      <y>232</y>
-      <w>24</w>
-      <h>24</h>
+      <x>220</x>
+      <y>360</y>
+      <w>30</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>1
 style=wordwrap</panel_attributes>
@@ -126,10 +132,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>592</x>
-      <y>168</y>
-      <w>24</w>
-      <h>24</h>
+      <x>810</x>
+      <y>290</y>
+      <w>30</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>1
 style=wordwrap</panel_attributes>
@@ -138,10 +144,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>544</x>
-      <y>448</y>
-      <w>208</w>
-      <h>56</h>
+      <x>750</x>
+      <y>630</y>
+      <w>260</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>NoDupAR&lt;T&gt; extends ArrayList&lt;T&gt;
 --
@@ -152,21 +158,21 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>632</x>
-      <y>360</y>
-      <w>24</w>
-      <h>104</h>
+      <x>860</x>
+      <y>550</y>
+      <w>30</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>648</x>
-      <y>424</y>
-      <w>24</w>
-      <h>24</h>
+      <x>880</x>
+      <y>600</y>
+      <w>30</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>1
 style=wordwrap</panel_attributes>
@@ -175,10 +181,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>520</x>
-      <y>32</y>
-      <w>80</w>
-      <h>56</h>
+      <x>720</x>
+      <y>110</y>
+      <w>100</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 Displayable
@@ -189,10 +195,10 @@ Displayable
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>336</x>
-      <y>48</y>
-      <w>200</w>
-      <h>48</h>
+      <x>490</x>
+      <y>130</y>
+      <w>250</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>230.0;10.0;10.0;40.0</additional_attributes>
@@ -200,32 +206,36 @@ Displayable
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>336</x>
-      <y>656</y>
-      <w>144</w>
-      <h>144</h>
+      <x>490</x>
+      <y>890</y>
+      <w>230</w>
+      <h>250</h>
     </coordinates>
     <panel_attributes>Word
 --
 -xcor: int
 -ycor: int
 -word: String
+-isHor: boolean
 --
-+Word(String, int, int);
++Word(String, int, int, boolean)
 +setX(int)
 +setY(int)
 +getX(): int
 +getY(): int
++isHor(): boolean
++getWord(): String
++equals(Word): boolean
 +equals(String): boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>128</x>
-      <y>560</y>
-      <w>296</w>
-      <h>112</h>
+      <x>230</x>
+      <y>770</y>
+      <w>370</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>350.0;120.0;10.0;10.0</additional_attributes>
@@ -233,10 +243,10 @@ Displayable
   <element>
     <id>Text</id>
     <coordinates>
-      <x>408</x>
-      <y>624</y>
-      <w>128</w>
-      <h>32</h>
+      <x>580</x>
+      <y>850</y>
+      <w>160</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>1...sigma(k = 1, n, n! / (n-k)!)
 style=wordwrap</panel_attributes>
@@ -245,10 +255,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>288</x>
-      <y>64</y>
-      <w>248</w>
-      <h>344</h>
+      <x>430</x>
+      <y>150</y>
+      <w>310</w>
+      <h>430</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>290.0;10.0;10.0;410.0</additional_attributes>
@@ -256,10 +266,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>88</x>
-      <y>640</y>
-      <w>224</w>
-      <h>56</h>
+      <x>180</x>
+      <y>870</y>
+      <w>280</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Static&gt;&gt;
 InterSorts
@@ -270,10 +280,10 @@ _+insertionSort(ArrayList&lt;Intersection&gt;)_</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>600</x>
-      <y>544</y>
-      <w>168</w>
-      <h>152</h>
+      <x>510</x>
+      <y>510</y>
+      <w>140</w>
+      <h>280</h>
     </coordinates>
     <panel_attributes>Intersection
 --
@@ -283,6 +293,17 @@ _+insertionSort(ArrayList&lt;Intersection&gt;)_</panel_attributes>
 -isHor: boolean
 -other: Word
 --
++setDist(int)
++setX(int)
++setY(int)
++setHor(boolean)
++setOther(Word)
++getDist(): int
++getX(): int
++getY(): int
++isHor(): boolean
++getWord(): Word
+
 </panel_attributes>
     <additional_attributes/>
   </element>
