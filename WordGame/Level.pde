@@ -11,7 +11,6 @@ class Level {
     dict = findAllDictWords(10);
     findValidWords(dict);
     allPossWords = reverse(allPossWords);
-    removeSs(allPossWords) ;
   }
   
   ArrayList<String> findAllDictWords(int lenn) {
@@ -106,16 +105,6 @@ class Level {
     ans.remove(word);
     ans.add(0, word);
     return ans;
-  }
-  
-  void removeSs(ArrayList<String> arr) {
-    for (int i = 0; i < arr.size(); i++) {
-      String s = arr.get(i);
-      if (s.charAt(s.length() - 1) == 'S') {
-        arr.remove(i);
-        i--;
-      }
-    }
   }
   
   ArrayList<String> getAllPossWords() {
